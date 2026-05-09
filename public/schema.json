@@ -1,0 +1,38 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Wilfred - AI Personal Assistant",
+  "description": "Your AI-powered personal assistant on Telegram. Manage tasks, emails, calendar, contacts, and expenses with simple messages.",
+  "url": "https://www.hirewilfred.com",
+  "logo": "https://www.hirewilfred.com/favicon.png",
+  "image": "https://lovable.dev/opengraph-image-p98pqg.png",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Telegram",
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "19",
+    "highPrice": "49",
+    "priceCurrency": "USD",
+    "offerCount": "3"
+  },
+  "featureList": [
+    "Task management via Telegram",
+    "Google Calendar integration",
+    "Gmail integration",
+    "Google Contacts access",
+    "Expense tracking",
+    "Voice and text message support"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/hire-wilfred",
+    "https://twitter.com/hirewilfred"
+  ],
+  "potentialAction": {
+    "@type": "UseAction",
+    "name": "Start Using Wilfred",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://www.hirewilfred.com/call-to-action"
+    }
+  }
+}
