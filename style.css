@@ -168,7 +168,16 @@ p {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-main);
+    display: flex;
+    align-items: center;
 }
+
+.logo-img {
+    height: 38px;
+    width: auto;
+    display: block;
+}
+.footer-brand .logo-img { height: 44px; }
 
 .logo-w {
     color: var(--primary);
