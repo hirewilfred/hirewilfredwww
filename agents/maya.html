@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maya — Virtual Receptionist | Hire Wilfred</title>
+    <meta name="description" content="Hire Maya — your AI virtual receptionist. Answers every call and chat 24/7, qualifies inquiries, books appointments. From $497/mo CAD.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="../index.html"><img src="../hirewilfred_logo.svg" alt="hirewilfred" class="logo-img"></a></div>
+        <div class="nav-links">
+            <a href="../index.html#candidates">Candidates</a>
+            <a href="../index.html#salary">Salary Guide</a>
+            <a href="../index.html#calculator">ROI Calculator</a>
+            <a href="../index.html#pricing">Pricing</a>
+            <a href="#hire" class="btn btn-sm btn-primary">Hire Maya</a>
+        </div>
+    </nav>
+
+    <header class="agent-hero">
+        <div class="agent-hero-panel">
+            <div class="agent-portrait"><img src="../maya_reception.png" alt="Maya"></div>
+            <div class="agent-meta">
+                <span class="badge">Front Office</span>
+                <h1>Meet Maya.</h1>
+                <p class="agent-title">Virtual Receptionist</p>
+                <p class="agent-tagline">Answers every call and chat in &lt;2 rings, 24/7. Qualifies inquiries, books appointments, and never lets a lead drop.</p>
+                <div class="agent-quick-stats">
+                    <div><strong>$497<span style="font-size:1rem;font-weight:500;color:var(--text-muted)">/mo</span></strong><span>vs $62K/yr human</span></div>
+                    <div><strong>24/7</strong><span>availability</span></div>
+                    <div><strong>0%</strong><span>missed calls</span></div>
+                </div>
+                <a href="#hire" class="hero-cta">Hire Maya <span>↗</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="agent-section">
+        <h2>About Maya</h2>
+        <p class="lead">Maya is a voice + chat agent powered by Twilio and your knowledge base. She picks up calls in under two rings, sounds professional, knows your hours, and remembers context across conversations. After-hours? She handles routine inquiries and escalates urgent ones via SMS or Slack.</p>
+        <p class="lead">Multi-language out of the box (English, French, Spanish), with full Quebec Law 25 compliance for Quebec-based callers.</p>
+    </section>
+
+    <section class="agent-section">
+        <h2>What Maya can do</h2>
+        <div class="cap-grid">
+            <div class="cap-item"><div class="cap-icon">📞</div><p><strong>Voice + chat</strong> — picks up in &lt;2 rings, transcribes every conversation.</p></div>
+            <div class="cap-item"><div class="cap-icon">❓</div><p><strong>FAQ answering</strong> — pulls from your knowledge base, never makes things up.</p></div>
+            <div class="cap-item"><div class="cap-icon">🎯</div><p><strong>Lead qualification</strong> — new client / existing / urgent / spam categorization.</p></div>
+            <div class="cap-item"><div class="cap-icon">📅</div><p><strong>Appointment booking</strong> — direct into Acuity, Cal.com, Calendly, or your PMS.</p></div>
+            <div class="cap-item"><div class="cap-icon">🚨</div><p><strong>Smart routing</strong> — urgent issues escalate via SMS or Slack with context.</p></div>
+            <div class="cap-item"><div class="cap-icon">📋</div><p><strong>CRM logging</strong> — every conversation logged with summary and outcome.</p></div>
+            <div class="cap-item"><div class="cap-icon">🌍</div><p><strong>Multi-language</strong> — EN / FR / ES native, others on request.</p></div>
+            <div class="cap-item"><div class="cap-icon">🌙</div><p><strong>After-hours</strong> — handles routine, escalates urgent. Never sleeps.</p></div>
+        </div>
+    </section>
+
+    <section class="agent-section">
+        <h2>Hours she saves you</h2>
+        <p class="lead">Per-call time vs. a $48K full-time receptionist.</p>
+        <table class="time-table">
+            <thead><tr><th>Task</th><th>Human</th><th>Maya</th><th>Saved</th></tr></thead>
+            <tbody>
+                <tr><td>Average inbound call</td><td>4 min</td><td>0 min (she handles it)</td><td class="time-saved">4 min</td></tr>
+                <tr><td>Appointment booking</td><td>5 min</td><td>0 min</td><td class="time-saved">5 min</td></tr>
+                <tr><td>Lead qualification</td><td>6 min</td><td>0 min</td><td class="time-saved">6 min</td></tr>
+                <tr><td>FAQ response</td><td>3 min</td><td>0 min</td><td class="time-saved">3 min</td></tr>
+                <tr><td>After-hours coverage</td><td>n/a (missed)</td><td>24/7</td><td class="time-saved">No leads dropped</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="agent-section">
+        <h2>How much time will you save?</h2>
+        <p class="lead">Set your typical inbound volume.</p>
+        <div class="agent-calc">
+            <div class="agent-calc-inputs">
+                <label>Calls per business day
+                    <input type="number" id="m-calls" min="0" value="25">
+                </label>
+                <label>Average call length (minutes)
+                    <input type="number" id="m-len" min="0" value="4">
+                </label>
+                <label>After-hours calls per week
+                    <input type="number" id="m-after" min="0" value="10">
+                </label>
+            </div>
+            <div class="agent-calc-output">
+                <span class="out-label">Hours saved per week</span>
+                <span class="out-value" id="m-hours">9h</span>
+                <span class="out-sub">+ <span id="m-recovered">10</span> after-hours leads recovered / week</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="hire" class="agent-cta-band">
+        <h2>Ready to hire Maya?</h2>
+        <p>Forwarding number live within 24 hours. $497/mo CAD — replaces a $48K receptionist.</p>
+        <a class="hero-cta" href="mailto:hire@hirewilfred.ai?subject=Hiring Maya (Receptionist)">Hire Maya Now <span>↗</span></a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img src="../hirewilfred_logo.svg" alt="hirewilfred" class="logo-img"></div>
+                <p>Canada's AI staffing agency.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-col"><h4>Roster</h4>
+                    <a href="claire.html">Claire — Marketing</a>
+                    <a href="sam.html">Sam — SDR</a>
+                    <a href="olivia.html">Olivia — EA</a>
+                    <a href="david.html">David — Paralegal</a>
+                    <a href="maya.html">Maya — Receptionist</a>
+                    <a href="theo.html">Theo — Community</a>
+                </div>
+                <div class="link-col"><h4>Employers</h4>
+                    <a href="../index.html#salary">Salary Guide</a>
+                    <a href="../index.html#pricing">Pricing</a>
+                    <a href="../index.html#sovereignty">Canadian-Hosted</a>
+                </div>
+                <div class="link-col"><h4>Legal</h4><a href="#">PIPEDA / Law 25</a><a href="#">Privacy Policy</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Wilfred AI Staffing Inc. Made in Canada. Hosted in Canada.</p></div>
+    </footer>
+
+    <script>
+    (function() {
+        const callsEl = document.getElementById('m-calls');
+        const lenEl = document.getElementById('m-len');
+        const afterEl = document.getElementById('m-after');
+        const hoursEl = document.getElementById('m-hours');
+        const recEl = document.getElementById('m-recovered');
+        const update = () => {
+            const c = parseFloat(callsEl.value) || 0;
+            const l = parseFloat(lenEl.value) || 0;
+            const a = parseFloat(afterEl.value) || 0;
+            // 5 days × calls × length
+            const minsPerWeek = c * l * 5;
+            hoursEl.textContent = Math.round(minsPerWeek / 60) + 'h';
+            recEl.textContent = a;
+        };
+        [callsEl, lenEl, afterEl].forEach(el => el.addEventListener('input', update));
+        update();
+    })();
+    </script>
+</body>
+</html>

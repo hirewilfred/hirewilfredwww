@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olivia — Executive Assistant | Hire Wilfred</title>
+    <meta name="description" content="Hire Olivia — your AI executive assistant. Inbox triage, calendar management, meeting prep, and travel booking. From $997/mo CAD.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="../index.html"><img src="../hirewilfred_logo.svg" alt="hirewilfred" class="logo-img"></a></div>
+        <div class="nav-links">
+            <a href="../index.html#candidates">Candidates</a>
+            <a href="../index.html#salary">Salary Guide</a>
+            <a href="../index.html#calculator">ROI Calculator</a>
+            <a href="../index.html#pricing">Pricing</a>
+            <a href="#hire" class="btn btn-sm btn-primary">Hire Olivia</a>
+        </div>
+    </nav>
+
+    <header class="agent-hero">
+        <div class="agent-hero-panel">
+            <div class="agent-portrait"><img src="../wilfred_exec_assistant.png" alt="Olivia"></div>
+            <div class="agent-meta">
+                <span class="badge">Operations</span>
+                <h1>Meet Olivia.</h1>
+                <p class="agent-title">Executive Assistant</p>
+                <p class="agent-tagline">Triages your inbox, books your meetings, drafts replies in your voice, and protects your deep-work blocks. Operates 24/7.</p>
+                <div class="agent-quick-stats">
+                    <div><strong>$997<span style="font-size:1rem;font-weight:500;color:var(--text-muted)">/mo</span></strong><span>vs $78K/yr human</span></div>
+                    <div><strong>48 hrs</strong><span>to start</span></div>
+                    <div><strong>2+ hrs/day</strong><span>back on inbox alone</span></div>
+                </div>
+                <a href="#hire" class="hero-cta">Hire Olivia <span>↗</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="agent-section">
+        <h2>About Olivia</h2>
+        <p class="lead">Olivia connects to Microsoft 365 or Google Workspace and immediately takes over the rote work of running your day. She learns your priorities (who matters, what you say yes to, what you delegate), drafts replies in your voice, and surfaces only the items that need you.</p>
+        <p class="lead">Every action she takes is logged and reversible. You stay in control — she just removes the friction.</p>
+    </section>
+
+    <section class="agent-section">
+        <h2>What Olivia can do</h2>
+        <div class="cap-grid">
+            <div class="cap-item"><div class="cap-icon">📥</div><p><strong>Inbox triage</strong> — sorts into priority / action-needed / FYI / archive with one-tap controls.</p></div>
+            <div class="cap-item"><div class="cap-icon">✍️</div><p><strong>Draft replies</strong> — in your voice for routine emails. You approve in one click.</p></div>
+            <div class="cap-item"><div class="cap-icon">📅</div><p><strong>Calendar mgmt</strong> — protects deep-work blocks, resolves conflicts, sets buffers.</p></div>
+            <div class="cap-item"><div class="cap-icon">🤝</div><p><strong>Meeting scheduling</strong> — coordinates internal + external attendees across time zones.</p></div>
+            <div class="cap-item"><div class="cap-icon">✈️</div><p><strong>Travel booking</strong> — flights, hotels, ground transport — within your policy.</p></div>
+            <div class="cap-item"><div class="cap-icon">🧾</div><p><strong>Expense reports</strong> — auto-generated from receipts and credit-card feeds.</p></div>
+            <div class="cap-item"><div class="cap-icon">📋</div><p><strong>Pre-meeting briefs</strong> — attendees, last interaction, key talking points.</p></div>
+            <div class="cap-item"><div class="cap-icon">📝</div><p><strong>Agendas + summaries</strong> — drafted before, recapped after every meeting.</p></div>
+        </div>
+    </section>
+
+    <section class="agent-section">
+        <h2>Hours she saves you</h2>
+        <p class="lead">Real-task time vs. a $60K full-time EA.</p>
+        <table class="time-table">
+            <thead><tr><th>Task</th><th>Human EA</th><th>Olivia</th><th>Saved</th></tr></thead>
+            <tbody>
+                <tr><td>Inbox triage (50 emails)</td><td>1h</td><td>5 min</td><td class="time-saved">55 min</td></tr>
+                <tr><td>Schedule meeting (4 attendees)</td><td>25 min</td><td>2 min</td><td class="time-saved">23 min</td></tr>
+                <tr><td>Pre-meeting brief</td><td>20 min</td><td>3 min</td><td class="time-saved">17 min</td></tr>
+                <tr><td>Expense report (50 line items)</td><td>30 min</td><td>4 min</td><td class="time-saved">26 min</td></tr>
+                <tr><td>Travel booking (round trip)</td><td>45 min</td><td>5 min</td><td class="time-saved">40 min</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="agent-section">
+        <h2>How much time will you save?</h2>
+        <p class="lead">Plug in your typical week and see Olivia's lift.</p>
+        <div class="agent-calc">
+            <div class="agent-calc-inputs">
+                <label>Emails received per day
+                    <input type="number" id="ol-emails" min="0" value="80">
+                </label>
+                <label>Meetings scheduled per week
+                    <input type="number" id="ol-meetings" min="0" value="10">
+                </label>
+                <label>Expense reports per month
+                    <input type="number" id="ol-expense" min="0" value="2">
+                </label>
+            </div>
+            <div class="agent-calc-output">
+                <span class="out-label">Hours saved per week</span>
+                <span class="out-value" id="ol-hours">14h</span>
+                <span class="out-sub">≈ <span id="ol-dollars">$700</span> / week at $50/hr blended cost</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="hire" class="agent-cta-band">
+        <h2>Ready to hire Olivia?</h2>
+        <p>She'll have your inbox triaged by tomorrow morning. $997/mo CAD, cancel any time.</p>
+        <a class="hero-cta" href="mailto:hire@hirewilfred.ai?subject=Hiring Olivia (EA)">Hire Olivia Now <span>↗</span></a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img src="../hirewilfred_logo.svg" alt="hirewilfred" class="logo-img"></div>
+                <p>Canada's AI staffing agency.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-col"><h4>Roster</h4>
+                    <a href="claire.html">Claire — Marketing</a>
+                    <a href="sam.html">Sam — SDR</a>
+                    <a href="olivia.html">Olivia — EA</a>
+                    <a href="david.html">David — Paralegal</a>
+                    <a href="maya.html">Maya — Receptionist</a>
+                    <a href="theo.html">Theo — Community</a>
+                </div>
+                <div class="link-col"><h4>Employers</h4>
+                    <a href="../index.html#salary">Salary Guide</a>
+                    <a href="../index.html#pricing">Pricing</a>
+                    <a href="../index.html#sovereignty">Canadian-Hosted</a>
+                </div>
+                <div class="link-col"><h4>Legal</h4><a href="#">PIPEDA / Law 25</a><a href="#">Privacy Policy</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Wilfred AI Staffing Inc. Made in Canada. Hosted in Canada.</p></div>
+    </footer>
+
+    <script>
+    (function() {
+        const emEl = document.getElementById('ol-emails');
+        const mtEl = document.getElementById('ol-meetings');
+        const exEl = document.getElementById('ol-expense');
+        const hoursEl = document.getElementById('ol-hours');
+        const dollarsEl = document.getElementById('ol-dollars');
+        const update = () => {
+            const e = parseFloat(emEl.value) || 0;
+            const m = parseFloat(mtEl.value) || 0;
+            const ex = parseFloat(exEl.value) || 0;
+            // Inbox: 1.1 min saved/email × 5 days; meetings: 23min saved each; expense: 26min × monthly/4
+            const minsPerWeek = (e * 1.1 * 5) + (m * 23) + (ex * 26 / 4);
+            const hours = minsPerWeek / 60;
+            hoursEl.textContent = Math.round(hours) + 'h';
+            dollarsEl.textContent = '$' + Math.round(hours * 50).toLocaleString('en-CA');
+        };
+        [emEl, mtEl, exEl].forEach(el => el.addEventListener('input', update));
+        update();
+    })();
+    </script>
+</body>
+</html>

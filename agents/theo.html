@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo — Community & Support Manager | Hire Wilfred</title>
+    <meta name="description" content="Hire Theo — your AI community + support manager. Monitors Slack, Discord, LinkedIn, and your support inbox. From $1,497/mo CAD.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><a href="../index.html"><img src="../hirewilfred_logo.svg" alt="hirewilfred" class="logo-img"></a></div>
+        <div class="nav-links">
+            <a href="../index.html#candidates">Candidates</a>
+            <a href="../index.html#salary">Salary Guide</a>
+            <a href="../index.html#calculator">ROI Calculator</a>
+            <a href="../index.html#pricing">Pricing</a>
+            <a href="#hire" class="btn btn-sm btn-primary">Hire Theo</a>
+        </div>
+    </nav>
+
+    <header class="agent-hero">
+        <div class="agent-hero-panel">
+            <div class="agent-portrait"><img src="../wilfred_community_manager.png" alt="Theo"></div>
+            <div class="agent-meta">
+                <span class="badge">Customer Success</span>
+                <h1>Meet Theo.</h1>
+                <p class="agent-title">Community &amp; Support Manager</p>
+                <p class="agent-tagline">Monitors your community across every channel, replies to common questions, escalates the rest, and tracks sentiment — so you stop refreshing tabs.</p>
+                <div class="agent-quick-stats">
+                    <div><strong>$1,497<span style="font-size:1rem;font-weight:500;color:var(--text-muted)">/mo</span></strong><span>vs $75K/yr human</span></div>
+                    <div><strong>24/7</strong><span>monitoring</span></div>
+                    <div><strong>&lt;5 min</strong><span>response time</span></div>
+                </div>
+                <a href="#hire" class="hero-cta">Hire Theo <span>↗</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="agent-section">
+        <h2>About Theo</h2>
+        <p class="lead">Theo plugs into Slack, Discord, LinkedIn, your support inbox, and your help desk. He answers common questions from your knowledge base, flags anything ambiguous for human review, posts welcome messages and weekly digests, and tracks sentiment over time.</p>
+        <p class="lead">He never makes things up — when he doesn't know, he says so and escalates. Every reply is logged, exportable, and reviewable.</p>
+    </section>
+
+    <section class="agent-section">
+        <h2>What Theo can do</h2>
+        <div class="cap-grid">
+            <div class="cap-item"><div class="cap-icon">👁️</div><p><strong>Multi-channel monitoring</strong> — Slack, Discord, LinkedIn comments, support inbox.</p></div>
+            <div class="cap-item"><div class="cap-icon">💬</div><p><strong>FAQ responses</strong> — pulls from your KB, cites sources, never hallucinates.</p></div>
+            <div class="cap-item"><div class="cap-icon">🚨</div><p><strong>Smart escalation</strong> — flags ambiguous or high-risk questions for human review.</p></div>
+            <div class="cap-item"><div class="cap-icon">📉</div><p><strong>Sentiment tracking</strong> — alerts when sentiment dips, tracks NPS-style trends.</p></div>
+            <div class="cap-item"><div class="cap-icon">👋</div><p><strong>Welcome messages</strong> — onboarding new members with the right context.</p></div>
+            <div class="cap-item"><div class="cap-icon">📰</div><p><strong>Weekly digests</strong> — top discussions, new members, sentiment summary.</p></div>
+            <div class="cap-item"><div class="cap-icon">📚</div><p><strong>KB suggestions</strong> — flags repeat questions as new FAQ entries.</p></div>
+            <div class="cap-item"><div class="cap-icon">🎫</div><p><strong>Support tickets</strong> — drafts replies in Zendesk, Intercom, HelpScout.</p></div>
+        </div>
+    </section>
+
+    <section class="agent-section">
+        <h2>Hours he saves you</h2>
+        <p class="lead">Per-task time vs. a $65K community manager.</p>
+        <table class="time-table">
+            <thead><tr><th>Task</th><th>Human</th><th>Theo</th><th>Saved</th></tr></thead>
+            <tbody>
+                <tr><td>Reply to common question</td><td>5 min</td><td>&lt;1 min</td><td class="time-saved">4 min</td></tr>
+                <tr><td>Weekly digest write-up</td><td>1.5h</td><td>5 min</td><td class="time-saved">1h 25m</td></tr>
+                <tr><td>Sentiment monitoring (daily)</td><td>30 min</td><td>0 min</td><td class="time-saved">30 min/day</td></tr>
+                <tr><td>Support ticket draft</td><td>8 min</td><td>1 min</td><td class="time-saved">7 min</td></tr>
+                <tr><td>New-member welcome</td><td>3 min</td><td>0 min</td><td class="time-saved">3 min</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="agent-section">
+        <h2>How much time will you save?</h2>
+        <p class="lead">Plug in your typical community + support volume.</p>
+        <div class="agent-calc">
+            <div class="agent-calc-inputs">
+                <label>Messages handled per week
+                    <input type="number" id="t-msgs" min="0" value="120">
+                </label>
+                <label>Support tickets per week
+                    <input type="number" id="t-tickets" min="0" value="40">
+                </label>
+                <label>New members per week
+                    <input type="number" id="t-new" min="0" value="20">
+                </label>
+            </div>
+            <div class="agent-calc-output">
+                <span class="out-label">Hours saved per week</span>
+                <span class="out-value" id="t-hours">15h</span>
+                <span class="out-sub">≈ <span id="t-dollars">$750</span> / week at $50/hr blended cost</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="hire" class="agent-cta-band">
+        <h2>Ready to hire Theo?</h2>
+        <p>Plugged into your channels and replying within 48 hours. $1,497/mo CAD.</p>
+        <a class="hero-cta" href="mailto:hire@hirewilfred.ai?subject=Hiring Theo (Community)">Hire Theo Now <span>↗</span></a>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><img src="../hirewilfred_logo.svg" alt="hirewilfred" class="logo-img"></div>
+                <p>Canada's AI staffing agency.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-col"><h4>Roster</h4>
+                    <a href="claire.html">Claire — Marketing</a>
+                    <a href="sam.html">Sam — SDR</a>
+                    <a href="olivia.html">Olivia — EA</a>
+                    <a href="david.html">David — Paralegal</a>
+                    <a href="maya.html">Maya — Receptionist</a>
+                    <a href="theo.html">Theo — Community</a>
+                </div>
+                <div class="link-col"><h4>Employers</h4>
+                    <a href="../index.html#salary">Salary Guide</a>
+                    <a href="../index.html#pricing">Pricing</a>
+                    <a href="../index.html#sovereignty">Canadian-Hosted</a>
+                </div>
+                <div class="link-col"><h4>Legal</h4><a href="#">PIPEDA / Law 25</a><a href="#">Privacy Policy</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2026 Wilfred AI Staffing Inc. Made in Canada. Hosted in Canada.</p></div>
+    </footer>
+
+    <script>
+    (function() {
+        const mEl = document.getElementById('t-msgs');
+        const tEl = document.getElementById('t-tickets');
+        const nEl = document.getElementById('t-new');
+        const hoursEl = document.getElementById('t-hours');
+        const dollarsEl = document.getElementById('t-dollars');
+        const update = () => {
+            const m = parseFloat(mEl.value) || 0;
+            const t = parseFloat(tEl.value) || 0;
+            const n = parseFloat(nEl.value) || 0;
+            // Messages: 4min saved each, tickets: 7min, new members: 3min, plus 30min/day sentiment × 5 = 150min/week
+            const minsPerWeek = (m * 4) + (t * 7) + (n * 3) + 150;
+            const hours = minsPerWeek / 60;
+            hoursEl.textContent = Math.round(hours) + 'h';
+            dollarsEl.textContent = '$' + Math.round(hours * 50).toLocaleString('en-CA');
+        };
+        [mEl, tEl, nEl].forEach(el => el.addEventListener('input', update));
+        update();
+    })();
+    </script>
+</body>
+</html>
