@@ -812,12 +812,13 @@ section {
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
-.tint-peach  { background: var(--accent-light); }
-.tint-butter { background: var(--accent-yellow); }
-.tint-cream  { background: var(--accent-cream); }
-.tint-orange { background: #ffd9b8; }
-.tint-yellow { background: #fff8d6; }
-.tint-coral  { background: var(--accent-coral); }
+/* All roster card tints unified to the same solid brand peach */
+.tint-peach,
+.tint-butter,
+.tint-cream,
+.tint-orange,
+.tint-yellow,
+.tint-coral { background: var(--accent-light); }
 
 .roster-text {
     position: relative;
