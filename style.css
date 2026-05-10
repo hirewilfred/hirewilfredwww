@@ -456,6 +456,12 @@ p {
 .hero-card-stat {
     background: #1f1f1f;
     color: white;
+    animation: floatStatCard 4s ease-in-out infinite;
+}
+
+@keyframes floatStatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5%); }
 }
 .hero-card-stat .stat-head {
     display: flex;
@@ -1840,4 +1846,60 @@ section {
 @media (min-width: 1024px) {
     .fcb-popup h3 { font-size: 3rem; }
     .fcb-popup p  { font-size: 1.1rem; }
+}
+
+/* Quinn — QuickBooks bookkeeper card (hero) */
+.hero-card-quinn { gap: 0.75rem; }
+.hero-card-quinn h3 {
+    font-size: 1.5rem;
+    line-height: 1.15;
+    margin: 0;
+}
+.quinn-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+.quinn-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--bg-light);
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+.quinn-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.quinn-id { display: flex; flex-direction: column; line-height: 1.2; }
+.quinn-id strong {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+.quinn-id span {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+.quinn-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: auto;
+}
+.qb-logo {
+    height: 22px;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+}
+.hero-card-quinn .play-row {
+    padding-left: 0.4rem;
+    padding-right: 1rem;
 }
