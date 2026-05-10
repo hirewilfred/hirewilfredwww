@@ -875,117 +875,135 @@ section {
 }
 
 
-/* Testimonials Wavy Section */
+/* Testimonials Grid Section */
 .testimonials-section {
-    position: relative;
-    padding: 8rem 0;
-    overflow: hidden;
-    background: var(--bg-color);
+    padding: 6rem 5%;
+    background: #f4f7fb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .testi-header {
     text-align: center;
-    position: relative;
-    z-index: 10;
-    max-width: 600px;
-    margin: 0 auto;
+    margin-bottom: 4rem;
 }
 
-.testimonial-wave {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+.testi-header h2 {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--text-main);
+    line-height: 1.2;
 }
 
-.wave-svg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.testi-button {
+    display: inline-flex;
+    align-items: center;
+    background: #f17833;
+    color: white;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+    gap: 1rem;
 }
 
-.float-avatar {
-    position: absolute;
-    width: 80px;
-    height: 80px;
+.testi-button:hover {
+    transform: translateY(-2px);
+    background: #d86422;
+}
+
+.testi-arrow {
+    background: white;
+    color: #f17833;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    animation: float 6s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-.a1 { top: 20%; left: 10%; animation-delay: 0s; }
-.a2 { top: 40%; left: 30%; animation-delay: 1s; }
-.a3 { top: 15%; right: 20%; animation-delay: 2s; }
-.a4 { top: 50%; right: 10%; animation-delay: 0.5s; width: 60px; height: 60px; }
-.a5 { top: 60%; left: 15%; animation-delay: 1.5s; width: 70px; height: 70px;}
+.testimonial-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+}
 
-.highlight-testimonial {
-    position: absolute;
-    top: 30%;
-    right: 25%;
+.testimonial-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
     display: flex;
     flex-direction: column;
+}
+
+.testimonial-card.wide {
+    width: calc(50% - 0.75rem);
+}
+
+.testimonial-card.narrow {
+    width: calc(33.333% - 1rem);
+}
+
+.testi-card-header {
+    display: flex;
     align-items: center;
-    z-index: 10;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.highlight-testimonial .avatar-wrapper {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 6px solid rgba(139, 92, 246, 0.2);
-    padding: 4px;
-    background: white;
-}
-
-.highlight-testimonial .avatar-wrapper img {
-    width: 100%;
-    height: 100%;
+.testi-card-header img {
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.testi-bubble {
-    background: var(--text-main);
-    color: white;
-    padding: 1.5rem;
-    border-radius: 1rem;
-    width: 300px;
-    margin-top: -10px;
-    position: relative;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-}
-
-.testi-bubble::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid var(--text-main);
-}
-
-.testi-bubble p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-    color: rgba(255,255,255,0.9);
-}
-
-.testi-bubble strong {
+.testi-user strong {
     display: block;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+    font-weight: 600;
 }
 
-.testi-bubble span {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.6);
+.testi-stars {
+    color: #111;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.testi-footer {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+@media (max-width: 1024px) {
+    .testimonial-card.wide { width: calc(50% - 0.75rem); }
+    .testimonial-card.narrow { width: calc(50% - 0.75rem); }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card.wide, 
+    .testimonial-card.narrow { width: 100%; }
 }
 
 /* Comparison Section */
@@ -1648,4 +1666,178 @@ section {
     .agent-quick-stats { grid-template-columns: 1fr; gap: 0.75rem; }
     .cap-grid { grid-template-columns: 1fr; }
     .agent-calc { grid-template-columns: 1fr; padding: 2rem; }
+}
+
+/* ============================================================
+   FLOATING CONSULT BUTTON (vanilla port of FloatingConsultButton.tsx)
+   ============================================================ */
+
+.fcb-wrap {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+}
+.fcb-btn {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.fcb-btn:hover { transform: scale(1.05); }
+
+.fcb-text-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: fcb-rotate 10s linear infinite;
+}
+@keyframes fcb-rotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+.fcb-text-svg text {
+    font-family: 'Poppins', 'Outfit', sans-serif;
+    font-size: 20.4px;
+    fill: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.fcb-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.fcb-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--text-main);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    transition: box-shadow 0.3s ease;
+}
+.fcb-btn:hover .fcb-avatar { box-shadow: 0 14px 30px rgba(0,0,0,0.22); }
+.fcb-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+@media (min-width: 1024px) {
+    .fcb-btn    { width: 160px; height: 160px; }
+    .fcb-avatar { width: 96px;  height: 96px;  }
+}
+
+/* Backdrop + popup */
+.fcb-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 40;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+.fcb-backdrop.open { opacity: 1; pointer-events: auto; }
+
+.fcb-popup {
+    position: fixed;
+    bottom: 12rem;
+    right: 2rem;
+    z-index: 60;
+    background: white;
+    border-radius: 1.75rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22);
+    padding: 2.5rem;
+    max-width: 28rem;
+    width: calc(100vw - 4rem);
+    opacity: 0;
+    transform: translateY(20px) scale(0.92);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.fcb-popup.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.fcb-close {
+    position: absolute;
+    top: -3rem;
+    right: -0.5rem;
+    background: transparent;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+}
+.fcb-close:hover { color: #d1d5db; }
+
+.fcb-popup-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.25rem;
+}
+.fcb-popup h3 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+.fcb-popup .fcb-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--text-main);
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-main);
+    flex-shrink: 0;
+    margin-bottom: 0;
+    background: transparent;
+}
+.fcb-popup p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+}
+.fcb-popup .fcb-cta {
+    display: block;
+    width: 100%;
+    background: var(--text-main);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.fcb-popup .fcb-cta:hover {
+    background: var(--primary);
+    transform: translateY(-1px);
+}
+
+@media (min-width: 1024px) {
+    .fcb-popup h3 { font-size: 3rem; }
+    .fcb-popup p  { font-size: 1.1rem; }
 }

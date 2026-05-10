@@ -8,11 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="../index.html" class="logo-lockup"><img class="logo-mark" src="../src/assets/wilfred-mark.svg" alt=""><span class="logo-text">Hire <span class="accent">Wilfred</span></span></a>
+        <a href="../index.html" class="logo-lockup"><img class="logo-mark" src="../wilfred-logo.png" alt="Hire Wilfred"></a>
         <div class="nav-links">
             <a href="../index.html#candidates">Candidates</a>
             <a href="../index.html#salary">Salary Guide</a>
@@ -110,7 +111,7 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <a href="../index.html" class="logo-lockup"><img class="logo-mark" src="../src/assets/wilfred-mark.svg" alt=""><span class="logo-text">Hire <span class="accent">Wilfred</span></span></a>
+                <a href="../index.html" class="logo-lockup"><img class="logo-mark" src="../wilfred-logo.png" alt="Hire Wilfred"></a>
                 <p>Canada's AI staffing agency.</p>
             </div>
             <div class="footer-links">
@@ -154,5 +155,43 @@
         update();
     })();
     </script>
+
+    <!-- Floating Consult Button -->
+    <div data-fcb>
+        <div class="fcb-backdrop" aria-hidden="true"></div>
+        <div class="fcb-popup" role="dialog" aria-modal="true" aria-labelledby="fcb-heading">
+            <button class="fcb-close" aria-label="Close">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="10" y1="10" x2="30" y2="30"/>
+                    <line x1="30" y1="10" x2="10" y2="30"/>
+                </svg>
+            </button>
+            <div class="fcb-popup-head">
+                <h3 id="fcb-heading">15-minute intro call</h3>
+                <span class="fcb-badge">Free</span>
+            </div>
+            <p>A quick intro call with the Wilfred team to scope your AI hire — discuss the role, integrations, and whether we&#39;re a fit. No slide deck, no pressure.</p>
+            <a class="fcb-cta" href="mailto:hire@hirewilfred.ai?subject=Free 15-min intro call">Book a call</a>
+        </div>
+        <div class="fcb-wrap">
+            <div class="fcb-btn" role="button" aria-label="Book a free 15-minute intro call" tabindex="0">
+                <svg class="fcb-text-svg" viewBox="0 0 200 200" aria-hidden="true">
+                    <defs>
+                        <path id="fcb-circle" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
+                    </defs>
+                    <text>
+                        <textPath href="#fcb-circle" startOffset="0%">FREE 15 MIN CALL • HIRE WILFRED • FREE 15 MIN CALL • HIRE WILFRED • </textPath>
+                    </text>
+                </svg>
+                <div class="fcb-center">
+                    <div class="fcb-avatar">
+                        <img src="../maya_reception.png" alt="Maya, virtual receptionist">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../floating-consult.js" defer></script>
+
 </body>
 </html>
