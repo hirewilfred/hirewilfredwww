@@ -4,9 +4,9 @@
     --bg-card: #ffffff;
     --text-main: #141414;          /* near black */
     --text-muted: #6b6560;
-    --primary: #ff6b1a;            /* vibrant orange */
-    --primary-hover: #e6571a;
-    --primary-dark: #c2410c;       /* deep burnt orange */
+    --primary: #FF7A00;            /* brand orange */
+    --primary-hover: #e66e00;
+    --primary-dark: #b35500;       /* deep burnt orange */
     --secondary: #ffd166;          /* soft yellow */
     --accent-light: #ffe8d1;       /* light peach */
     --accent-yellow: #fff2c2;      /* butter */
@@ -178,6 +178,30 @@ p {
     display: block;
 }
 .footer-brand .logo-img { height: 44px; }
+
+/* Brand lockup: orange mark + "Hire Wilfred" wordmark */
+.logo-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+}
+.logo-lockup .logo-mark {
+    height: 38px;
+    width: auto;
+    display: block;
+}
+.logo-lockup .logo-text {
+    font-family: 'Poppins', 'Outfit', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+    color: var(--text-main);
+    line-height: 1;
+}
+.logo-lockup .logo-text .accent { color: var(--primary); }
+.footer-brand .logo-lockup .logo-mark { height: 44px; }
+.footer-brand .logo-lockup .logo-text { font-size: 1.5rem; }
 
 .logo-w {
     color: var(--primary);
