@@ -99,7 +99,7 @@
                     <span class="card-eyebrow light">[ AVG. SAVINGS ]</span>
                     <span class="stat-pill">Annual</span>
                 </div>
-                <div class="stat-number">−72%</div>
+                <div class="stat-number" id="avg-savings-num">0%</div>
                 <svg class="stat-chart" viewBox="0 0 300 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M0 60 C 40 70, 70 30, 110 35 S 180 65, 220 30 S 280 10, 300 15" fill="none" stroke="#ff6b1a" stroke-width="3"/>
                     <path d="M0 70 C 40 65, 80 50, 130 55 S 200 70, 240 50 S 290 40, 300 45" fill="none" stroke="#ffd166" stroke-width="3"/>
@@ -445,15 +445,174 @@
     <section class="industries-section">
         <div class="section-header">
             <h2>Industries we staff</h2>
-            <p>Pre-trained AI candidates with vertical-specific guardrails, terminology and compliance baked in.</p>
+            <p>Pre-trained AI candidates with vertical-specific guardrails, terminology and compliance baked in. Scroll →</p>
         </div>
-        <div class="industries-grid">
-            <div class="industry-card glass"><div class="industry-icon">⚖️</div><h3>Legal</h3><p>Paralegals, intake clerks, contract reviewers — with PIPEDA + Law Society guardrails.</p></div>
-            <div class="industry-card glass"><div class="industry-icon">🏥</div><h3>Healthcare &amp; Dental</h3><p>Receptionists, billing clerks, recall coordinators — PHIPA-aware, PHI never leaves Canada.</p></div>
-            <div class="industry-card glass"><div class="industry-icon">🏦</div><h3>Financial Services</h3><p>Bookkeepers, KYC analysts, client coordinators — audit-trail logging on every action.</p></div>
-            <div class="industry-card glass"><div class="industry-icon">🛠️</div><h3>MSPs &amp; IT Services</h3><p>Tier-1 dispatchers, ticket triage, SDRs — native ConnectWise &amp; M365 integration.</p></div>
-            <div class="industry-card glass"><div class="industry-icon">🏛️</div><h3>Government &amp; Education</h3><p>Sovereign-tier deployments. CMK encryption, dedicated Azure tenancy, 7-year retention.</p></div>
-            <div class="industry-card glass"><div class="industry-icon">🏢</div><h3>Professional Services</h3><p>Marketers, EAs, SDRs, community managers — full back-office coverage for SMBs.</p></div>
+        <div class="offer-carousel" data-carousel>
+            <button class="carousel-btn carousel-btn-left" aria-label="Scroll left" data-scroll="left">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+
+            <div class="carousel-track" data-track>
+                <a href="agents/david.html" class="offer-card">
+                    <div class="offer-img">
+                        <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=900&auto=format&fit=crop" alt="Legal — gavel and law books">
+                    </div>
+                    <div class="offer-body">
+                        <div class="offer-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                            <span>Industry</span>
+                        </div>
+                        <h3>Legal</h3>
+                        <p>Paralegals, intake clerks, contract reviewers — with PIPEDA &amp; Law Society guardrails.</p>
+                        <div class="offer-foot">
+                            <div class="brand-row">
+                                <img class="brand-logo" src="src/assets/wilfred-mark.svg" alt="hirewilfred">
+                                <div class="brand-info">
+                                    <strong>hirewilfred</strong>
+                                    <span>David ready</span>
+                                </div>
+                            </div>
+                            <div class="arrow-circle" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="agents/maya.html" class="offer-card">
+                    <div class="offer-img">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=900&auto=format&fit=crop" alt="Healthcare — stethoscope">
+                    </div>
+                    <div class="offer-body">
+                        <div class="offer-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                            <span>Industry</span>
+                        </div>
+                        <h3>Healthcare &amp; Dental</h3>
+                        <p>Receptionists, billing clerks, recall coordinators — PHIPA-aware, PHI never leaves Canada.</p>
+                        <div class="offer-foot">
+                            <div class="brand-row">
+                                <img class="brand-logo" src="src/assets/wilfred-mark.svg" alt="hirewilfred">
+                                <div class="brand-info">
+                                    <strong>hirewilfred</strong>
+                                    <span>Maya ready</span>
+                                </div>
+                            </div>
+                            <div class="arrow-circle" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="agents/quinn.html" class="offer-card">
+                    <div class="offer-img">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=900&auto=format&fit=crop" alt="Financial — calculator and ledger">
+                    </div>
+                    <div class="offer-body">
+                        <div class="offer-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                            <span>Industry</span>
+                        </div>
+                        <h3>Financial Services</h3>
+                        <p>Bookkeepers, KYC analysts, client coordinators — audit-trail logging on every action.</p>
+                        <div class="offer-foot">
+                            <div class="brand-row">
+                                <img class="brand-logo" src="src/assets/wilfred-mark.svg" alt="hirewilfred">
+                                <div class="brand-info">
+                                    <strong>hirewilfred</strong>
+                                    <span>Quinn ready</span>
+                                </div>
+                            </div>
+                            <div class="arrow-circle" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="agents/sam.html" class="offer-card">
+                    <div class="offer-img">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=900&auto=format&fit=crop" alt="MSP — server racks">
+                    </div>
+                    <div class="offer-body">
+                        <div class="offer-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                            <span>Industry</span>
+                        </div>
+                        <h3>MSPs &amp; IT Services</h3>
+                        <p>Tier-1 dispatchers, ticket triage, SDRs — native ConnectWise &amp; M365 integration.</p>
+                        <div class="offer-foot">
+                            <div class="brand-row">
+                                <img class="brand-logo" src="src/assets/wilfred-mark.svg" alt="hirewilfred">
+                                <div class="brand-info">
+                                    <strong>hirewilfred</strong>
+                                    <span>Sam ready</span>
+                                </div>
+                            </div>
+                            <div class="arrow-circle" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#sovereignty" class="offer-card">
+                    <div class="offer-img">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=900&auto=format&fit=crop" alt="Government &amp; Education">
+                    </div>
+                    <div class="offer-body">
+                        <div class="offer-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                            <span>Industry</span>
+                        </div>
+                        <h3>Government &amp; Education</h3>
+                        <p>Sovereign-tier deployments. CMK encryption, dedicated Azure tenancy, 7-year retention.</p>
+                        <div class="offer-foot">
+                            <div class="brand-row">
+                                <img class="brand-logo" src="src/assets/wilfred-mark.svg" alt="hirewilfred">
+                                <div class="brand-info">
+                                    <strong>hirewilfred</strong>
+                                    <span>Sovereign-tier</span>
+                                </div>
+                            </div>
+                            <div class="arrow-circle" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="agents/olivia.html" class="offer-card">
+                    <div class="offer-img">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop" alt="Professional services office">
+                    </div>
+                    <div class="offer-body">
+                        <div class="offer-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                            <span>Industry</span>
+                        </div>
+                        <h3>Professional Services</h3>
+                        <p>Marketers, EAs, SDRs, community managers — full back-office coverage for SMBs.</p>
+                        <div class="offer-foot">
+                            <div class="brand-row">
+                                <img class="brand-logo" src="src/assets/wilfred-mark.svg" alt="hirewilfred">
+                                <div class="brand-info">
+                                    <strong>hirewilfred</strong>
+                                    <span>Olivia ready</span>
+                                </div>
+                            </div>
+                            <div class="arrow-circle" aria-hidden="true">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <button class="carousel-btn carousel-btn-right" aria-label="Scroll right" data-scroll="right">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
         </div>
     </section>
 
@@ -636,6 +795,30 @@
         </div>
     </div>
     <script src="floating-consult.js" defer></script>
-
+    <script src="offer-carousel.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const numEl = document.getElementById("avg-savings-num");
+            if (!numEl) return;
+            let start = 0;
+            const target = -72;
+            const duration = 2000;
+            const fps = 60;
+            const steps = duration / (1000 / fps);
+            const increment = target / steps;
+            
+            let currentStep = 0;
+            const timer = setInterval(() => {
+                start += increment;
+                currentStep++;
+                if (currentStep >= steps) {
+                    numEl.textContent = "−72%";
+                    clearInterval(timer);
+                } else {
+                    numEl.textContent = Math.round(start) + "%";
+                }
+            }, 1000 / fps);
+        });
+    </script>
 </body>
 </html>
