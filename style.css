@@ -1393,6 +1393,16 @@ section {
     height: 100%;
     object-fit: cover;
     object-position: center top;
+    transition: opacity 0.4s ease-in-out;
+}
+.agent-portrait .img-cyborg {
+    opacity: 0;
+}
+.agent-portrait:hover .img-normal {
+    opacity: 0;
+}
+.agent-portrait:hover .img-cyborg {
+    opacity: 1;
 }
 .agent-meta {
     padding: 4rem 4.5rem;
