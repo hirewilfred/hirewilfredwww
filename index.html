@@ -8,12 +8,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav class="navbar">
         <a href="#" class="logo-lockup">
-            <img class="logo-mark" src="src/assets/wilfred-mark.svg" alt="">
+            <img class="logo-mark" src="favicon.png" alt="">
             <span class="logo-text">Hire <span class="accent">Wilfred</span></span>
         </a>
         <div class="nav-links">
@@ -70,7 +71,7 @@
                         <img src="https://i.pravatar.cc/60?img=33" alt="">
                         <span class="arrow-chip">↗</span>
                     </div>
-                    <p>Trusted by 4,000+ Canadian SMBs and MSPs.</p>
+                    <p>Trusted by 100+ Canadian SMBs and MSPs.</p>
                 </div>
             </div>
 
@@ -216,42 +217,74 @@
     </section>
 
     <section id="testimonials" class="testimonials-section">
-        <!-- SVG Wavy Path for Text and Avatars -->
-        <div class="testimonial-wave">
-            <svg viewBox="0 0 1200 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="wave-svg">
-                <!-- A soft sine wave curve going across -->
-                <path id="testi-curve" d="M -100 100 Q 300 400 600 200 T 1300 300" fill="transparent" stroke="var(--primary)" stroke-width="60" stroke-opacity="0.1"/>
-                <text fill="var(--primary-dark)" dy="8">
-                    <textPath href="#testi-curve" startOffset="0%" font-size="16" font-weight="bold" letter-spacing="2">
-                        SEE HOW OUR CLIENTS HAVE TRANSFORMED THEIR BUSINESS • SCALE WITHOUT OVERHEAD • SEE HOW OUR CLIENTS HAVE TRANSFORMED
-                    </textPath>
-                </text>
-            </svg>
-            
-            <!-- Floating Avatars placed along the curve via CSS absolute positioning -->
-            <img src="https://i.pravatar.cc/100?img=12" class="float-avatar a1" alt="Client">
-            <img src="https://i.pravatar.cc/100?img=33" class="float-avatar a2" alt="Client">
-            <img src="https://i.pravatar.cc/100?img=47" class="float-avatar a3" alt="Client">
-            <img src="https://i.pravatar.cc/100?img=68" class="float-avatar a4" alt="Client">
-            <img src="https://i.pravatar.cc/100?img=5"  class="float-avatar a5" alt="Client">
-            
-            <!-- Highlight Testimonial -->
-            <div class="highlight-testimonial">
-                <div class="avatar-wrapper">
-                    <img src="https://i.pravatar.cc/100?img=9" alt="Client Highlight">
-                </div>
-                <div class="testi-bubble glass">
-                    <p>"Firing up Wilfred was the best decision we made. We got a full-time SDR and Paralegal without adding headcount. They never sleep."</p>
-                    <strong>Sarah Jenkins</strong>
-                    <span>Founder, TechScale</span>
-                </div>
-            </div>
-        </div>
-
         <div class="testi-header">
-            <span class="badge">Success Stories</span>
-            <h2>Employer Testimonials</h2>
-            <p>See how Canadian businesses are scaling with AI staff.</p>
+            <h2>100+ early customers,<br>hiring smarter.</h2>
+            <a href="#candidates" class="testi-button">
+                Meet the roster
+                <span class="testi-arrow">↗</span>
+            </a>
+        </div>
+        
+        <div class="testimonial-grid">
+            <div class="testimonial-card wide">
+                <div class="testi-card-header">
+                    <img src="https://i.pravatar.cc/100?img=12" alt="Sarah Jenkins">
+                    <div class="testi-user">
+                        <strong>Sarah Jenkins</strong>
+                        <div class="testi-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Firing up Wilfred was the best decision we made. We got a full-time SDR and Paralegal without adding headcount. The onboarding was incredibly simple and clear. They guided me step by step, making the whole experience smooth and stress-free."</p>
+                <div class="testi-footer">Sarah J. – TechScale</div>
+            </div>
+
+            <div class="testimonial-card wide">
+                <div class="testi-card-header">
+                    <img src="https://i.pravatar.cc/100?img=33" alt="Mark O'Donnell">
+                    <div class="testi-user">
+                        <strong>Mark O'Donnell</strong>
+                        <div class="testi-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Consulting an AI specialist online was seamless and professional. I got expert advice tailored to my business without hiring externally. The implementation felt personal, and the recommendations were clear and actionable."</p>
+                <div class="testi-footer">Mark O. – LogisticsPro</div>
+            </div>
+
+            <div class="testimonial-card narrow">
+                <div class="testi-card-header">
+                    <img src="https://i.pravatar.cc/100?img=47" alt="Elena R.">
+                    <div class="testi-user">
+                        <strong>Elena R.</strong>
+                        <div class="testi-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"I can actually see the difference in our sales pipeline after using Sam. The before and after results are amazing!"</p>
+                <div class="testi-footer">Elena R. – Sales</div>
+            </div>
+
+            <div class="testimonial-card narrow">
+                <div class="testi-card-header">
+                    <img src="https://i.pravatar.cc/100?img=68" alt="James M.">
+                    <div class="testi-user">
+                        <strong>James M.</strong>
+                        <div class="testi-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"The virtual receptionist is a game-changer. I could have it answer calls instantly and felt confident about my customer service."</p>
+                <div class="testi-footer">James M. – Operations</div>
+            </div>
+
+            <div class="testimonial-card narrow">
+                <div class="testi-card-header">
+                    <img src="https://i.pravatar.cc/100?img=5" alt="David K.">
+                    <div class="testi-user">
+                        <strong>David K.</strong>
+                        <div class="testi-stars">★★★★★</div>
+                    </div>
+                </div>
+                <p>"Thanks to the AI legal assistant, my contracts are closely monitored. I feel more secure and informed about my compliance every day."</p>
+                <div class="testi-footer">David K. – Legal</div>
+            </div>
         </div>
     </section>
 
@@ -505,7 +538,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <a href="#" class="logo-lockup">
-                    <img class="logo-mark" src="src/assets/wilfred-mark.svg" alt="">
+                    <img class="logo-mark" src="favicon.png" alt="">
                     <span class="logo-text">Hire <span class="accent">Wilfred</span></span>
                 </a>
                 <p>Canada's AI staffing agency.</p>
