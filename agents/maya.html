@@ -50,17 +50,29 @@
         <p class="lead">Multi-language out of the box (English, French, Spanish), with full Quebec Law 25 compliance for Quebec-based callers.</p>
     </section>
 
-    <section class="agent-section">
+    <section class="agent-section card-stack-section">
         <h2>What Maya can do</h2>
-        <div class="cap-grid">
-            <div class="cap-item"><div class="cap-icon">📞</div><p><strong>Voice + chat</strong> — picks up in &lt;2 rings, transcribes every conversation.</p></div>
-            <div class="cap-item"><div class="cap-icon">❓</div><p><strong>FAQ answering</strong> — pulls from your knowledge base, never makes things up.</p></div>
-            <div class="cap-item"><div class="cap-icon">🎯</div><p><strong>Lead qualification</strong> — new client / existing / urgent / spam categorization.</p></div>
-            <div class="cap-item"><div class="cap-icon">📅</div><p><strong>Appointment booking</strong> — direct into Acuity, Cal.com, Calendly, or your PMS.</p></div>
-            <div class="cap-item"><div class="cap-icon">🚨</div><p><strong>Smart routing</strong> — urgent issues escalate via SMS or Slack with context.</p></div>
-            <div class="cap-item"><div class="cap-icon">📋</div><p><strong>CRM logging</strong> — every conversation logged with summary and outcome.</p></div>
-            <div class="cap-item"><div class="cap-icon">🌍</div><p><strong>Multi-language</strong> — EN / FR / ES native, others on request.</p></div>
-            <div class="cap-item"><div class="cap-icon">🌙</div><p><strong>After-hours</strong> — handles routine, escalates urgent. Never sleeps.</p></div>
+        <div data-card-stack class="card-stack">
+            <div class="card-stack-stage" data-stack-stage>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">📞</div><div><h4>Voice + chat</h4><p>picks up in &lt;2 rings, transcribes every conversation.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">❓</div><div><h4>FAQ answering</h4><p>pulls from your knowledge base, never makes things up.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">🎯</div><div><h4>Lead qualification</h4><p>new client / existing / urgent / spam categorization.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">📅</div><div><h4>Appointment booking</h4><p>direct into Acuity, Cal.com, Calendly, or your PMS.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">🚨</div><div><h4>Smart routing</h4><p>urgent issues escalate via SMS or Slack with context.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">📋</div><div><h4>CRM logging</h4><p>every conversation logged with summary and outcome.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">🌍</div><div><h4>Multi-language</h4><p>EN / FR / ES native, others on request.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">🌙</div><div><h4>After-hours</h4><p>handles routine, escalates urgent. Never sleeps.</p></div></div>
+            </div>
+            <div class="card-stack-dots">
+                <button data-stack-dot class="card-stack-dot active" aria-label="Card 1"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 2"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 3"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 4"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 5"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 6"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 7"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 8"></button>
+            </div>
         </div>
     </section>
 
@@ -192,6 +204,7 @@
         </div>
     </div>
     <script src="../floating-consult.js" defer></script>
+    <script src="../card-stack.js" defer></script>
 
 </body>
 </html>

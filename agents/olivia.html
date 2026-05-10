@@ -50,17 +50,29 @@
         <p class="lead">Every action she takes is logged and reversible. You stay in control — she just removes the friction.</p>
     </section>
 
-    <section class="agent-section">
+    <section class="agent-section card-stack-section">
         <h2>What Olivia can do</h2>
-        <div class="cap-grid">
-            <div class="cap-item"><div class="cap-icon">📥</div><p><strong>Inbox triage</strong> — sorts into priority / action-needed / FYI / archive with one-tap controls.</p></div>
-            <div class="cap-item"><div class="cap-icon">✍️</div><p><strong>Draft replies</strong> — in your voice for routine emails. You approve in one click.</p></div>
-            <div class="cap-item"><div class="cap-icon">📅</div><p><strong>Calendar mgmt</strong> — protects deep-work blocks, resolves conflicts, sets buffers.</p></div>
-            <div class="cap-item"><div class="cap-icon">🤝</div><p><strong>Meeting scheduling</strong> — coordinates internal + external attendees across time zones.</p></div>
-            <div class="cap-item"><div class="cap-icon">✈️</div><p><strong>Travel booking</strong> — flights, hotels, ground transport — within your policy.</p></div>
-            <div class="cap-item"><div class="cap-icon">🧾</div><p><strong>Expense reports</strong> — auto-generated from receipts and credit-card feeds.</p></div>
-            <div class="cap-item"><div class="cap-icon">📋</div><p><strong>Pre-meeting briefs</strong> — attendees, last interaction, key talking points.</p></div>
-            <div class="cap-item"><div class="cap-icon">📝</div><p><strong>Agendas + summaries</strong> — drafted before, recapped after every meeting.</p></div>
+        <div data-card-stack class="card-stack">
+            <div class="card-stack-stage" data-stack-stage>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">📥</div><div><h4>Inbox triage</h4><p>sorts into priority / action-needed / FYI / archive with one-tap controls.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">✍️</div><div><h4>Draft replies</h4><p>in your voice for routine emails. You approve in one click.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">📅</div><div><h4>Calendar mgmt</h4><p>protects deep-work blocks, resolves conflicts, sets buffers.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">🤝</div><div><h4>Meeting scheduling</h4><p>coordinates internal + external attendees across time zones.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">✈️</div><div><h4>Travel booking</h4><p>flights, hotels, ground transport — within your policy.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">🧾</div><div><h4>Expense reports</h4><p>auto-generated from receipts and credit-card feeds.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">📋</div><div><h4>Pre-meeting briefs</h4><p>attendees, last interaction, key talking points.</p></div></div>
+                <div class="card-stack-card" data-stack-card><div class="cs-icon">📝</div><div><h4>Agendas + summaries</h4><p>drafted before, recapped after every meeting.</p></div></div>
+            </div>
+            <div class="card-stack-dots">
+                <button data-stack-dot class="card-stack-dot active" aria-label="Card 1"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 2"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 3"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 4"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 5"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 6"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 7"></button>
+                <button data-stack-dot class="card-stack-dot" aria-label="Card 8"></button>
+            </div>
         </div>
     </section>
 
@@ -193,6 +205,7 @@
         </div>
     </div>
     <script src="../floating-consult.js" defer></script>
+    <script src="../card-stack.js" defer></script>
 
 </body>
 </html>
