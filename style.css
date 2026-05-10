@@ -224,7 +224,8 @@ p {
     overflow: hidden;
     background: linear-gradient(180deg, #ffd9b8 0%, var(--accent-light) 100%);
 }
-.hero-portrait img {
+.hero-portrait img,
+.hero-portrait video {
     position: absolute;
     inset: 0;
     width: 100%;
