@@ -64,11 +64,10 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				wilfred: {
-					DEFAULT: '#171717', // Charcoal
-					accent: '#FF6B35', // Electric Orange
-					navy: '#1A2C42',
-					light: '#FAFAFA',
-					muted: '#737373',
+					DEFAULT: '#0D0D0D', // Black (Strength, Authority)
+					accent: '#FF6A00',  // Orange (Energy, Action)
+					light: '#F5F5F5',   // Light Gray (Balance, Simplicity)
+					dark: '#4A4A4A',    // Dark Gray (Stability, Professionalism)
 				}
 			},
 			borderRadius: {
@@ -120,7 +119,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				display: ['Montserrat', 'sans-serif'],
+				display: ['Poppins', 'sans-serif'],
 			},
 		}
 	},

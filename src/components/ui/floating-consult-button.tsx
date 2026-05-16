@@ -3,20 +3,24 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 interface FloatingConsultButtonProps {
-  buttonSize?: number;
-  imageSize?: number;
+  // Button appearance
+  buttonSize?: number; // Diameter in pixels (default: 160 for lg, 128 for mobile)
+  imageSize?: number; // Center image diameter in pixels (default: 96 for lg, 80 for mobile)
   imageSrc?: string;
   imageAlt?: string;
 
+  // Revolving text
   revolvingText?: string;
-  revolvingSpeed?: number;
+  revolvingSpeed?: number; // Duration in seconds for one rotation (default: 10)
 
+  // Popup content
   popupHeading?: string;
   popupDescription?: string;
   popupBadgeText?: string;
   ctaButtonText?: string;
   ctaButtonAction?: () => void;
 
+  // Positioning
   position?: {
     bottom?: string;
     right?: string;
@@ -28,79 +32,94 @@ interface FloatingConsultButtonProps {
 export const FloatingConsultButton = ({
   buttonSize,
   imageSize,
-  imageSrc = "/consultant-avatar.jpg",
+  imageSrc = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
   imageAlt = "Consultant",
-  revolvingText = "FREE 30 MINUTES - CONSULT - ",
+  revolvingText = "FREE 30 MINUTES · CONSULT · ",
   revolvingSpeed = 10,
-  popupHeading = "30-minutes call",
-  popupDescription = "This will be a brief, free call with one of Bricks Studio's design and development producers to discuss your project and determine if we're a good fit.",
+  popupHeading = "30-minute call",
+  popupDescription = "A brief, free call with one of our producers to discuss your project and see if we're a fit.",
   popupBadgeText = "Free",
   ctaButtonText = "Book a call",
   ctaButtonAction = () => console.log("CTA clicked"),
   position = { bottom: "2rem", right: "2rem" },
-}: FloatingConsultButtonProps): JSX.Element => {
+}: FloatingConsultButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
+  // Responsive sizes with defaults
   const lgButtonSize = buttonSize || 160;
-  const smButtonSize = buttonSize ? buttonSize * 0.8 : 128;
+  const smButtonSize = buttonSize ? Math.round(buttonSize * 0.8) : 128;
   const lgImageSize = imageSize || 96;
-  const smImageSize = imageSize ? imageSize * 0.833 : 80;
+  const smImageSize = imageSize ? Math.round(imageSize * 0.833) : 80;
+
+  // CSS custom properties drive the responsive sizing (no global <style> selectors).
+  const wrapperStyle = {
+    ...position,
+    ["--fcb-button-sm" as string]: `${smButtonSize}px`,
+    ["--fcb-button-lg" as string]: `${lgButtonSize}px`,
+    ["--fcb-image-sm" as string]: `${smImageSize}px`,
+    ["--fcb-image-lg" as string]: `${lgImageSize}px`,
+  } as React.CSSProperties;
 
   return (
     <>
+      {/* Backdrop with Blur */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+            className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm"
             onClick={() => setIsOpen(false)}
           />
         )}
       </AnimatePresence>
 
+      {/* Popup Modal */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className="fixed bottom-48 right-8 z-50 bg-white rounded-3xl shadow-2xl p-8 lg:p-10 max-w-md w-[calc(100vw-4rem)]"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="fcb-heading"
+            className="fixed bottom-48 right-8 z-50 w-[calc(100vw-4rem)] max-w-md rounded-3xl bg-white p-8 shadow-2xl lg:p-10"
           >
+            {/* Close Button */}
             <button
+              type="button"
               onClick={() => setIsOpen(false)}
-              className="absolute -top-12 -right-2 text-white hover:text-gray-300 transition-colors"
+              aria-label="Close"
+              className="absolute -top-12 -right-2 text-white transition-colors hover:text-gray-300"
             >
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="10" y1="10" x2="30" y2="30" />
                 <line x1="30" y1="10" x2="10" y2="30" />
               </svg>
             </button>
 
             <div className="space-y-6">
-              <div className="flex items-start justify-between">
-                <h3 className="text-4xl lg:text-5xl font-bold text-black leading-tight">
+              {/* Header */}
+              <div className="flex items-start justify-between gap-4">
+                <h3 id="fcb-heading" className="text-4xl font-bold leading-tight text-black lg:text-5xl">
                   {popupHeading}
                 </h3>
-                <span className="text-black px-4 py-2 border-2 border-black rounded-full text-sm font-medium">
+                <span className="rounded-full border-2 border-black px-4 py-2 text-sm font-medium text-black">
                   {popupBadgeText}
                 </span>
               </div>
 
-              <p className="text-base lg:text-lg text-gray-600 leading-relaxed">
+              {/* Description */}
+              <p className="text-base leading-relaxed text-gray-600 lg:text-lg">
                 {popupDescription}
               </p>
 
+              {/* CTA Button */}
               <Button
-                className="w-full bg-black hover:bg-gray-900 text-white px-8 py-4 rounded-full font-medium text-base"
+                className="w-full rounded-full bg-black px-8 py-4 text-base font-medium text-white hover:bg-gray-900"
                 onClick={ctaButtonAction}
               >
                 {ctaButtonText}
@@ -110,17 +129,24 @@ export const FloatingConsultButton = ({
         )}
       </AnimatePresence>
 
-      <div className="fixed z-50" style={position}>
+      {/* Floating Button */}
+      <div className="fixed z-50" style={wrapperStyle}>
         <motion.div
-          className="relative cursor-pointer group floating-consult-btn"
-          style={{
-            width: `${smButtonSize}px`,
-            height: `${smButtonSize}px`,
-          }}
+          className="fcb-trigger group relative cursor-pointer"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen((v) => !v)}
+          role="button"
+          tabIndex={0}
+          aria-label="Open consult popup"
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setIsOpen((v) => !v);
+            }
+          }}
         >
+          {/* Rotating Text */}
           <motion.div
             className="absolute inset-0"
             animate={{ rotate: 360 }}
@@ -130,55 +156,56 @@ export const FloatingConsultButton = ({
               ease: "linear",
             }}
           >
-            <svg viewBox="0 0 200 200" className="w-full h-full">
+            <svg viewBox="0 0 200 200" className="h-full w-full">
               <defs>
                 <path
-                  id="circlePath"
+                  id="fcb-circlePath"
                   d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"
                 />
               </defs>
-              <text className="text-[20.4px] fill-gray-600 font-medium uppercase tracking-wider">
-                <textPath href="#circlePath" startOffset="0%">
+              <text className="fill-gray-600 text-[20.4px] font-medium uppercase tracking-wider">
+                <textPath href="#fcb-circlePath" startOffset="0%">
                   {revolvingText}
                 </textPath>
               </text>
             </svg>
           </motion.div>
 
+          {/* Center Image/Circle */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              className="floating-consult-img rounded-full overflow-hidden bg-gray-900 shadow-lg group-hover:shadow-xl transition-shadow"
-              style={{
-                width: `${smImageSize}px`,
-                height: `${smImageSize}px`,
-              }}
-            >
-              <img
-                src={imageSrc}
-                alt={imageAlt}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  const parent = e.currentTarget.parentElement;
-                  if (parent) {
-                    parent.innerHTML =
-                      '<div class="w-full h-full bg-gradient-to-br from-red-500 to-orange-500"></div>';
-                  }
-                }}
-              />
+            <div className="fcb-image overflow-hidden rounded-full bg-gray-900 shadow-lg transition-shadow group-hover:shadow-xl">
+              {imageError ? (
+                <div className="h-full w-full bg-gradient-to-br from-red-500 to-orange-500" />
+              ) : (
+                <img
+                  src={imageSrc}
+                  alt={imageAlt}
+                  className="h-full w-full object-cover"
+                  onError={() => setImageError(true)}
+                />
+              )}
             </div>
           </div>
         </motion.div>
 
+        {/* Scoped responsive sizing via CSS variables — no global selectors. */}
         <style>{`
+          .fcb-trigger {
+            width: var(--fcb-button-sm);
+            height: var(--fcb-button-sm);
+          }
+          .fcb-trigger .fcb-image {
+            width: var(--fcb-image-sm);
+            height: var(--fcb-image-sm);
+          }
           @media (min-width: 1024px) {
-            .floating-consult-btn {
-              width: ${lgButtonSize}px !important;
-              height: ${lgButtonSize}px !important;
+            .fcb-trigger {
+              width: var(--fcb-button-lg);
+              height: var(--fcb-button-lg);
             }
-            .floating-consult-btn .floating-consult-img {
-              width: ${lgImageSize}px !important;
-              height: ${lgImageSize}px !important;
+            .fcb-trigger .fcb-image {
+              width: var(--fcb-image-lg);
+              height: var(--fcb-image-lg);
             }
           }
         `}</style>
