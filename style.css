@@ -669,14 +669,14 @@ a { color: inherit; text-decoration: none; }
   background: linear-gradient(to top, rgba(8,7,6,0.72), rgba(8,7,6,0.12) 58%, rgba(8,7,6,0.04));
 }
 .workflow-card-chip, .workflow-card-tag {
-  position: absolute; top: 0.85rem; z-index: 2;
+  position: absolute; z-index: 2;
   display: inline-flex; align-items: center; gap: 0.4rem;
   border-radius: 999px; border: 1px solid rgba(251,246,238,0.14);
   background: rgba(255,255,255,0.08); backdrop-filter: blur(10px);
   color: rgba(251,246,238,0.92); font-size: 0.68rem; font-weight: 700;
 }
-.workflow-card-chip { left: 0.85rem; width: 34px; height: 34px; justify-content: center; padding: 0; }
-.workflow-card-tag { right: 0.85rem; padding: 0.55rem 0.75rem; }
+.workflow-card-chip { bottom: 0.85rem; left: 0.85rem; width: 34px; height: 34px; justify-content: center; padding: 0; }
+.workflow-card-tag { top: 0.85rem; right: 0.85rem; padding: 0.55rem 0.75rem; }
 .workflow-card-label {
   position: absolute; left: 1rem; right: 1rem; bottom: 1rem; z-index: 2;
   color: white; font-size: 1.35rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05;
@@ -1102,7 +1102,7 @@ a { color: inherit; text-decoration: none; }
 }
 .featured-agent-card:hover .featured-agent-photo img { transform: scale(1.04); }
 .featured-agent-photo .workflow-card-chip {
-  top: 1rem;
+  bottom: 1rem;
   left: 1rem;
 }
 
