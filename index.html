@@ -23,7 +23,7 @@
                 <a href="#about" class="nav-link">How Wilfred works</a>
                 <a href="#team" class="nav-link">The Team</a>
                 <a href="#canadian" class="nav-link">Canadian-Hosted</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#packages" class="nav-link">Packages</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#hire" class="nav-cta">Hire Wilfred</a>
             </div>
@@ -509,75 +509,159 @@
         </div>
     </section>
 
-    <!-- ====================== PRICING ====================== -->
-    <section id="pricing" class="faq-section" style="clip-path: none; margin-top: 0; padding: 8rem 1.5rem 9rem;">
+    <!-- ====================== PACKAGES ====================== -->
+    <section id="packages" class="faq-section" style="clip-path: none; margin-top: 0; padding: 8rem 1.5rem 9rem;">
+        <!-- Scoped overrides: the .process-pricing-* defaults assume cream cards.
+             Inside #packages every card sits on the dark ink background, so we
+             force light text on description, features, and tier label, and rebuild
+             the CTA buttons to read on dark surfaces. -->
+        <style>
+            #packages .process-pricing-card { color: var(--text-light); }
+            #packages .process-pricing-tier { color: #F1C08A; }
+            #packages .process-pricing-price { color: var(--text-light); }
+            #packages .process-pricing-price span { color: rgba(251,246,238,0.6); }
+            #packages .process-pricing-desc { color: rgba(251,246,238,0.72); }
+            #packages .process-pricing-features li { color: rgba(251,246,238,0.84); font-size: 0.9rem; }
+            #packages .process-pricing-features li.pkg-managed { color: #F1C08A; font-weight: 700; }
+            #packages .process-pricing-cta {
+                background: rgba(251,246,238,0.10);
+                color: var(--text-light);
+                border: 1px solid rgba(251,246,238,0.22);
+            }
+            #packages .process-pricing-cta:hover { background: rgba(251,246,238,0.18); }
+            #packages .process-pricing-card.popular .process-pricing-cta {
+                background: linear-gradient(135deg, #F1C08A, var(--accent-copper));
+                color: var(--text-dark);
+                border: 0;
+            }
+            #packages .pkg-card {
+                background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), rgba(20,15,12,0.62);
+                border-color: rgba(251,246,238,0.12);
+            }
+            #packages .pkg-card.popular {
+                background: linear-gradient(180deg, rgba(241,192,138,0.20), rgba(201,135,85,0.08)), rgba(20,15,12,0.62);
+                border-color: rgba(201,135,85,0.55);
+            }
+            #packages .pkg-card.custom {
+                background: linear-gradient(135deg, rgba(241,192,138,0.12), rgba(255,255,255,0.03)), rgba(20,15,12,0.65);
+                border-color: rgba(241,192,138,0.32);
+                display: grid; grid-template-columns: 1fr auto;
+                align-items: center; gap: 2rem;
+            }
+            #packages .pkg-managed-band {
+                margin: 2.2rem auto 0; max-width: 920px;
+                display: flex; flex-wrap: wrap; justify-content: center; gap: 1.4rem;
+                padding: 1rem 1.4rem;
+                border-radius: 999px;
+                background: rgba(255,255,255,0.04);
+                border: 1px solid rgba(255,255,255,0.08);
+                color: rgba(251,246,238,0.78);
+                font-size: 0.84rem; font-weight: 600; letter-spacing: 0.04em;
+            }
+            #packages .pkg-managed-band strong { color: #F1C08A; font-weight: 800; margin-right: 0.4rem; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.74rem; }
+            #packages .pkg-managed-band span::before { content: "● "; color: var(--accent-copper); margin-right: 0.3rem; }
+            @media (max-width: 1100px) {
+                #packages .process-pricing-grid { grid-template-columns: repeat(2, 1fr) !important; }
+            }
+            @media (max-width: 640px) {
+                #packages .process-pricing-grid { grid-template-columns: 1fr !important; }
+                #packages .pkg-card.custom { grid-template-columns: 1fr; }
+            }
+        </style>
+
         <div class="faq-shell">
             <div class="faq-header">
                 <span class="section-eyebrow">
                     <span class="eyebrow-dot"></span>
-                    Salary bands
+                    Fully managed packages
                 </span>
-                <h2 class="section-title light">Hire Wilfred at the seniority you need.</h2>
-                <p class="section-text light">One conductor. Different bench sizes. Cancel or reassign any time. CAD-billed, no FX, no payroll tax.</p>
+                <h2 class="section-title light">Pick the size of your AI team.</h2>
+                <p class="section-text light">Every package is <strong style="color:#F1C08A;">fully managed</strong> — Wilfred and a real Canadian success manager monitor every agent, every action, 24/7. You tell us what changed; we ship the updates. Add, swap, or scale anytime.</p>
             </div>
 
-            <div class="process-pricing-grid">
-                <div class="process-pricing-card" style="background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), rgba(20,15,12,0.58); border-color: rgba(251,246,238,0.1);">
-                    <div class="process-pricing-tier" style="color: #F1C08A;">Junior</div>
-                    <div class="process-pricing-price" style="color: var(--text-light);">$497<span style="color: rgba(251,246,238,0.6);">/mo CAD</span></div>
-                    <p class="process-pricing-desc" style="color: rgba(251,246,238,0.7);">Coordinator-level conductor. Wilfred runs one specialist for you.</p>
-                    <ul class="process-pricing-features" style="color: rgba(251,246,238,0.78);">
-                        <li>✓ 1 specialist (receptionist, scheduler, admin)</li>
-                        <li>✓ Standard SLAs</li>
-                        <li>✓ Email + calendar integration</li>
-                        <li>✓ Basic KPI dashboard</li>
-                        <li>✓ Replaces ~$48K human salary</li>
+            <div class="pkg-managed-band">
+                <strong>Included on every plan</strong>
+                <span>24/7 monitoring</span>
+                <span>Weekly evals</span>
+                <span>Named success manager</span>
+                <span>Canadian-hosted</span>
+                <span>CAD-billed</span>
+            </div>
+
+            <div class="process-pricing-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 2.4rem;">
+                <!-- Starter -->
+                <div class="process-pricing-card pkg-card">
+                    <div class="process-pricing-tier">The Starter</div>
+                    <div class="process-pricing-price" style="font-size: 1.8rem;">1 specialist</div>
+                    <p class="process-pricing-desc">Pick one agent off the bench. Wilfred runs them for you end-to-end — the lowest-risk way to bring AI into the business.</p>
+                    <ul class="process-pricing-features">
+                        <li class="pkg-managed">✓ Fully managed · 24/7 monitored</li>
+                        <li>✓ Up to <strong>25 changes / updates per day</strong></li>
+                        <li>✓ Choose any 1 specialist</li>
+                        <li>✓ 48-hour start</li>
+                        <li>✓ Weekly performance recap</li>
                     </ul>
-                    <a href="#hire" class="process-pricing-cta" style="background: rgba(251,246,238,0.10); color: var(--text-light); border: 1px solid rgba(251,246,238,0.2);">Hire Junior ↗</a>
+                    <a href="#hire" class="process-pricing-cta">Start with one ↗</a>
                 </div>
 
-                <div class="process-pricing-card popular" style="background: linear-gradient(180deg, rgba(241,192,138,0.18), rgba(201,135,85,0.08)), rgba(20,15,12,0.58); border-color: rgba(201,135,85,0.5);">
+                <!-- 2 agents -->
+                <div class="process-pricing-card pkg-card">
+                    <div class="process-pricing-tier">The Duo</div>
+                    <div class="process-pricing-price" style="font-size: 1.8rem;">2 specialists</div>
+                    <p class="process-pricing-desc">Two agents handing work to each other — Sam books, Olivia preps. A real workflow, not a one-off task.</p>
+                    <ul class="process-pricing-features">
+                        <li class="pkg-managed">✓ Fully managed · 24/7 monitored</li>
+                        <li>✓ Up to <strong>60 changes / updates per day</strong></li>
+                        <li>✓ Any 2 specialists from the bench</li>
+                        <li>✓ Cross-agent workflows wired up</li>
+                        <li>✓ Live KPI dashboard · monthly review</li>
+                    </ul>
+                    <a href="#hire" class="process-pricing-cta">Build the Duo ↗</a>
+                </div>
+
+                <!-- 6 agents -->
+                <div class="process-pricing-card pkg-card popular">
                     <span class="process-pricing-badge">Most Popular</span>
-                    <div class="process-pricing-tier" style="color: #F1C08A;">Senior</div>
-                    <div class="process-pricing-price" style="color: var(--text-light);">$1,497<span style="color: rgba(251,246,238,0.6);">/mo CAD</span></div>
-                    <p class="process-pricing-desc" style="color: rgba(251,246,238,0.78);">Full team conductor. Wilfred runs up to 3 specialists day-to-day.</p>
-                    <ul class="process-pricing-features" style="color: rgba(251,246,238,0.82);">
-                        <li>✓ Up to 3 active specialists</li>
-                        <li>✓ Real-time response SLAs</li>
-                        <li>✓ CRM, Slack, M365, ConnectWise, QuickBooks</li>
-                        <li>✓ Live KPI dashboard + weekly evals</li>
-                        <li>✓ Custom voice / persona tuning</li>
-                        <li>✓ Replaces ~$70–90K human salary</li>
+                    <div class="process-pricing-tier">The Department</div>
+                    <div class="process-pricing-price" style="font-size: 1.8rem;">6 specialists</div>
+                    <p class="process-pricing-desc">A cross-functional team — front office, back office, and growth — orchestrated by Wilfred from one dashboard.</p>
+                    <ul class="process-pricing-features">
+                        <li class="pkg-managed">✓ Fully managed · 24/7 monitored</li>
+                        <li>✓ Up to <strong>180 changes / updates per day</strong></li>
+                        <li>✓ Any 6 specialists from the bench</li>
+                        <li>✓ Named Canadian success manager</li>
+                        <li>✓ Custom voice + persona tuning</li>
+                        <li>✓ Quarterly business review</li>
                     </ul>
-                    <a href="#hire" class="process-pricing-cta">Hire Senior ↗</a>
+                    <a href="#hire" class="process-pricing-cta">Build the Department ↗</a>
                 </div>
 
-                <div class="process-pricing-card" style="background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), rgba(20,15,12,0.58); border-color: rgba(251,246,238,0.1);">
-                    <div class="process-pricing-tier" style="color: #F1C08A;">Manager</div>
-                    <div class="process-pricing-price" style="color: var(--text-light);">$3,997<span style="color: rgba(251,246,238,0.6);">/mo CAD</span></div>
-                    <p class="process-pricing-desc" style="color: rgba(251,246,238,0.7);">Department conductor. Wilfred orchestrates the full bench across teams.</p>
-                    <ul class="process-pricing-features" style="color: rgba(251,246,238,0.78);">
-                        <li>✓ Department-level orchestration</li>
-                        <li>✓ Dedicated Canadian success manager</li>
-                        <li>✓ White-label option</li>
-                        <li>✓ Custom training &amp; evals</li>
-                        <li>✓ Replaces ~$120K+ human salary</li>
+                <!-- 10 agents -->
+                <div class="process-pricing-card pkg-card">
+                    <div class="process-pricing-tier">The Full Roster</div>
+                    <div class="process-pricing-price" style="font-size: 1.8rem;">10 specialists</div>
+                    <p class="process-pricing-desc">The whole bench plus extra seats for power roles. Best for SMBs replacing a multi-team headcount plan.</p>
+                    <ul class="process-pricing-features">
+                        <li class="pkg-managed">✓ Fully managed · 24/7 monitored</li>
+                        <li>✓ Up to <strong>300 changes / updates per day</strong></li>
+                        <li>✓ 10 specialist seats (duplicates ok)</li>
+                        <li>✓ Multi-team orchestration</li>
+                        <li>✓ White-label client portal option</li>
+                        <li>✓ Priority bench access (new agents first)</li>
                     </ul>
-                    <a href="#hire" class="process-pricing-cta" style="background: rgba(251,246,238,0.10); color: var(--text-light); border: 1px solid rgba(251,246,238,0.2);">Hire Manager ↗</a>
+                    <a href="#hire" class="process-pricing-cta">Roster it out ↗</a>
                 </div>
+            </div>
 
-                <div class="process-pricing-card" style="background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), rgba(20,15,12,0.58); border-color: rgba(251,246,238,0.1);">
-                    <div class="process-pricing-tier" style="color: #F1C08A;">Sovereign</div>
-                    <div class="process-pricing-price" style="color: var(--text-light);">Custom</div>
-                    <p class="process-pricing-desc" style="color: rgba(251,246,238,0.7);">Dedicated infra for regulated industries (legal, healthcare, gov).</p>
-                    <ul class="process-pricing-features" style="color: rgba(251,246,238,0.78);">
-                        <li>✓ Dedicated Canadian Azure tenant</li>
-                        <li>✓ Customer-managed encryption keys</li>
-                        <li>✓ 7-year immutable audit logs</li>
-                        <li>✓ PIPEDA + Law 25 DPA included</li>
-                        <li>✓ Optional: deploy in your subscription</li>
-                    </ul>
-                    <a href="#hire" class="process-pricing-cta" style="background: rgba(251,246,238,0.10); color: var(--text-light); border: 1px solid rgba(251,246,238,0.2);">Talk to us ↗</a>
+            <!-- Custom package — full-width band -->
+            <div class="process-pricing-grid" style="grid-template-columns: 1fr; margin-top: 1.4rem;">
+                <div class="process-pricing-card pkg-card custom">
+                    <div>
+                        <div class="process-pricing-tier">Custom</div>
+                        <div class="process-pricing-price" style="font-size: 1.7rem; margin-bottom: 0.6rem;">Build it your way</div>
+                        <p class="process-pricing-desc" style="margin: 0;">Need a role that isn’t on the bench? Sovereign-tier data residency? White-label across multiple clients? <strong style="color:#F1C08A;">Fully managed</strong> with <strong style="color:#F1C08A;">unlimited daily changes</strong> and dedicated 24/7 monitoring. Tell Wilfred the job — we’ll spin up the team, write the brief, and price it for you.</p>
+                    </div>
+                    <a href="mailto:hire@hirewilfred.ai?subject=Custom Wilfred package" class="process-pricing-cta" style="white-space: nowrap;">Talk to us ↗</a>
                 </div>
             </div>
         </div>
@@ -643,7 +727,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
-                            <p>Both. The <strong>Junior</strong> plan ($497/mo) gives you Wilfred conducting a single specialist. <strong>Senior</strong> ($1,497/mo) is up to 3 specialists. <strong>Manager</strong> ($3,997/mo) is department-wide orchestration across the full bench. <strong>Sovereign</strong> is dedicated infra for regulated industries.</p>
+                            <p>Both. <strong>The Starter</strong> is Wilfred conducting a single specialist. <strong>The Duo</strong> pairs two agents in a real workflow. <strong>The Department</strong> (6 agents) is cross-functional orchestration. <strong>The Full Roster</strong> (10 agents) is the whole bench. <strong>Custom</strong> is anything else — including Sovereign-tier dedicated infra for regulated industries.</p>
                         </div></div></div>
                     </div>
 
@@ -683,7 +767,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
-                            <p>Yes — send Wilfred the job description and we'll spin up a new pre-trained specialist against it. Custom specialists are available on the Manager and Sovereign tiers, or as a one-time add-on for Senior. <a href="mailto:hire@hirewilfred.ai?subject=Custom specialist">Email us with the JD</a>.</p>
+                            <p>Yes — send Wilfred the job description and we'll spin up a new pre-trained specialist against it. Custom specialists are included in the Custom package, and available as a one-time add-on for The Department and The Full Roster. <a href="mailto:hire@hirewilfred.ai?subject=Custom specialist">Email us with the JD</a>.</p>
                         </div></div></div>
                     </div>
                 </div>
@@ -772,7 +856,7 @@
                     <div class="site-footer-col">
                         <span class="col-head">Employers</span>
                         <a href="#about">How Wilfred works</a>
-                        <a href="#pricing">Pricing</a>
+                        <a href="#packages">Packages</a>
                         <a href="#canadian">Canadian-Hosted</a>
                         <a href="#hire">Hire Wilfred</a>
                     </div>

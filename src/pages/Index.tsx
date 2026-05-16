@@ -7,7 +7,6 @@ import WhyWilfred from '@/components/WhyWilfred';
 import Process from '@/components/Process';
 import Portfolio from '@/components/Portfolio';
 import About from '@/components/About';
-import Pricing from '@/components/Pricing';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import { FloatingConsultButton } from '@/components/ui/floating-consult-button';
@@ -44,7 +43,6 @@ const Index = () => {
       <Process />
       <WhyWilfred />
       <About />
-      <Pricing />
       <CTA />
       <Footer />
       <FloatingConsultButton
