@@ -3,725 +3,704 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hire Wilfred | The AI Staffing Agency</title>
-    <meta name="description" content="Hire Wilfred — Canada's AI staffing agency. Pre-trained AI employees for sales, marketing, finance, legal and admin. Same work, half the cost. Hosted on Canadian soil.">
+    <title>Hire Wilfred | Canada's AI Workforce Conductor</title>
+    <meta name="description" content="Wilfred is Canada's AI workforce conductor. He hires, manages, and replaces an entire team of pre-trained AI employees for you — sales, marketing, finance, legal, admin. Canadian-hosted, CAD-billed, PIPEDA-ready.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css?v=202605101036">
+    <link rel="stylesheet" href="style.css?v=202605160030">
 </head>
 <body>
-    <nav class="navbar">
-        <a href="#" class="logo-lockup">
-            <img class="logo-mark" src="src/assets/wilfred-mark.svg" alt="Hire Wilfred"><span class="logo-text">hire<span class="accent">wilfred</span></span></a>
-        <div class="nav-links">
-            <a href="#candidates">Candidates</a>
-            <a href="#salary">Salary Guide</a>
-            <a href="#calculator">ROI Calculator</a>
-            <a href="#sovereignty">Canadian-Hosted</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#hire" class="btn btn-sm btn-primary">Start Hiring</a>
+
+    <!-- ====================== NAV ====================== -->
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-shell">
+            <a href="#" class="brand-lockup">
+                <img class="brand-logo" src="hirewilfred_logo_reverse.svg" alt="Hire Wilfred" style="height: 64px; width: auto;">
+            </a>
+            <div class="nav-right">
+                <a href="#about" class="nav-link">How Wilfred works</a>
+                <a href="#team" class="nav-link">The Team</a>
+                <a href="#canadian" class="nav-link">Canadian-Hosted</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#hire" class="nav-cta">Hire Wilfred</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">≡</button>
         </div>
     </nav>
 
-    <header class="hero-frame">
-        <div class="hero-panel">
-            <div class="hero-portrait">
-                <video autoplay muted loop playsinline preload="auto" poster="wilfred_hero.png" aria-label="Wilfred AI employee">
-                    <source src="src/assets/video2.mp4" type="video/mp4">
-                </video>
-                <svg class="hero-doodle" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M20 30 Q90 20 110 90 T 180 160" fill="none" stroke="#141414" stroke-width="2"/>
-                    <circle cx="20" cy="30" r="5" fill="#141414"/>
-                    <circle cx="180" cy="160" r="5" fill="#141414"/>
-                </svg>
-            </div>
-            <div class="hero-copy">
-                <span class="eyebrow">[ THE AI STAFFING AGENCY ]</span>
-                <h1>
-                    Hire a smarter
-                    <span class="inline-icon" aria-hidden="true">
-                        <svg viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="2"  y="22" width="10" height="16" rx="2" fill="#ff6b1a"/>
-                            <rect x="16" y="14" width="10" height="24" rx="2" fill="#141414"/>
-                            <rect x="30" y="6"  width="10" height="32" rx="2" fill="#ff6b1a"/>
-                            <rect x="44" y="18" width="10" height="20" rx="2" fill="#141414"/>
-                        </svg>
-                    </span>
-                    <br>workforce.
-                </h1>
-                <p class="hero-subtitle">Wilfred places pre-trained AI employees into Canadian businesses — sales, marketing, finance, legal, admin. Same job description as a human hire, at one-third the salary. Placed in 48 hours.</p>
-                <a href="#candidates" class="hero-cta">Get Started <span>↗</span></a>
-            </div>
+    <!-- ====================== HERO ====================== -->
+    <header class="hero-section">
+        <div class="hero-bg-layer">
+            <video autoplay muted loop playsinline preload="auto" poster="wilfred_hero.png" aria-hidden="true">
+                <source src="src/assets/hirewilfred4.mp4" type="video/mp4">
+            </video>
         </div>
 
-        <div class="hero-cards">
-            <div class="hero-card hero-card-rating">
-                <span class="card-eyebrow">[ RATING ]</span>
-                <div class="rating-row">
-                    <span class="rating-number">4.9</span>
-                    <span class="rating-star">★</span>
+        <div class="hero-content-wrap">
+            <div class="hero-topline reveal-item delay-200 reveal-active">
+                <div class="hero-topline-left">
+                    <span>// Canada's AI Workforce Conductor</span>
+                    <small>One Wilfred. A full team of pre-trained specialists.</small>
                 </div>
-                <div class="rating-foot">
-                    <div class="rating-avatars">
-                        <img src="https://i.pravatar.cc/60?img=12" alt="">
-                        <img src="https://i.pravatar.cc/60?img=33" alt="">
-                        <span class="arrow-chip">↗</span>
-                    </div>
-                    <p>Trusted by 100+ Canadian SMBs and MSPs.</p>
+                <div class="hero-topline-right">
+                    <span>Hosted on Canadian soil</span>
+                    <small>CAD-billed · PIPEDA &amp; Quebec Law 25 ready</small>
                 </div>
             </div>
 
-            <div class="hero-card hero-card-video hero-card-quinn">
-                <div class="quinn-meta">
-                    <div class="quinn-avatar">
-                        <img src="quinn_bookkeeper.png" alt="Quinn — QuickBooks bookkeeper">
-                    </div>
-                    <div class="quinn-id">
-                        <strong>Quinn</strong>
-                        <span>QuickBooks Bookkeeper</span>
-                    </div>
-                </div>
-                <h3>Books closed by Friday.<br>Every Friday.</h3>
-                <div class="quinn-foot">
-                    <img class="qb-logo" src="src/assets/quickbooks-logo.svg" alt="Certified for QuickBooks">
-                    <a href="agents/quinn.html" class="play-row">
-                        <span class="play-btn">→</span>
-                        <span class="play-label">Hire Quinn</span>
+            <div class="hero-bottom">
+                <h1 class="hero-title reveal-item delay-100 reveal-active">
+                    Meet Wilfred.<br>He runs your team.
+                </h1>
+
+                <div class="hero-side reveal-item delay-300 reveal-active">
+                    <p class="hero-text">
+                        Wilfred is the conductor of your AI workforce. Hire him once and he picks, manages, evaluates, and replaces an entire team of pre-trained AI specialists — Quinn the bookkeeper, Sam the SDR, Olivia the EA, David the paralegal, Maya the receptionist, Theo on support, Claire in marketing. All hosted in Canada.
+                    </p>
+
+                    <a href="#hire" class="btn btn-primary hero-cta">
+                        Hire Wilfred ↗
                     </a>
-                </div>
-            </div>
 
-            <div class="hero-card hero-card-stat">
-                <div class="stat-head">
-                    <span class="card-eyebrow light">[ AVG. SAVINGS ]</span>
-                    <span class="stat-pill">Annual</span>
-                </div>
-                <div class="stat-number" id="avg-savings-num">0%</div>
-                <svg class="stat-chart" viewBox="0 0 300 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M0 60 C 40 70, 70 30, 110 35 S 180 65, 220 30 S 280 10, 300 15" fill="none" stroke="#ff6b1a" stroke-width="3"/>
-                    <path d="M0 70 C 40 65, 80 50, 130 55 S 200 70, 240 50 S 290 40, 300 45" fill="none" stroke="#ffd166" stroke-width="3"/>
-                </svg>
-                <div class="stat-legend">
-                    <span><i class="dot dot-orange"></i>Wilfred AI</span>
-                    <span><i class="dot dot-yellow"></i>Human (loaded)</span>
+                    <div class="hero-chip-row">
+                        <span class="hero-chip"><span>🎼</span> One conductor</span>
+                        <span class="hero-chip"><span>👥</span> Seven specialists</span>
+                        <span class="hero-chip"><span>🇨🇦</span> Canadian-hosted</span>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section id="about" class="about-section">
-        <div class="about-grid">
-            <div class="about-text">
-                <h2>A staffing firm, reinvented.</h2>
-                <p>Robert Half places people. Wilfred places AI employees. Every candidate on our roster has been pre-trained, reference-checked against your KPIs, and is ready to start in 48 hours. You get a dedicated worker — not a tool to figure out — at a fraction of the salary you'd pay a human in the same seat.</p>
-                <ul class="benefits">
-                    <li>
-                        <div class="icon">📋</div>
-                        <div>
-                            <strong>Job description in, employee out</strong>
-                            <p>Tell us the role. We match you with the right AI candidate, configured to your business and tools.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="icon">💰</div>
-                        <div>
-                            <strong>30–50% of the salary</strong>
-                            <p>Where a human SDR runs $65K, our AI SDR runs $18–24K/year — fully loaded. No benefits, no payroll tax.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="icon">🇨🇦</div>
-                        <div>
-                            <strong>Canadian workers, Canadian data</strong>
-                            <p>Every Wilfred placement runs on Canadian soil. PIPEDA-compliant. No cross-border data flows.</p>
-                        </div>
-                    </li>
-                </ul>
+    <!-- ====================== REINVENTED / NOT A TOOL ====================== -->
+    <section id="about" class="automate-section">
+        <div class="automate-shell">
+            <div class="automate-header-grid">
+                <div class="automate-header-copy">
+                    <span class="section-eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Reinvented staffing
+                    </span>
+                    <h2 class="section-title light">Wilfred isn't a tool.<br>He's your workforce manager.</h2>
+                </div>
+                <div class="automate-side-copy">
+                    <p>Everyone else sells you an AI you have to figure out. Wilfred is the layer above. He hires the right specialists, configures them to your stack, manages them day-to-day, and swaps anyone who underperforms — so you can run your business instead of running prompts.</p>
+                </div>
             </div>
-            <div class="about-stats">
-                <div class="stat-card glass">
-                    <h3>48hr</h3>
-                    <p>Time-to-Start</p>
+
+            <div class="automate-support-grid">
+                <div class="automate-support-card">
+                    <div class="automate-support-icon">🎼</div>
+                    <h4>One brief, one team</h4>
+                    <p>You don't hire seven AIs. You hire Wilfred. He picks the specialists, briefs them, and conducts them — like a fractional COO for your AI workforce.</p>
                 </div>
-                <div class="stat-card glass">
-                    <h3>1/3</h3>
-                    <p>Of Human Salary</p>
+                <div class="automate-support-card">
+                    <div class="automate-support-icon">💰</div>
+                    <h4>30–50% of the salary</h4>
+                    <p>Where a human team for the same work runs $300K+ loaded, Wilfred's bench runs a fraction of that. CAD-billed, no FX, no benefits, no payroll tax.</p>
                 </div>
-                <div class="stat-card glass">
-                    <h3>0%</h3>
-                    <p>Turnover</p>
+                <div class="automate-support-card">
+                    <div class="automate-support-icon">🇨🇦</div>
+                    <h4>Canadian workers, Canadian data</h4>
+                    <p>Every Wilfred placement runs on Canadian soil. Azure Canada Central, AWS ca-central-1. PIPEDA &amp; Quebec Law 25 ready. Zero cross-border data flows.</p>
                 </div>
+            </div>
+
+            <div class="automate-stats-row">
+                <div class="automate-stat"><strong>48hr</strong><span>Time to first output</span></div>
+                <div class="automate-stat"><strong>1/3</strong><span>Of a human team's salary</span></div>
+                <div class="automate-stat"><strong>0%</strong><span>Turnover · zero re-onboarding</span></div>
             </div>
         </div>
     </section>
 
-    <section id="candidates" class="candidates-section">
-        <div class="candidates-intro">
-            <h2>An AI workforce<br>for every role.</h2>
-            <p>Get access to a full bench of pre-trained AI employees — from front-office support to senior specialists — placed in days, not months, at a third of the salary.</p>
-        </div>
+    <!-- ====================== MEET WILFRED — YOUR AI WORKFORCE CONDUCTOR ====================== -->
+    <section id="team" class="impact-section">
+        <div class="impact-shell">
+            <div class="impact-header">
+                <span class="section-eyebrow dark">
+                    <span class="eyebrow-dot"></span>
+                    Meet your conductor
+                </span>
+                <h2 class="section-title dark">Wilfred runs the show.<br>You run the business.</h2>
+                <p class="section-text dark">Hire Wilfred once. He builds and runs an always-growing team of AI specialists — picks the right player for every job, deploys new employees in under 24 hours, and swaps out anyone underperforming. One conductor. A bench that never stops growing. Canadian-hosted, end to end.</p>
+            </div>
 
-        <div class="roster-mosaic">
-            <!-- Featured Hire — full-width feature row -->
-            <article class="roster-card roster-feature">
-                <div class="feature-img">
-                    <img src="quinn_bookkeeper.png" alt="Quinn — QuickBooks bookkeeper">
+            <div class="impact-grid">
+                <div class="impact-copy">
+                    <span class="section-eyebrow dark">
+                        <span class="eyebrow-dot"></span>
+                        What Wilfred does
+                    </span>
+                    <h3 class="section-title dark" style="font-size: clamp(2rem, 3.4vw, 3.4rem);">The only employee you ever have to hire.</h3>
+                    <p class="section-text dark">Wilfred is the layer above the AI. He talks to you in plain English, picks the right specialist for the work, wires them into your stack, runs the day-to-day, and reports back weekly. You stop managing prompts. You start managing outcomes.</p>
+
+                    <div class="impact-list">
+                        <div class="impact-list-head">
+                            <span>What he handles</span>
+                            <span>Delivers</span>
+                        </div>
+                        <div class="impact-list-item">
+                            <div class="impact-list-item-main">
+                                <strong>Hires your AI team</strong>
+                                <span>Picks the right specialist from the bench — Quinn, Sam, Olivia, David, Maya, Theo, Claire — and matches them to your work.</span>
+                            </div>
+                            <span class="impact-list-item-metric">&lt; 24 hrs</span>
+                        </div>
+                        <div class="impact-list-item">
+                            <div class="impact-list-item-main">
+                                <strong>Onboards them to your stack</strong>
+                                <span>CRM, M365, ConnectWise, QuickBooks, Slack. Tools wired in, brand voice tuned, ready to start.</span>
+                            </div>
+                            <span class="impact-list-item-metric">48-hour start</span>
+                        </div>
+                        <div class="impact-list-item">
+                            <div class="impact-list-item-main">
+                                <strong>Runs them day-to-day</strong>
+                                <span>Routes work to the right specialist, runs weekly evals against your KPIs, escalates anything human-grade.</span>
+                            </div>
+                            <span class="impact-list-item-metric">24/7</span>
+                        </div>
+                        <div class="impact-list-item">
+                            <div class="impact-list-item-main">
+                                <strong>Swaps anyone who underperforms</strong>
+                                <span>No severance, no 90-day PIPs, no re-recruiting. Wilfred handles the handoff for you.</span>
+                            </div>
+                            <span class="impact-list-item-metric">One click</span>
+                        </div>
+                        <div class="impact-list-item">
+                            <div class="impact-list-item-main">
+                                <strong>Grows the bench</strong>
+                                <span>New specialists added every month. If you need a role we don't have, Wilfred spins one up against your JD.</span>
+                            </div>
+                            <span class="impact-list-item-metric">Always</span>
+                        </div>
+                        <div class="impact-list-item">
+                            <div class="impact-list-item-main">
+                                <strong>Reports to you, in Canada</strong>
+                                <span>One CAD invoice. One named success manager in Toronto, Montreal or Vancouver. A monthly performance recap in your inbox.</span>
+                            </div>
+                            <span class="impact-list-item-metric">🇨🇦</span>
+                        </div>
+                    </div>
+
+                    <a href="#hire" class="pill-cta" style="margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.95rem 1.4rem; border-radius: 999px; background: var(--text-dark); color: var(--text-light); font-size: 0.82rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;">Hire Wilfred ↗</a>
                 </div>
-                <div class="feature-text">
-                    <span class="feature-eyebrow">[ FEATURED HIRE ]</span>
-                    <h3>Quinn — your QuickBooks bookkeeper.</h3>
-                    <p class="feature-sub">Reconciles your accounts, runs payroll, files your GST/HST, and closes your books every Friday. QuickBooks-certified, Canadian-hosted, never misses a deadline.</p>
-                    <div class="feature-foot">
-                        <img class="qb-logo" src="src/assets/quickbooks-logo.svg" alt="Certified for QuickBooks">
-                        <a href="agents/quinn.html" class="pill-cta feature-cta">Hire Quinn ›</a>
+
+                <article class="impact-card">
+                    <div class="impact-card-media wilfred-portrait-media">
+                        <img src="wilfred_portrait.png" alt="Wilfred — Canada's AI workforce conductor">
+                        <div class="impact-card-media-content">
+                            <span class="impact-card-badge"><span>●</span> Conducting · Live</span>
+                            <h3>Wilfred</h3>
+                            <p style="margin: 0.5rem 0 0; color: rgba(251,246,238,0.82); font-size: 0.96rem; font-weight: 500; line-height: 1.55;">Your AI Workforce Conductor.<br>Hired once. Builds the team. Never quits.</p>
+                        </div>
+                    </div>
+                    <div class="impact-card-body">
+                        <h4>Why teams hire Wilfred first.</h4>
+                        <p>One conversation. One contract. One Canadian point of contact for an entire AI workforce that ships outcomes — not prompts, not tools, not "platforms." He hires the specialists for you and runs them like a fractional COO. The only employee you actually need to manage.</p>
+
+                        <div class="wilfred-stats">
+                            <div class="wilfred-stat">
+                                <strong>&lt;24h</strong>
+                                <span>New employee deployed</span>
+                            </div>
+                            <div class="wilfred-stat">
+                                <strong>+1/mo</strong>
+                                <span>New specialists added to the bench</span>
+                            </div>
+                            <div class="wilfred-stat">
+                                <strong>0%</strong>
+                                <span>Turnover · zero re-onboarding</span>
+                            </div>
+                            <div class="wilfred-stat">
+                                <strong>24/7</strong>
+                                <span>Always on. Never tired.</span>
+                            </div>
+                        </div>
+
+                        <a href="#hire" class="pill-cta">Hire Wilfred ›</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== FEATURED AGENT: QUINN ====================== -->
+    <section class="featured-agent-section">
+        <div class="featured-agent-inner">
+            <span class="workflow-kicker">// Featured Specialist</span>
+            <a href="agents/quinn.html" class="featured-agent-card">
+                <img src="quinn_bookkeeper.png" alt="Quinn — Bookkeeper">
+                <span class="workflow-card-chip">📒</span>
+                <span class="workflow-card-tag featured-agent-tag">⭐ Featured · Finance</span>
+                <div class="featured-agent-overlay">
+                    <div class="featured-agent-overlay-top">
+                        <div class="workflow-card-label">Quinn — Bookkeeper</div>
+                        <p class="featured-agent-desc">QuickBooks-certified. Reconciliations, payroll runs, GST/HST filings, and a clean Friday close — every week, without you chasing her.</p>
+                    </div>
+                    <div class="featured-agent-overlay-bottom">
+                        <div class="featured-agent-stats">
+                            <div class="featured-agent-stat"><strong>$2,800</strong><span>/ mo · all-in</span></div>
+                            <div class="featured-agent-stat"><strong>&lt; 48 hrs</strong><span>to first reconcile</span></div>
+                            <div class="featured-agent-stat"><strong>100%</strong><span>Canadian-hosted</span></div>
+                        </div>
+                        <span class="featured-agent-cta">Meet Quinn ›</span>
                     </div>
                 </div>
-            </article>
-
-            <!-- Card -->
-            <article class="roster-card tint-peach">
-                <div class="roster-text">
-                    <h3>Content Marketing</h3>
-                    <p class="roster-sub">Claire writes &amp; ranks your blog, manages social media, and drives inbound traffic on autopilot.</p>
-                    <a href="agents/claire.html" class="pill-cta">Meet Claire ›</a>
-                </div>
-                <div class="roster-img"><img src="claire_marketing.png" alt="Claire"></div>
-            </article>
-
-            <!-- Card -->
-            <article class="roster-card tint-butter">
-                <div class="roster-text">
-                    <h3>SDR / Lead Gen</h3>
-                    <p class="roster-sub">Sam books meetings on autopilot, qualifies leads, and manages cold outreach sequences 24/7.</p>
-                    <a href="agents/sam.html" class="pill-cta">Meet Sam ›</a>
-                </div>
-                <div class="roster-img"><img src="wilfred_lead_gen.png" alt="Sam"></div>
-            </article>
-
-            <!-- Card -->
-            <article class="roster-card tint-cream">
-                <div class="roster-text">
-                    <h3>Executive Assistant</h3>
-                    <p class="roster-sub">Olivia triages your inbox, manages complex calendars, and handles travel booking with zero friction.</p>
-                    <a href="agents/olivia.html" class="pill-cta">Meet Olivia ›</a>
-                </div>
-                <div class="roster-img"><img src="wilfred_exec_assistant.png" alt="Olivia"></div>
-            </article>
-
-            <!-- Card -->
-            <article class="roster-card tint-orange">
-                <div class="roster-text">
-                    <h3>Paralegal</h3>
-                    <p class="roster-sub">David reviews contracts, flags compliance risks, and drafts standard legal documents securely.</p>
-                    <a href="agents/david.html" class="pill-cta">Meet David ›</a>
-                </div>
-                <div class="roster-img"><img src="david_legal.png" alt="David"></div>
-            </article>
-
-            <!-- Card -->
-            <article class="roster-card tint-yellow">
-                <div class="roster-text">
-                    <h3>Virtual Receptionist</h3>
-                    <p class="roster-sub">Maya answers every call 24/7, routes inquiries to the right team, and schedules appointments flawlessly.</p>
-                    <a href="agents/maya.html" class="pill-cta">Meet Maya ›</a>
-                </div>
-                <div class="roster-img"><img src="maya_reception.png" alt="Maya"></div>
-            </article>
-
-            <!-- Card -->
-            <article class="roster-card tint-coral">
-                <div class="roster-text">
-                    <h3>Community &amp; Support</h3>
-                    <p class="roster-sub">Theo handles audience engagement and support tickets—a full CX team in one seat.</p>
-                    <a href="agents/theo.html" class="pill-cta">Meet Theo ›</a>
-                </div>
-                <div class="roster-img"><img src="wilfred_community_manager.png" alt="Theo"></div>
-            </article>
-        </div>
-    </section>
-
-    <section id="testimonials" class="testimonials-section">
-        <div class="testi-header">
-            <h2>100+ early customers,<br>hiring smarter.</h2>
-            <a href="#candidates" class="testi-button">
-                Meet the roster
-                <span class="testi-arrow">↗</span>
             </a>
         </div>
-        
-        <div class="testimonial-grid">
-            <div class="testimonial-card wide">
-                <div class="testi-card-header">
-                    <img src="https://i.pravatar.cc/100?img=12" alt="Sarah Jenkins">
-                    <div class="testi-user">
-                        <strong>Sarah Jenkins</strong>
-                        <div class="testi-stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>"Firing up Wilfred was the best decision we made. We got a full-time SDR and Paralegal without adding headcount. The onboarding was incredibly simple and clear. They guided me step by step, making the whole experience smooth and stress-free."</p>
-                <div class="testi-footer">Sarah J. – TechScale</div>
-            </div>
-
-            <div class="testimonial-card wide">
-                <div class="testi-card-header">
-                    <img src="https://i.pravatar.cc/100?img=33" alt="Mark O'Donnell">
-                    <div class="testi-user">
-                        <strong>Mark O'Donnell</strong>
-                        <div class="testi-stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>"Consulting an AI specialist online was seamless and professional. I got expert advice tailored to my business without hiring externally. The implementation felt personal, and the recommendations were clear and actionable."</p>
-                <div class="testi-footer">Mark O. – LogisticsPro</div>
-            </div>
-
-            <div class="testimonial-card narrow">
-                <div class="testi-card-header">
-                    <img src="https://i.pravatar.cc/100?img=47" alt="Elena R.">
-                    <div class="testi-user">
-                        <strong>Elena R.</strong>
-                        <div class="testi-stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>"I can actually see the difference in our sales pipeline after using Sam. The before and after results are amazing!"</p>
-                <div class="testi-footer">Elena R. – Sales</div>
-            </div>
-
-            <div class="testimonial-card narrow">
-                <div class="testi-card-header">
-                    <img src="https://i.pravatar.cc/100?img=68" alt="James M.">
-                    <div class="testi-user">
-                        <strong>James M.</strong>
-                        <div class="testi-stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>"The virtual receptionist is a game-changer. I could have it answer calls instantly and felt confident about my customer service."</p>
-                <div class="testi-footer">James M. – Operations</div>
-            </div>
-
-            <div class="testimonial-card narrow">
-                <div class="testi-card-header">
-                    <img src="https://i.pravatar.cc/100?img=5" alt="David K.">
-                    <div class="testi-user">
-                        <strong>David K.</strong>
-                        <div class="testi-stars">★★★★★</div>
-                    </div>
-                </div>
-                <p>"Thanks to the AI legal assistant, my contracts are closely monitored. I feel more secure and informed about my compliance every day."</p>
-                <div class="testi-footer">David K. – Legal</div>
-            </div>
-        </div>
     </section>
 
-    <section id="salary" class="comparison-section">
-        <div class="section-header">
-            <h2>The 2026 AI vs. Human Salary Guide</h2>
-            <p>What you pay for the seat — fully loaded, in CAD.</p>
-        </div>
-        <div class="comparison-table-wrapper glass scroll-x">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Role</th>
-                        <th>Human (loaded)</th>
-                        <th><span class="gradient-text">Wilfred AI</span></th>
-                        <th>Annual savings</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>SDR / BDR</td>
-                        <td>~$85,000</td>
-                        <td><strong>$23,964</strong> <span class="muted">($1,997/mo)</span></td>
-                        <td><span class="savings">$61,036 · 72%</span></td>
-                    </tr>
-                    <tr>
-                        <td>Content Marketer</td>
-                        <td>~$94,000</td>
-                        <td><strong>$17,964</strong> <span class="muted">($1,497/mo)</span></td>
-                        <td><span class="savings">$76,036 · 81%</span></td>
-                    </tr>
-                    <tr>
-                        <td>Executive Assistant</td>
-                        <td>~$78,000</td>
-                        <td><strong>$11,964</strong> <span class="muted">($997/mo)</span></td>
-                        <td><span class="savings">$66,036 · 85%</span></td>
-                    </tr>
-                    <tr>
-                        <td>Paralegal</td>
-                        <td>~$91,000</td>
-                        <td><strong>$23,964</strong> <span class="muted">($1,997/mo)</span></td>
-                        <td><span class="savings">$67,036 · 74%</span></td>
-                    </tr>
-                    <tr>
-                        <td>Receptionist</td>
-                        <td>~$62,000</td>
-                        <td><strong>$5,964</strong> <span class="muted">($497/mo)</span></td>
-                        <td><span class="savings">$56,036 · 90%</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p style="text-align:center; color: var(--text-muted); margin-top: 1.5rem; font-size: 0.95rem;">Human totals include 30% loaded cost (CPP, EI, benefits, equipment, PTO). Source: 2026 Canadian compensation benchmarks.</p>
-    </section>
+    <!-- ====================== WORKFLOW / THE FULL ROSTER ====================== -->
+    <section class="workflow-section">
+        <div class="workflow-inner">
+            <div class="workflow-left">
+                <div class="workflow-left-top">
+                    <span class="workflow-kicker">// The Rest of the Bench</span>
+                    <h2 class="workflow-title">And the rest of Wilfred's team.</h2>
 
-    <section id="calculator" class="calculator-section">
-        <div class="section-header">
-            <h2>What would you save?</h2>
-            <p>Pick a role, set the headcount, see the annual difference. CAD, fully-loaded.</p>
-        </div>
-        <div class="calculator glass">
-            <div class="calc-controls">
-                <label class="calc-field">
-                    <span>Role</span>
-                    <select id="calc-role">
-                        <option value="sdr" data-human="85000" data-ai="23964">SDR / BDR</option>
-                        <option value="content" data-human="94000" data-ai="17964">Content Marketer</option>
-                        <option value="ea" data-human="78000" data-ai="11964">Executive Assistant</option>
-                        <option value="paralegal" data-human="91000" data-ai="23964">Paralegal</option>
-                        <option value="reception" data-human="62000" data-ai="5964">Receptionist</option>
-                    </select>
-                </label>
-                <label class="calc-field">
-                    <span>How many seats?</span>
-                    <input id="calc-count" type="number" min="1" max="50" value="1">
-                </label>
-                <label class="calc-field">
-                    <span>Province (overhead %)</span>
-                    <select id="calc-prov">
-                        <option value="1.00">Use default loaded cost</option>
-                        <option value="1.05">Ontario (+5%)</option>
-                        <option value="1.08">Quebec (+8%)</option>
-                        <option value="1.03">Alberta (+3%)</option>
-                        <option value="1.06">BC (+6%)</option>
-                    </select>
-                </label>
-            </div>
-            <div class="calc-results">
-                <div class="calc-card">
-                    <span class="calc-label">Human cost / yr</span>
-                    <span class="calc-value" id="calc-human">$85,000</span>
-                </div>
-                <div class="calc-card">
-                    <span class="calc-label">Wilfred cost / yr</span>
-                    <span class="calc-value" id="calc-ai">$23,964</span>
-                </div>
-                <div class="calc-card calc-card-hero">
-                    <span class="calc-label">You save</span>
-                    <span class="calc-value" id="calc-savings">$61,036</span>
-                    <span class="calc-sub" id="calc-pct">72% reduction</span>
-                </div>
-            </div>
-            <div class="calc-cta">
-                <a href="#hire" class="btn btn-lg btn-primary">Hire this role</a>
-                <span class="calc-fineprint">Numbers update live. Loaded cost includes CPP, EI, benefits, equipment, PTO.</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="sovereignty" class="about-section">
-        <div class="about-grid">
-            <div class="about-text">
-                <div class="badge">The Canadian Wedge</div>
-                <h2>Canadian workers. Canadian data. Canadian rules.</h2>
-                <p>Every other AI staffing platform routes your data through US servers. For regulated Canadian businesses — legal, healthcare, financial, dental, government, education — that's a non-starter.</p>
-                <p>Wilfred is the only AI staffing agency built end-to-end on Canadian soil.</p>
-                <ul class="benefits">
-                    <li><div class="icon">🛡️</div><div><strong>100% Canadian data residency</strong><p>Azure Canada Central + AWS Bedrock ca-central-1. Your data never leaves the country.</p></div></li>
-                    <li><div class="icon">📜</div><div><strong>PIPEDA + Quebec Law 25 ready</strong><p>Compliance baked in — DPA, audit logs, 7-year retention available out of the box.</p></div></li>
-                    <li><div class="icon">💵</div><div><strong>CAD pricing, CAD invoicing</strong><p>No FX surprises. No US-dollar bill shock at month-end.</p></div></li>
-                </ul>
-            </div>
-            <div class="about-stats">
-                <div class="stat-card glass"><h3>🇨🇦</h3><p>Owned & operated in Canada</p></div>
-                <div class="stat-card glass"><h3>0</h3><p>Cross-border data flows</p></div>
-                <div class="stat-card glass"><h3>24/7</h3><p>Canadian-staffed support</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section class="industries-section">
-        <div class="section-header">
-            <h2>Industries we staff</h2>
-            <p>Pre-trained AI candidates with vertical-specific guardrails, terminology and compliance baked in. Scroll →</p>
-        </div>
-        <div class="offer-carousel" data-carousel>
-            <button class="carousel-btn carousel-btn-left" aria-label="Scroll left" data-scroll="left">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-
-            <div class="carousel-track" data-track>
-                <a href="agents/david.html" class="offer-card">
-                    <div class="offer-img">
-                        <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=900&auto=format&fit=crop" alt="Legal — gavel and law books">
-                    </div>
-                    <div class="offer-body">
-                        <div class="offer-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                            <span>Industry</span>
+                    <div class="workflow-scenario-list">
+                        <div class="workflow-point">
+                            <span class="workflow-point-dot"></span>
+                            <div class="workflow-point-copy">
+                                <strong>Sam — SDR / Lead Gen</strong>
+                                <p>Books meetings on autopilot, qualifies leads, runs cold outreach 24/7.</p>
+                            </div>
                         </div>
-                        <h3>Legal</h3>
-                        <p>Paralegals, intake clerks, contract reviewers — with PIPEDA &amp; Law Society guardrails.</p>
-                        <div class="offer-foot">
-                            <div class="brand-row"><img class="brand-logo" src="david_legal.png" alt="David"><div class="brand-info"><strong>David</strong><span>Paralegal · Ready</span></div></div>
-                            <div class="arrow-circle" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        <div class="workflow-point">
+                            <span class="workflow-point-dot"></span>
+                            <div class="workflow-point-copy">
+                                <strong>Claire — Content Marketing</strong>
+                                <p>Writes &amp; ranks your blog, manages social, drives inbound traffic.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-point">
+                            <span class="workflow-point-dot"></span>
+                            <div class="workflow-point-copy">
+                                <strong>Olivia — Executive Assistant</strong>
+                                <p>Triages your inbox, manages complex calendars, handles travel.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-point">
+                            <span class="workflow-point-dot"></span>
+                            <div class="workflow-point-copy">
+                                <strong>David — Paralegal</strong>
+                                <p>Reviews contracts, flags compliance risks, drafts standard documents.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-point">
+                            <span class="workflow-point-dot"></span>
+                            <div class="workflow-point-copy">
+                                <strong>Maya — Virtual Receptionist</strong>
+                                <p>Answers every call 24/7, routes inquiries, books appointments.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-point">
+                            <span class="workflow-point-dot"></span>
+                            <div class="workflow-point-copy">
+                                <strong>Theo — Community &amp; Support</strong>
+                                <p>Audience engagement, support tickets — a full CX team in one seat.</p>
                             </div>
                         </div>
                     </div>
-                </a>
-
-                <a href="agents/maya.html" class="offer-card">
-                    <div class="offer-img">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=900&auto=format&fit=crop" alt="Healthcare — stethoscope">
-                    </div>
-                    <div class="offer-body">
-                        <div class="offer-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                            <span>Industry</span>
-                        </div>
-                        <h3>Healthcare &amp; Dental</h3>
-                        <p>Receptionists, billing clerks, recall coordinators — PHIPA-aware, PHI never leaves Canada.</p>
-                        <div class="offer-foot">
-                            <div class="brand-row"><img class="brand-logo" src="maya_reception.png" alt="Maya"><div class="brand-info"><strong>Maya</strong><span>Receptionist · Ready</span></div></div>
-                            <div class="arrow-circle" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="agents/quinn.html" class="offer-card">
-                    <div class="offer-img">
-                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=900&auto=format&fit=crop" alt="Financial — calculator and ledger">
-                    </div>
-                    <div class="offer-body">
-                        <div class="offer-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                            <span>Industry</span>
-                        </div>
-                        <h3>Financial Services</h3>
-                        <p>Bookkeepers, KYC analysts, client coordinators — audit-trail logging on every action.</p>
-                        <div class="offer-foot">
-                            <div class="brand-row"><img class="brand-logo" src="quinn_bookkeeper.png" alt="Quinn"><div class="brand-info"><strong>Quinn</strong><span>Bookkeeper · Ready</span></div></div>
-                            <div class="arrow-circle" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="agents/sam.html" class="offer-card">
-                    <div class="offer-img">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=900&auto=format&fit=crop" alt="MSP — server racks">
-                    </div>
-                    <div class="offer-body">
-                        <div class="offer-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                            <span>Industry</span>
-                        </div>
-                        <h3>MSPs &amp; IT Services</h3>
-                        <p>Tier-1 dispatchers, ticket triage, SDRs — native ConnectWise &amp; M365 integration.</p>
-                        <div class="offer-foot">
-                            <div class="brand-row"><img class="brand-logo" src="wilfred_lead_gen.png" alt="Sam"><div class="brand-info"><strong>Sam</strong><span>SDR · Ready</span></div></div>
-                            <div class="arrow-circle" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#sovereignty" class="offer-card">
-                    <div class="offer-img">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=900&auto=format&fit=crop" alt="Government &amp; Education">
-                    </div>
-                    <div class="offer-body">
-                        <div class="offer-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                            <span>Industry</span>
-                        </div>
-                        <h3>Government &amp; Education</h3>
-                        <p>Sovereign-tier deployments. CMK encryption, dedicated Azure tenancy, 7-year retention.</p>
-                        <div class="offer-foot">
-                            <div class="brand-row"><img class="brand-logo" src="wilfred_legal_assistant.png" alt="David"><div class="brand-info"><strong>David</strong><span>Compliance · Sovereign</span></div></div>
-                            <div class="arrow-circle" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="agents/olivia.html" class="offer-card">
-                    <div class="offer-img">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=900&auto=format&fit=crop" alt="Professional services office">
-                    </div>
-                    <div class="offer-body">
-                        <div class="offer-tag">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-                            <span>Industry</span>
-                        </div>
-                        <h3>Professional Services</h3>
-                        <p>Marketers, EAs, SDRs, community managers — full back-office coverage for SMBs.</p>
-                        <div class="offer-foot">
-                            <div class="brand-row"><img class="brand-logo" src="wilfred_exec_assistant.png" alt="Olivia"><div class="brand-info"><strong>Olivia</strong><span>Exec Assistant · Ready</span></div></div>
-                            <div class="arrow-circle" aria-hidden="true">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <button class="carousel-btn carousel-btn-right" aria-label="Scroll right" data-scroll="right">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-        </div>
-    </section>
-
-    <section class="comparison-section">
-        <div class="section-header">
-            <h2>How a placement works</h2>
-            <p>From job description to first day on the job — in under a week.</p>
-        </div>
-        <div class="comparison-table-wrapper glass">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Step</th>
-                        <th>Traditional Staffing Agency</th>
-                        <th><span class="gradient-text">Wilfred</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>1. Job intake</td><td>2-week discovery + JD writing</td><td><strong>15-min structured intake form</strong></td></tr>
-                    <tr><td>2. Candidate match</td><td>4–8 weeks shortlisting</td><td><strong>Same-day match from pre-trained roster</strong></td></tr>
-                    <tr><td>3. Configuration</td><td>30–90 day onboarding & ramp</td><td><strong>48 hours — tools, brand voice, KPIs wired in</strong></td></tr>
-                    <tr><td>4. Trial period</td><td>3-month probation, hard to reverse</td><td><strong>7-day shadow mode, side-by-side eval</strong></td></tr>
-                    <tr><td>5. Live & reporting</td><td>Annual review</td><td><strong>Live KPI dashboard + weekly auto-evals</strong></td></tr>
-                    <tr><td>6. Replacement</td><td>Repeat the entire cycle</td><td><strong>Reassign or retire in one click</strong></td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <section id="pricing" class="pricing-section">
-        <div class="section-header">
-            <h2>Salary bands</h2>
-            <p>Pick the seniority level. Cancel or reassign any time.</p>
-        </div>
-
-        <div class="pricing-grid">
-            <div class="pricing-card glass">
-                <div class="tier">Junior</div>
-                <div class="price">$497<span>/mo CAD</span></div>
-                <p class="desc">Coordinator / part-time admin replacement.</p>
-                <ul class="features">
-                    <li>✓ 1 role (receptionist, scheduler, admin)</li>
-                    <li>✓ Standard SLAs</li>
-                    <li>✓ Email + calendar integration</li>
-                    <li>✓ Basic KPI dashboard</li>
-                    <li>✓ Replaces ~$48K human salary</li>
-                </ul>
-                <a href="#hire" class="btn btn-outline">Hire Junior</a>
-            </div>
-
-            <div class="pricing-card glass popular">
-                <div class="popular-badge">Most Popular</div>
-                <div class="tier">Senior</div>
-                <div class="price">$1,497<span>/mo CAD</span></div>
-                <p class="desc">Full-time specialist replacement (SDR, marketer, EA, paralegal).</p>
-                <ul class="features">
-                    <li>✓ Up to 3 active roles</li>
-                    <li>✓ Real-time response SLAs</li>
-                    <li>✓ CRM, Slack, M365, ConnectWise</li>
-                    <li>✓ Live KPI dashboard + weekly evals</li>
-                    <li>✓ Custom voice / persona</li>
-                    <li>✓ Replaces ~$70–90K human salary</li>
-                </ul>
-                <a href="#hire" class="btn btn-primary">Hire Senior</a>
-            </div>
-
-            <div class="pricing-card glass">
-                <div class="tier">Manager</div>
-                <div class="price">$3,997<span>/mo CAD</span></div>
-                <p class="desc">Lead-level placement — orchestrates a team of AI workers.</p>
-                <ul class="features">
-                    <li>✓ Department-level orchestration</li>
-                    <li>✓ Dedicated Canadian success manager</li>
-                    <li>✓ White-label option</li>
-                    <li>✓ Custom training & evals</li>
-                    <li>✓ Replaces ~$120K+ human salary</li>
-                </ul>
-                <a href="#hire" class="btn btn-outline">Hire Manager</a>
-            </div>
-
-            <div class="pricing-card glass">
-                <div class="tier">Sovereign</div>
-                <div class="price">Custom<span></span></div>
-                <p class="desc">Dedicated infra for regulated industries (legal, healthcare, gov).</p>
-                <ul class="features">
-                    <li>✓ Dedicated Canadian Azure tenant</li>
-                    <li>✓ Customer-managed encryption keys</li>
-                    <li>✓ 7-year immutable audit logs</li>
-                    <li>✓ PIPEDA + Law 25 DPA</li>
-                    <li>✓ Optional: deploy in your subscription</li>
-                </ul>
-                <a href="#hire" class="btn btn-outline">Talk to us</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="hire" class="comparison-section">
-        <div class="section-header">
-            <h2>Ready to post a job?</h2>
-            <p>Tell us the role. We'll have a candidate working by Friday.</p>
-            <div class="hero-actions" style="justify-content:center; margin-top: 2rem;">
-                <a href="mailto:hire@hirewilfred.ai" class="btn btn-lg btn-primary">Post a Role</a>
-                <a href="#candidates" class="btn btn-lg btn-secondary">Browse the Roster</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="#" class="logo-lockup">
-                    <img class="logo-mark" src="src/assets/wilfred-mark.svg" alt="Hire Wilfred"><span class="logo-text">hire<span class="accent">wilfred</span></span></a>
-                <p>Canada's AI staffing agency.</p>
-            </div>
-            <div class="footer-links">
-                <div class="link-col">
-                    <a href="agents/claire.html">Claire — Marketing</a>
-                    <a href="agents/sam.html">Sam — SDR</a>
-                    <a href="agents/olivia.html">Olivia — EA</a>
-                    <a href="agents/david.html">David — Paralegal</a>
-                    <a href="agents/maya.html">Maya — Receptionist</a>
-                    <a href="agents/theo.html">Theo — Community</a>
-                    <a href="agents/quinn.html">Quinn — Bookkeeper</a>
                 </div>
-                <div class="link-col">
-                    <h4>Employers</h4>
-                    <a href="#salary">Salary Guide</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#sovereignty">Canadian-Hosted</a>
+
+                <div class="workflow-left-bottom">
+                    <strong>Need a specialist who isn't on the bench?</strong>
+                    <p>Tell Wilfred the role you need. He'll spin up a new specialist against your JD and add them to your team.</p>
+                    <a href="#hire" class="workflow-button">
+                        <span class="workflow-button-dot"></span>
+                        Request a custom specialist
+                    </a>
                 </div>
-                <div class="link-col">
-                    <h4>Legal</h4>
-                    <a href="#">PIPEDA / Law 25</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Master Services Agreement</a>
+            </div>
+
+            <div class="workflow-right">
+                <a href="agents/sam.html" class="workflow-card">
+                    <img src="wilfred_lead_gen.png" alt="Sam — SDR">
+                    <span class="workflow-card-chip">📞</span>
+                    <span class="workflow-card-tag">SDR</span>
+                    <div class="workflow-card-label">Sam — Lead Gen</div>
+                </a>
+                <a href="agents/olivia.html" class="workflow-card">
+                    <img src="wilfred_exec_assistant.png" alt="Olivia — Executive Assistant">
+                    <span class="workflow-card-chip">🗓</span>
+                    <span class="workflow-card-tag">EA</span>
+                    <div class="workflow-card-label">Olivia — Exec Assistant</div>
+                </a>
+                <a href="agents/claire.html" class="workflow-card">
+                    <img src="claire_marketing.png" alt="Claire — Marketing">
+                    <span class="workflow-card-chip">🖋</span>
+                    <span class="workflow-card-tag">Marketing</span>
+                    <div class="workflow-card-label">Claire — Content</div>
+                </a>
+                <a href="agents/david.html" class="workflow-card">
+                    <img src="david_legal.png" alt="David — Paralegal">
+                    <span class="workflow-card-chip">⚖️</span>
+                    <span class="workflow-card-tag">Legal</span>
+                    <div class="workflow-card-label">David — Paralegal</div>
+                </a>
+                <a href="agents/maya.html" class="workflow-card">
+                    <img src="maya_reception.png" alt="Maya — Receptionist">
+                    <span class="workflow-card-chip">☎️</span>
+                    <span class="workflow-card-tag">Reception</span>
+                    <div class="workflow-card-label">Maya — Receptionist</div>
+                </a>
+                <a href="agents/theo.html" class="workflow-card">
+                    <img src="wilfred_community_manager.png" alt="Theo — Community Manager">
+                    <span class="workflow-card-chip">💬</span>
+                    <span class="workflow-card-tag">Support</span>
+                    <div class="workflow-card-label">Theo — Community &amp; Support</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== WHY CANADIAN (promoted to full section) ====================== -->
+    <section id="canadian" class="process-section">
+        <div class="process-shell">
+            <div class="process-header">
+                <span class="section-eyebrow dark">
+                    <span class="eyebrow-dot"></span>
+                    The Canadian wedge
+                </span>
+                <h2 class="section-title dark">Canadian conductor.<br>Canadian team. Canadian rules.</h2>
+                <p class="section-text dark">Every other AI staffing platform routes your data through US servers. For regulated Canadian businesses — legal, healthcare, financial, dental, government, education — that's a non-starter. Wilfred is the only AI workforce conductor built end-to-end on Canadian soil.</p>
+            </div>
+
+            <div class="process-pricing-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="process-pricing-card">
+                    <div class="process-pricing-tier">Data residency</div>
+                    <div class="process-pricing-price" style="font-size: 1.7rem;">100% Canadian</div>
+                    <p class="process-pricing-desc">Azure Canada Central + AWS Bedrock ca-central-1. Your data never crosses the border.</p>
+                    <ul class="process-pricing-features">
+                        <li>✓ No cross-border data flows</li>
+                        <li>✓ CMK encryption available</li>
+                        <li>✓ Dedicated tenant on Sovereign tier</li>
+                        <li>✓ Annual third-party audit</li>
+                    </ul>
+                </div>
+
+                <div class="process-pricing-card popular">
+                    <span class="process-pricing-badge">Built-in</span>
+                    <div class="process-pricing-tier">Compliance</div>
+                    <div class="process-pricing-price" style="font-size: 1.7rem;">PIPEDA + Law 25</div>
+                    <p class="process-pricing-desc">DPA, audit logs, 7-year retention — out of the box, every plan.</p>
+                    <ul class="process-pricing-features">
+                        <li>✓ PIPEDA-compliant by default</li>
+                        <li>✓ Quebec Law 25 ready</li>
+                        <li>✓ 7-year immutable audit logs</li>
+                        <li>✓ Optional PHIPA / Law Society guardrails</li>
+                    </ul>
+                </div>
+
+                <div class="process-pricing-card">
+                    <div class="process-pricing-tier">Billing &amp; support</div>
+                    <div class="process-pricing-price" style="font-size: 1.7rem;">CAD &amp; Canadian</div>
+                    <p class="process-pricing-desc">CAD pricing, CAD invoicing, 24/7 Canadian-staffed support. No FX surprises.</p>
+                    <ul class="process-pricing-features">
+                        <li>✓ CAD billing, no FX exposure</li>
+                        <li>✓ Canadian success manager</li>
+                        <li>✓ Toronto / Montreal / Vancouver support</li>
+                        <li>✓ Owned &amp; operated in Canada</li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Wilfred AI Staffing Inc. Made in Canada. Hosted in Canada.</p>
+    </section>
+
+    <!-- ====================== PRICING ====================== -->
+    <section id="pricing" class="faq-section" style="clip-path: none; margin-top: 0; padding: 8rem 1.5rem 9rem;">
+        <div class="faq-shell">
+            <div class="faq-header">
+                <span class="section-eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    Salary bands
+                </span>
+                <h2 class="section-title light">Hire Wilfred at the seniority you need.</h2>
+                <p class="section-text light">One conductor. Different bench sizes. Cancel or reassign any time. CAD-billed, no FX, no payroll tax.</p>
+            </div>
+
+            <div class="process-pricing-grid">
+                <div class="process-pricing-card" style="background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), rgba(20,15,12,0.58); border-color: rgba(251,246,238,0.1);">
+                    <div class="process-pricing-tier" style="color: #F1C08A;">Junior</div>
+                    <div class="process-pricing-price" style="color: var(--text-light);">$497<span style="color: rgba(251,246,238,0.6);">/mo CAD</span></div>
+                    <p class="process-pricing-desc" style="color: rgba(251,246,238,0.7);">Coordinator-level conductor. Wilfred runs one specialist for you.</p>
+                    <ul class="process-pricing-features" style="color: rgba(251,246,238,0.78);">
+                        <li>✓ 1 specialist (receptionist, scheduler, admin)</li>
+                        <li>✓ Standard SLAs</li>
+                        <li>✓ Email + calendar integration</li>
+                        <li>✓ Basic KPI dashboard</li>
+                        <li>✓ Replaces ~$48K human salary</li>
+                    </ul>
+                    <a href="#hire" class="process-pricing-cta" style="background: rgba(251,246,238,0.10); color: var(--text-light); border: 1px solid rgba(251,246,238,0.2);">Hire Junior ↗</a>
+                </div>
+
+                <div class="process-pricing-card popular" style="background: linear-gradient(180deg, rgba(241,192,138,0.18), rgba(201,135,85,0.08)), rgba(20,15,12,0.58); border-color: rgba(201,135,85,0.5);">
+                    <span class="process-pricing-badge">Most Popular</span>
+                    <div class="process-pricing-tier" style="color: #F1C08A;">Senior</div>
+                    <div class="process-pricing-price" style="color: var(--text-light);">$1,497<span style="color: rgba(251,246,238,0.6);">/mo CAD</span></div>
+                    <p class="process-pricing-desc" style="color: rgba(251,246,238,0.78);">Full team conductor. Wilfred runs up to 3 specialists day-to-day.</p>
+                    <ul class="process-pricing-features" style="color: rgba(251,246,238,0.82);">
+                        <li>✓ Up to 3 active specialists</li>
+                        <li>✓ Real-time response SLAs</li>
+                        <li>✓ CRM, Slack, M365, ConnectWise, QuickBooks</li>
+                        <li>✓ Live KPI dashboard + weekly evals</li>
+                        <li>✓ Custom voice / persona tuning</li>
+                        <li>✓ Replaces ~$70–90K human salary</li>
+                    </ul>
+                    <a href="#hire" class="process-pricing-cta">Hire Senior ↗</a>
+                </div>
+
+                <div class="process-pricing-card" style="background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), rgba(20,15,12,0.58); border-color: rgba(251,246,238,0.1);">
+                    <div class="process-pricing-tier" style="color: #F1C08A;">Manager</div>
+                    <div class="process-pricing-price" style="color: var(--text-light);">$3,997<span style="color: rgba(251,246,238,0.6);">/mo CAD</span></div>
+                    <p class="process-pricing-desc" style="color: rgba(251,246,238,0.7);">Department conductor. Wilfred orchestrates the full bench across teams.</p>
+                    <ul class="process-pricing-features" style="color: rgba(251,246,238,0.78);">
+                        <li>✓ Department-level orchestration</li>
+                        <li>✓ Dedicated Canadian success manager</li>
+                        <li>✓ White-label option</li>
+                        <li>✓ Custom training &amp; evals</li>
+                        <li>✓ Replaces ~$120K+ human salary</li>
+                    </ul>
+                    <a href="#hire" class="process-pricing-cta" style="background: rgba(251,246,238,0.10); color: var(--text-light); border: 1px solid rgba(251,246,238,0.2);">Hire Manager ↗</a>
+                </div>
+
+                <div class="process-pricing-card" style="background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), rgba(20,15,12,0.58); border-color: rgba(251,246,238,0.1);">
+                    <div class="process-pricing-tier" style="color: #F1C08A;">Sovereign</div>
+                    <div class="process-pricing-price" style="color: var(--text-light);">Custom</div>
+                    <p class="process-pricing-desc" style="color: rgba(251,246,238,0.7);">Dedicated infra for regulated industries (legal, healthcare, gov).</p>
+                    <ul class="process-pricing-features" style="color: rgba(251,246,238,0.78);">
+                        <li>✓ Dedicated Canadian Azure tenant</li>
+                        <li>✓ Customer-managed encryption keys</li>
+                        <li>✓ 7-year immutable audit logs</li>
+                        <li>✓ PIPEDA + Law 25 DPA included</li>
+                        <li>✓ Optional: deploy in your subscription</li>
+                    </ul>
+                    <a href="#hire" class="process-pricing-cta" style="background: rgba(251,246,238,0.10); color: var(--text-light); border: 1px solid rgba(251,246,238,0.2);">Talk to us ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== FAQ ====================== -->
+    <section id="faq" class="faq-section">
+        <div class="faq-shell">
+            <div class="faq-header">
+                <span class="section-eyebrow">
+                    <span class="eyebrow-dot"></span>
+                    Common questions
+                </span>
+                <h2 class="section-title light">How does hiring Wilfred actually work?</h2>
+                <p class="section-text light">The mechanics of the conductor model — who manages whom, who owns the SLA, and what happens when something breaks.</p>
+            </div>
+
+            <div class="faq-layout">
+                <aside class="faq-side-card">
+                    <span class="faq-side-kicker"><span class="faq-side-kicker-dot"></span> Still talking to humans</span>
+                    <h3>Wilfred runs the work.<br>Our team runs Wilfred.</h3>
+                    <p>You always have a real Canadian success manager on the other end of the line. Wilfred conducts the AI specialists; we conduct Wilfred — onboarding, escalation, quarterly business reviews, and anything that needs a human judgment call.</p>
+                    <div class="faq-side-points">
+                        <div class="faq-side-point">
+                            <span class="faq-side-point-icon">👋</span>
+                            <span><strong style="color:var(--text-light);display:block;">Dedicated success manager.</strong> A named Canadian human you can email, call, or Slack.</span>
+                        </div>
+                        <div class="faq-side-point">
+                            <span class="faq-side-point-icon">📞</span>
+                            <span><strong style="color:var(--text-light);display:block;">24/7 escalation.</strong> Toronto, Montreal, and Vancouver coverage. SLA-backed response.</span>
+                        </div>
+                        <div class="faq-side-point">
+                            <span class="faq-side-point-icon">📈</span>
+                            <span><strong style="color:var(--text-light);display:block;">Quarterly business reviews.</strong> What worked, what shifted, and what to scale next quarter.</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="faq-list">
+                    <div class="faq-item is-open">
+                        <button class="faq-question" data-faq>
+                            <span>Am I hiring Wilfred, or am I hiring the specialists?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
+                            <p>You hire <strong>Wilfred</strong>. He's the conductor. He picks which specialists you need — Quinn for the books, Sam for outreach, Maya for calls, etc. — wires them into your stack, manages them day-to-day, and swaps anyone who underperforms. You get one bill, one point of contact, one SLA.</p>
+                        </div></div></div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-faq>
+                            <span>How does Wilfred actually manage the team?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
+                            <p>Wilfred runs weekly auto-evaluations against the outcomes you set during intake. He routes work to the right specialist, escalates anything that needs human judgment to your success manager, and sends you a monthly recap. If a specialist stops performing, Wilfred swaps them — no re-onboarding cycle for you.</p>
+                        </div></div></div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-faq>
+                            <span>Can I hire just one specialist, or do I get the whole bench?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
+                            <p>Both. The <strong>Junior</strong> plan ($497/mo) gives you Wilfred conducting a single specialist. <strong>Senior</strong> ($1,497/mo) is up to 3 specialists. <strong>Manager</strong> ($3,997/mo) is department-wide orchestration across the full bench. <strong>Sovereign</strong> is dedicated infra for regulated industries.</p>
+                        </div></div></div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-faq>
+                            <span>Where does my data actually live?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
+                            <p>On Canadian soil. Every Wilfred deployment runs on Azure Canada Central and AWS Bedrock ca-central-1. Zero cross-border data flows by default. PIPEDA-compliant and Quebec Law 25 ready out of the box. On the Sovereign tier we'll deploy in a dedicated Canadian Azure tenant with customer-managed encryption keys.</p>
+                        </div></div></div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-faq>
+                            <span>What if a specialist isn't pulling their weight?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
+                            <p>Wilfred will swap them. No severance, no 90-day PIP, no re-recruiting. Tell Wilfred (or your success manager) and a different specialist takes the seat — Wilfred handles the knowledge handoff. The whole point of the conductor model is that <em>you</em> don't have to fire and re-hire.</p>
+                        </div></div></div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-faq>
+                            <span>How fast does Wilfred actually start working?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
+                            <p>48 hours from intake to first output. 15-minute structured intake, same-day specialist match from the bench, tools wired in over the next day, first deliverables by hour 48. Compare that to a 30–90 day human onboarding ramp.</p>
+                        </div></div></div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-faq>
+                            <span>I need a role that isn't on the bench. Can Wilfred do it?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer"><div class="faq-answer-inner"><div class="faq-answer-content">
+                            <p>Yes — send Wilfred the job description and we'll spin up a new pre-trained specialist against it. Custom specialists are available on the Manager and Sovereign tiers, or as a one-time add-on for Senior. <a href="mailto:hire@hirewilfred.ai?subject=Custom specialist">Email us with the JD</a>.</p>
+                        </div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="faq-footer-note">One conductor · A full bench · Hosted in Canada</p>
+        </div>
+    </section>
+
+    <!-- ====================== FINAL CTA ====================== -->
+    <section id="hire" class="audit-section">
+        <div class="audit-stage">
+            <div class="audit-media">
+                <video autoplay muted loop playsinline preload="auto" poster="wilfred_hero.png" aria-hidden="true">
+                    <source src="src/assets/wilfred.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="audit-content">
+                <div class="audit-bottom">
+                    <div class="audit-copy">
+                        <span class="audit-eyebrow">
+                            <span class="audit-eyebrow-dot"></span>
+                            Hire your conductor
+                        </span>
+                        <h2 class="audit-title">Hire Wilfred. He runs the rest.</h2>
+                        <p class="audit-text">Tell Wilfred the work you need done. He'll pick the right specialists, wire them into your stack, and have your AI team producing by Friday. Canadian-hosted, CAD-billed, with a real Canadian human on the other end of the line.</p>
+                        <div class="audit-actions">
+                            <a href="mailto:hire@hirewilfred.ai" class="audit-btn-primary">Hire Wilfred ↗</a>
+                            <a href="#team" class="audit-btn-secondary">See the bench</a>
+                        </div>
+                    </div>
+
+                    <aside class="audit-side-card">
+                        <div class="audit-side-head">
+                            <strong>What you get on day one</strong>
+                            <span class="audit-side-badge">48-hour start</span>
+                        </div>
+                        <div class="audit-side-list">
+                            <div class="audit-side-row">
+                                <span class="audit-side-icon">🎼</span>
+                                <span class="audit-side-copy"><strong>Wilfred as conductor</strong><span>One point of contact. He picks the specialists, briefs them, manages them.</span></span>
+                            </div>
+                            <div class="audit-side-row">
+                                <span class="audit-side-icon">👥</span>
+                                <span class="audit-side-copy"><strong>A pre-trained team</strong><span>Quinn, Sam, Olivia, David, Maya, Theo, Claire — matched to your work.</span></span>
+                            </div>
+                            <div class="audit-side-row">
+                                <span class="audit-side-icon">🇨🇦</span>
+                                <span class="audit-side-copy"><strong>Canadian end-to-end</strong><span>Azure Canada Central, CAD billing, Canadian success manager.</span></span>
+                            </div>
+                        </div>
+                        <div class="audit-stats-row">
+                            <div class="audit-stat"><strong>48hr</strong><span>To first output</span></div>
+                            <div class="audit-stat"><strong>1/3</strong><span>Of human salary</span></div>
+                            <div class="audit-stat"><strong>0%</strong><span>Turnover</span></div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====================== FOOTER ====================== -->
+    <footer class="site-footer">
+        <div class="site-footer-shell">
+            <div class="site-footer-top">
+                <div class="site-footer-brand">
+                    <a href="#" class="brand-lockup">
+                        <img class="brand-logo" src="hirewilfred_logo_reverse.svg" alt="Hire Wilfred" style="height: 64px; width: auto;">
+                    </a>
+                    <p>Canada's AI workforce conductor. Wilfred hires, manages, and replaces a full team of pre-trained AI specialists — so you don't have to. Hosted on Canadian soil, billed in CAD, backed by a Canadian success team.</p>
+                </div>
+
+                <div class="site-footer-links">
+                    <div class="site-footer-col">
+                        <span class="col-head">The Bench</span>
+                        <a href="agents/quinn.html">Quinn — Bookkeeper</a>
+                        <a href="agents/sam.html">Sam — SDR</a>
+                        <a href="agents/claire.html">Claire — Marketing</a>
+                        <a href="agents/olivia.html">Olivia — EA</a>
+                        <a href="agents/david.html">David — Paralegal</a>
+                        <a href="agents/maya.html">Maya — Receptionist</a>
+                        <a href="agents/theo.html">Theo — Community</a>
+                    </div>
+                    <div class="site-footer-col">
+                        <span class="col-head">Employers</span>
+                        <a href="#about">How Wilfred works</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#canadian">Canadian-Hosted</a>
+                        <a href="#hire">Hire Wilfred</a>
+                    </div>
+                    <div class="site-footer-col">
+                        <span class="col-head">Legal</span>
+                        <a href="#">PIPEDA / Law 25</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Master Services Agreement</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <p>&copy; 2026 Wilfred AI Staffing Inc. Made in Canada. Hosted in Canada.</p>
+                <div class="site-footer-bottom-links">
+                    <a href="#">PIPEDA</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-
-    <!-- Floating Consult Button -->
+    <!-- ====================== FLOATING CONSULT BUTTON ====================== -->
     <div data-fcb>
         <div class="fcb-backdrop" aria-hidden="true"></div>
         <div class="fcb-popup" role="dialog" aria-modal="true" aria-labelledby="fcb-heading">
@@ -745,7 +724,7 @@
                         <path id="fcb-circle" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
                     </defs>
                     <text>
-                        <textPath href="#fcb-circle" startOffset="0%">FREE 15 MIN CALL • HIRE WILFRED • FREE 15 MIN CALL • HIRE WILFRED • </textPath>
+                        <textPath href="#fcb-circle" startOffset="0%">HIRE WILFRED • CANADA'S AI CONDUCTOR • HIRE WILFRED • </textPath>
                     </text>
                 </svg>
                 <div class="fcb-center">
@@ -756,30 +735,22 @@
             </div>
         </div>
     </div>
-    <script src="floating-consult.js?v=202605101036" defer></script>
-    <script src="offer-carousel.js?v=202605101036" defer></script>
+
+    <script src="floating-consult.js?v=202605160030" defer></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const numEl = document.getElementById("avg-savings-num");
-            if (!numEl) return;
-            let start = 0;
-            const target = -72;
-            const duration = 2000;
-            const fps = 60;
-            const steps = duration / (1000 / fps);
-            const increment = target / steps;
-            
-            let currentStep = 0;
-            const timer = setInterval(() => {
-                start += increment;
-                currentStep++;
-                if (currentStep >= steps) {
-                    numEl.textContent = "−72%";
-                    clearInterval(timer);
-                } else {
-                    numEl.textContent = Math.round(start) + "%";
-                }
-            }, 1000 / fps);
+        // Sticky nav scroll state
+        const nav = document.getElementById('siteNav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 24) nav.classList.add('is-scrolled');
+            else nav.classList.remove('is-scrolled');
+        }, { passive: true });
+
+        // FAQ accordion
+        document.querySelectorAll('[data-faq]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.closest('.faq-item');
+                item.classList.toggle('is-open');
+            });
         });
     </script>
 </body>
