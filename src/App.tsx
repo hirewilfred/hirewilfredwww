@@ -19,6 +19,7 @@ import ContentDashboard from "./pages/ContentDashboard";
 import HeroAdmin from "./pages/HeroAdmin";
 import NotFound from "./pages/NotFound";
 import DownloadIcon from "./pages/DownloadIcon";
+import RentalDashboard from "./pages/RentalDashboard";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/content" element={<ContentDashboard />} />
           <Route path="/hero-admin" element={<HeroAdmin />} />
           <Route path="/download-icon" element={<DownloadIcon />} />
+          <Route path="/my-realtor" element={<RentalDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
