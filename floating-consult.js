@@ -20,9 +20,12 @@
         else openPopup();
     };
 
+    const bookLink = root.querySelector('[data-fcb-book]');
+
     btn.addEventListener('click', togglePopup);
     backdrop.addEventListener('click', closePopup);
     closeBtn.addEventListener('click', closePopup);
+    if (bookLink) bookLink.addEventListener('click', closePopup);
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closePopup();
     });
