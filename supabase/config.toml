@@ -1,0 +1,38 @@
+# Supabase project configuration
+# Replace YOUR_PROJECT_REF with your actual project reference ID
+# Found at: Supabase Dashboard → Project Settings → General → Reference ID
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 15
+
+[studio]
+enabled = true
+port = 54323
+
+[inbucket]
+enabled = true
+port = 54324
+
+[storage]
+enabled = true
+file_size_limit = "50MiB"
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+jwt_expiry = 3600
+enable_signup = true
+
+[functions.my-realtor]
+# Allow calling without a JWT so the dashboard "Run Search" button works
+# Set ANTHROPIC_API_KEY in: Supabase Dashboard → Settings → Edge Functions → Secrets
+verify_jwt = false
