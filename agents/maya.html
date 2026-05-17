@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,7 +34,7 @@
     <header class="agent-hero">
         <div class="agent-hero-panel">
             <div class="agent-portrait">
-                <img src="../maya_reception.png" alt="Maya" class="img-normal">
+                <img src="../Maya2.png" alt="Maya" class="img-normal">
                 <img src="../maya_cyborg.png" alt="Maya AI" class="img-cyborg">
             </div>
             <div class="agent-meta">
@@ -64,14 +64,14 @@
             
         </div>
         <div class="sticky-stack">
-            <div class="sticky-card"><div class="sticky-text"><h3>Voice + chat</h3><p>Picks up in &lt;2 rings, transcribes every conversation.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸ“ž</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>FAQ answering</h3><p>Pulls from your knowledge base, never makes things up.</p></div><div class="sticky-icon"><span class="big-emoji">â“</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>Lead qualification</h3><p>New client / existing / urgent / spam categorization.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸŽ¯</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>Appointment booking</h3><p>Direct into Acuity, Cal.com, Calendly, or your PMS.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸ“…</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>Smart routing</h3><p>Urgent issues escalate via SMS or Slack with context.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸš¨</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>CRM logging</h3><p>Every conversation logged with summary and outcome.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸ“‹</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>Multi-language</h3><p>EN / FR / ES native, others on request.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸŒ</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>After-hours</h3><p>Handles routine, escalates urgent. Never sleeps.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸŒ™</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>Voice + chat</h3><p>Picks up in &lt;2 rings, transcribes every conversation.</p></div><div class="sticky-icon"><span class="big-emoji">📞</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>FAQ answering</h3><p>Pulls from your knowledge base, never makes things up.</p></div><div class="sticky-icon"><span class="big-emoji">❓</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>Lead qualification</h3><p>New client / existing / urgent / spam categorization.</p></div><div class="sticky-icon"><span class="big-emoji">🎯</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>Appointment booking</h3><p>Direct into Acuity, Cal.com, Calendly, or your PMS.</p></div><div class="sticky-icon"><span class="big-emoji">📅</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>Smart routing</h3><p>Urgent issues escalate via SMS or Slack with context.</p></div><div class="sticky-icon"><span class="big-emoji">🚨</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>CRM logging</h3><p>Every conversation logged with summary and outcome.</p></div><div class="sticky-icon"><span class="big-emoji">📋</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>Multi-language</h3><p>EN / FR / ES native, others on request.</p></div><div class="sticky-icon"><span class="big-emoji">🌐</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>After-hours</h3><p>Handles routine, escalates urgent. Never sleeps.</p></div><div class="sticky-icon"><span class="big-emoji">🌙</span></div></div>
         </div>
     </section>
 
@@ -178,7 +178,7 @@
             const c = parseFloat(callsEl.value) || 0;
             const l = parseFloat(lenEl.value) || 0;
             const a = parseFloat(afterEl.value) || 0;
-            // 5 days Ã— calls Ã— length
+            // 5 days × calls × length
             const minsPerWeek = c * l * 5;
             hoursEl.textContent = Math.round(minsPerWeek / 60) + 'h';
             recEl.textContent = a;

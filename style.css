@@ -1322,3 +1322,10 @@ a { color: inherit; text-decoration: none; }
 .node-maya { top: 38%; left: 48%; }
 .node-theo { top: 37%; left: 53%; }
 
+
+/* Hover state for individual agent pages */
+.agent-portrait:hover .temple-node {
+    background: radial-gradient(circle at 30% 30%, rgba(135, 206, 250, 0.9), rgba(0, 150, 255, 0.7));
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.8), 0 0 5px rgba(135, 206, 250, 0.6), inset 0 0 5px rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(135, 206, 250, 0.8);
+}
