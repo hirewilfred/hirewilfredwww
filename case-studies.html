@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     <link rel="shortcut icon" href="favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="stylesheet" href="style.css?v=202605161400">
+    <link rel="stylesheet" href="style.css?v=202605171130">
     <link rel="stylesheet" href="agents-style.css?v=202605161400">
 </head>
 <body>
@@ -52,123 +52,98 @@
         <p class="lead">We're early. The case studies below are <strong>composite pilot snapshots</strong> drawn from our active design-partner program — anonymized at the customer's request and rounded for readability. We're shipping our first fully-named, fully-public case studies this quarter. If you'd like to be one of them, <a href="#apply" style="color: var(--accent-copper);">apply for the founding-customer program</a>.</p>
     </section>
 
-    <section class="industries-section">
-        <div class="industries-shell">
+    <section class="case-rail-section">
+        <div class="case-rail-header">
             <span class="industries-eyebrow">Pilot snapshots</span>
-            <h2 class="industries-headline">What customers are doing with Wilfred today.</h2>
-            <p class="industries-sub">Each story below describes a real engagement structure. Names and exact figures are anonymized.</p>
-            <div class="industries-grid">
+            <h2 class="industries-headline">Scroll the bench. Click into any story.</h2>
+            <p class="industries-sub">Swipe or scroll the rail. Each card opens its own page with the full breakdown — setup, what they did, what changed, and what their existing partners kept.</p>
+        </div>
 
-                <a href="#case-1" class="industry-card">
-                    <span class="industry-tag">Legal · 12 staff</span>
-                    <h3>Boutique Ontario law firm</h3>
-                    <p>Replaced a $91K paralegal opening with David. NDA turnaround dropped from 36 hours to 4. Partners now bill an extra 6 hours/week each.</p>
-                    <div class="industry-foot">
+        <div class="case-rail-wrap">
+            <button class="case-rail-btn case-rail-prev" type="button" aria-label="Scroll previous">‹</button>
+            <div class="case-rail" id="caseRail" tabindex="0" aria-label="Case study carousel">
+
+                <a href="case-studies/legal-firm.html" class="case-rail-card">
+                    <div class="case-rail-img"><img src="case_legal_firm.png" alt="Legal firm office"></div>
+                    <div class="case-rail-body">
+                        <span class="industry-tag">Legal · 12 staff</span>
+                        <h3>Boutique Ontario law firm</h3>
+                        <p>Replaced a $91K paralegal opening with David. NDA turnaround dropped from 36 hours to 4. Partners now bill an extra 6 hours/week each.</p>
+                    </div>
+                    <div class="case-rail-foot">
                         <div class="industry-id"><strong>David</strong><span>Paralegal · 11 months</span></div>
                         <span class="industry-arrow" aria-hidden="true">↗</span>
                     </div>
                 </a>
 
-                <a href="#case-2" class="industry-card">
-                    <span class="industry-tag">Dental · 4 locations</span>
-                    <h3>Multi-clinic dental group (BC)</h3>
-                    <p>Maya handles after-hours calls + recall outreach across all four clinics. New-patient bookings up 22%, missed calls down to zero, front desk team kept intact.</p>
-                    <div class="industry-foot">
+                <a href="case-studies/dental-clinic.html" class="case-rail-card">
+                    <div class="case-rail-img"><img src="case_dental_clinic.png" alt="Dental clinic"></div>
+                    <div class="case-rail-body">
+                        <span class="industry-tag">Dental · 4 locations</span>
+                        <h3>Multi-clinic dental group (BC)</h3>
+                        <p>Maya handles after-hours calls + recall outreach across all four clinics. New-patient bookings up 22%, missed calls down to zero, front desk team kept intact.</p>
+                    </div>
+                    <div class="case-rail-foot">
                         <div class="industry-id"><strong>Maya</strong><span>Receptionist · 8 months</span></div>
                         <span class="industry-arrow" aria-hidden="true">↗</span>
                     </div>
                 </a>
 
-                <a href="#case-3" class="industry-card">
-                    <span class="industry-tag">Accounting · 28 staff</span>
-                    <h3>Regional CPA partner firm</h3>
-                    <p>Quinn runs daily reconciliation for 40+ SMB clients. Junior bookkeepers now do review, not data entry. Firm took on 14 new clients without hiring.</p>
-                    <div class="industry-foot">
+                <a href="case-studies/cpa-firm.html" class="case-rail-card">
+                    <div class="case-rail-img"><img src="case_cpa_firm.png" alt="Accounting firm"></div>
+                    <div class="case-rail-body">
+                        <span class="industry-tag">Accounting · 28 staff</span>
+                        <h3>Regional CPA partner firm</h3>
+                        <p>Quinn runs daily reconciliation for 40+ SMB clients. Junior bookkeepers now do review, not data entry. Firm took on 14 new clients without hiring.</p>
+                    </div>
+                    <div class="case-rail-foot">
                         <div class="industry-id"><strong>Quinn</strong><span>Bookkeeper · 9 months</span></div>
                         <span class="industry-arrow" aria-hidden="true">↗</span>
                     </div>
                 </a>
 
-                <a href="#case-4" class="industry-card">
-                    <span class="industry-tag">B2B SaaS · 22 staff</span>
-                    <h3>Toronto vertical-SaaS startup</h3>
-                    <p>Sam sources + sequences 400 prospects/week into HubSpot. Booked meetings up 3.1×, AE ramp time cut in half, no SDR hire needed in 2026 plan.</p>
-                    <div class="industry-foot">
+                <a href="case-studies/saas-startup.html" class="case-rail-card">
+                    <div class="case-rail-img"><img src="case_saas_startup.png" alt="SaaS startup office"></div>
+                    <div class="case-rail-body">
+                        <span class="industry-tag">B2B SaaS · 22 staff</span>
+                        <h3>Toronto vertical-SaaS startup</h3>
+                        <p>Sam sources + sequences 400 prospects/week into HubSpot. Booked meetings up 3.1×, AE ramp time cut in half, no SDR hire needed in 2026 plan.</p>
+                    </div>
+                    <div class="case-rail-foot">
                         <div class="industry-id"><strong>Sam</strong><span>SDR · 6 months</span></div>
                         <span class="industry-arrow" aria-hidden="true">↗</span>
                     </div>
                 </a>
 
-                <a href="#case-5" class="industry-card">
-                    <span class="industry-tag">MSP · 18 staff</span>
-                    <h3>Calgary managed-services provider</h3>
-                    <p>Theo handles tier-1 support tickets in Zendesk overnight. First-response time dropped from 4 hours to 6 minutes. CSAT up 14 points.</p>
-                    <div class="industry-foot">
+                <a href="case-studies/msp-tech.html" class="case-rail-card">
+                    <div class="case-rail-img"><img src="case_msp_tech.png" alt="IT managed services provider"></div>
+                    <div class="case-rail-body">
+                        <span class="industry-tag">MSP · 18 staff</span>
+                        <h3>Calgary managed-services provider</h3>
+                        <p>Theo handles tier-1 support tickets in Zendesk overnight. First-response time dropped from 4 hours to 6 minutes. CSAT up 14 points.</p>
+                    </div>
+                    <div class="case-rail-foot">
                         <div class="industry-id"><strong>Theo</strong><span>Support · 5 months</span></div>
                         <span class="industry-arrow" aria-hidden="true">↗</span>
                     </div>
                 </a>
 
-                <a href="#case-6" class="industry-card">
-                    <span class="industry-tag">PE-backed · 60 staff</span>
-                    <h3>Quebec professional-services rollup</h3>
-                    <p>Olivia runs inbox + calendar for 7 partners. Each partner gets ~9 hours/week back. Sovereign tier with Law 25 residency. CFO calls it "the cheapest senior hire we've made."</p>
-                    <div class="industry-foot">
+                <a href="case-studies/pe-firm.html" class="case-rail-card">
+                    <div class="case-rail-img"><img src="case_pe_firm.png" alt="Professional services boardroom"></div>
+                    <div class="case-rail-body">
+                        <span class="industry-tag">PE-backed · 60 staff</span>
+                        <h3>Quebec professional-services rollup</h3>
+                        <p>Olivia runs inbox + calendar for 7 partners. Each partner gets ~9 hours/week back. Sovereign tier with Law 25 residency. CFO calls it "the cheapest senior hire we've made."</p>
+                    </div>
+                    <div class="case-rail-foot">
                         <div class="industry-id"><strong>Olivia</strong><span>EA · 7 months · Sovereign</span></div>
                         <span class="industry-arrow" aria-hidden="true">↗</span>
                     </div>
                 </a>
 
             </div>
+            <button class="case-rail-btn case-rail-next" type="button" aria-label="Scroll next">›</button>
         </div>
-    </section>
-
-    <section class="agent-section" id="case-1">
-        <h2>Case 1 — Boutique Ontario law firm</h2>
-        <p class="lead"><strong>The setup.</strong> 12-person commercial-litigation firm with a backlog of NDA and vendor-MSA reviews. They'd been trying to hire a junior paralegal for 8 months and couldn't find one in their budget ($65–75K). Partners were doing first-pass redlines after hours.</p>
-        <p class="lead"><strong>What they did.</strong> Hired David (Paralegal) at $1,997/mo on the Growth package. Connected him to their Clio Manage repository and DocuSign CLM. Set a rule: David flags, partners decide.</p>
-        <p class="lead"><strong>What changed.</strong> NDA turnaround dropped from 36 hours to 4. Average MSA review time fell from 4 hours of partner time to 25 minutes of partner review on David's draft. Partners reclaimed roughly 6 billable hours each per week (~$1,800/wk in additional billings per partner). The paralegal job posting was withdrawn — the firm now plans to hire a senior associate instead, using the recovered margin.</p>
-        <p class="lead"><strong>The partner-friendly part.</strong> Their external recruiter still gets the senior-associate search. Their managing CPA still does year-end. Clio's contract is unchanged. Nobody got squeezed.</p>
-    </section>
-
-    <section class="agent-section" id="case-2">
-        <h2>Case 2 — Multi-clinic dental group (BC)</h2>
-        <p class="lead"><strong>The setup.</strong> Four-location group with a shared central reception team. Missed evening and weekend calls were costing them roughly 15 new-patient bookings per month. Front desk was burning out on recall outreach.</p>
-        <p class="lead"><strong>What they did.</strong> Hired Maya (Receptionist) at the Growth tier. Connected her to Jane App across all four clinics. Maya handles every call between 5pm and 8am, every weekend, plus all proactive recall outreach.</p>
-        <p class="lead"><strong>What changed.</strong> Missed-call rate dropped to zero. New-patient bookings up 22% inside 90 days. Front-desk team stayed intact — they now handle the in-person experience and complex cases, which they prefer. Patient satisfaction (post-visit survey) up 11 points.</p>
-        <p class="lead"><strong>The partner-friendly part.</strong> Jane App is their PMS partner — Maya operates inside it, doesn't replace it. The dental staffing agency they use for hygienists still does their thing. The dentists practice dentistry.</p>
-    </section>
-
-    <section class="agent-section" id="case-3">
-        <h2>Case 3 — Regional CPA partner firm</h2>
-        <p class="lead"><strong>The setup.</strong> 28-person accounting firm serving small-business clients. Their junior bookkeepers were spending 70% of their time on transaction categorization and reconciliation — the work nobody wants to do. The firm was losing junior staff faster than they could train them.</p>
-        <p class="lead"><strong>What they did.</strong> Deployed Quinn (Bookkeeper) across 40+ active client QuickBooks Online files. The arrangement: Quinn does the daily reconciliation; junior bookkeepers review Quinn's work and handle exceptions; senior accountants do tax, advisory, and CFO services.</p>
-        <p class="lead"><strong>What changed.</strong> The firm took on 14 new SMB clients in 9 months without a single new hire. Junior bookkeeper retention improved (the work is now interesting). Margin per client went up ~18%. The firm now markets "AI-assisted bookkeeping" as a tier of service.</p>
-        <p class="lead"><strong>The partner-friendly part.</strong> They're a QuickBooks ProAdvisor partner. Quinn makes that partnership more valuable, not less. Intuit's product stays at the center.</p>
-    </section>
-
-    <section class="agent-section" id="case-4">
-        <h2>Case 4 — Toronto vertical-SaaS startup</h2>
-        <p class="lead"><strong>The setup.</strong> 22-person Series A SaaS company. Two AEs, zero SDRs. Founders were doing prospecting between meetings. Sales cycle was lumpy because pipeline kept going dry.</p>
-        <p class="lead"><strong>What they did.</strong> Hired Sam (SDR) at the Growth tier. Connected to HubSpot, Apollo, Clay, LinkedIn Sales Navigator. Built ICP rules with the AEs. Sam sources, enriches, sequences, and books — AEs do discovery and close.</p>
-        <p class="lead"><strong>What changed.</strong> Booked meetings up 3.1× in 90 days. Pipeline value up 2.4×. AE ramp time for a new hire cut roughly in half (because the pipeline is now consistent). The 2026 plan was to hire two SDRs at ~$75K each — that hire is now deferred indefinitely.</p>
-        <p class="lead"><strong>The partner-friendly part.</strong> They use a fractional VP Sales coach. Sam doesn't compete with the coach — Sam executes; the coach strategizes. HubSpot is their CRM forever.</p>
-    </section>
-
-    <section class="agent-section" id="case-5">
-        <h2>Case 5 — Calgary managed-services provider</h2>
-        <p class="lead"><strong>The setup.</strong> 18-person MSP supporting 200+ SMB clients. Tier-1 ticket volume was crushing the help desk overnight. After-hours coverage was costing them $8K/mo in on-call premium.</p>
-        <p class="lead"><strong>What they did.</strong> Deployed Theo (Community + Support) into their Zendesk instance. Theo handles tier-1 tickets autonomously between 6pm and 8am — password resets, common config questions, ticket routing. Escalates anything ambiguous to the on-call human.</p>
-        <p class="lead"><strong>What changed.</strong> First-response time dropped from 4 hours to 6 minutes overnight. CSAT up 14 points. On-call premium cut to $2K/mo (humans only paged for true escalations). Tier-1 ticket volume hitting humans down 71%.</p>
-        <p class="lead"><strong>The partner-friendly part.</strong> Their PSA vendor (ConnectWise) stays. Their RMM tool stays. Theo just operates inside the tools they already pay for.</p>
-    </section>
-
-    <section class="agent-section" id="case-6">
-        <h2>Case 6 — Quebec professional-services rollup</h2>
-        <p class="lead"><strong>The setup.</strong> 60-person PE-backed rollup with 7 senior partners across two Quebec offices. Data residency was a hard requirement (Law 25). Partners were drowning in email and calendar coordination.</p>
-        <p class="lead"><strong>What they did.</strong> Deployed Olivia (EA) on the Sovereign tier — dedicated Canadian Azure tenant, customer-managed keys, 7-year immutable audit log. Each partner gets their own Olivia instance, trained on their voice and priorities.</p>
-        <p class="lead"><strong>What changed.</strong> Each partner reclaimed ~9 hours/week. Partner-utilization rate up 12 points. Email response SLA went from 24 hours to 2. The CFO's exact quote: "the cheapest senior hire we've made."</p>
-        <p class="lead"><strong>The partner-friendly part.</strong> They have a longstanding outsourced CIO. The CIO approved the Sovereign architecture and remains the security owner. Wilfred reports to him.</p>
     </section>
 
     <section id="apply" class="agent-cta-band">
@@ -223,5 +198,24 @@
             </div>
         </div>
     </footer>
+
+    <script>
+    (function() {
+        const rail = document.getElementById('caseRail');
+        const prev = document.querySelector('.case-rail-prev');
+        const next = document.querySelector('.case-rail-next');
+        if (!rail || !prev || !next) return;
+        const step = () => Math.min(rail.clientWidth * 0.85, 520);
+        prev.addEventListener('click', () => rail.scrollBy({ left: -step(), behavior: 'smooth' }));
+        next.addEventListener('click', () => rail.scrollBy({ left: step(), behavior: 'smooth' }));
+        const update = () => {
+            prev.disabled = rail.scrollLeft <= 4;
+            next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+        };
+        rail.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+    })();
+    </script>
 </body>
 </html>
