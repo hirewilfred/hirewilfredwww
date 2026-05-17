@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -34,7 +34,7 @@
     <header class="agent-hero">
         <div class="agent-hero-panel">
             <div class="agent-portrait">
-                <img src="../david_legal.png" alt="David" class="img-normal">
+                <img src="../david2.png" alt="David" class="img-normal">
                 <img src="../david_cyborg.png" alt="David AI" class="img-cyborg">
             </div>
             <div class="agent-meta">
@@ -69,9 +69,9 @@
             <div class="sticky-card"><div class="sticky-text"><h3>Drafting</h3><p>Standard agreements from your templates with party-specific fields.</p></div><div class="sticky-icon"><img class="sticky-img" src="../david_task_drafting.png" alt="Drafting"></div></div>
             <div class="sticky-card"><div class="sticky-text"><h3>Version compare</h3><p>Surfaces material changes between contract versions.</p></div><div class="sticky-icon"><img class="sticky-img" src="../david_task_compare.png" alt="Version compare"></div></div>
             <div class="sticky-card"><div class="sticky-text"><h3>Compliance checklists</h3><p>PIPEDA, Law 25, PHIPA for new initiatives.</p></div><div class="sticky-icon"><img class="sticky-img" src="../david_task_compliance.png" alt="Compliance checklists"></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>Legal research</h3><p>Regulatory excerpts and case-law citations on request.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸ“š</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>Repository mgmt</h3><p>Central contract repo with renewal alerts.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸ“</span></div></div>
-            <div class="sticky-card"><div class="sticky-text"><h3>Audit log</h3><p>Every clause flagged + reasoning, exportable, immutable.</p></div><div class="sticky-icon"><span class="big-emoji">ðŸ“œ</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>Legal research</h3><p>Regulatory excerpts and case-law citations on request.</p></div><div class="sticky-icon"><span class="big-emoji">📚</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>Repository mgmt</h3><p>Central contract repo with renewal alerts.</p></div><div class="sticky-icon"><span class="big-emoji">📁</span></div></div>
+            <div class="sticky-card"><div class="sticky-text"><h3>Audit log</h3><p>Every clause flagged + reasoning, exportable, immutable.</p></div><div class="sticky-icon"><span class="big-emoji">📜</span></div></div>
         </div>
     </section>
 
@@ -178,7 +178,7 @@
             const n = parseFloat(ndaEl.value) || 0;
             const m = parseFloat(msaEl.value) || 0;
             const c = parseFloat(compEl.value) || 0;
-            // NDA: 86min, MSA: 228min, Compliance: 170min Ã— monthly/4
+            // NDA: 86min, MSA: 228min, Compliance: 170min × monthly/4
             const minsPerWeek = (n * 86) + (m * 228) + (c * 170 / 4);
             const hours = minsPerWeek / 60;
             hoursEl.textContent = Math.round(hours) + 'h';

@@ -69,7 +69,7 @@ const Hero = () => {
           >
             Meet Wilfred.{' '}
             <span className="bg-gradient-to-r from-accent via-orange-400 to-orange-500 bg-clip-text text-transparent">
-              Your Personal AI.
+              He runs your AI team.
             </span>
           </h1>
 
