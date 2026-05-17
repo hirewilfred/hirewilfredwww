@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages — Pick the size of your AI team | Hire Wilfred</title>
+    <meta name="description" content="Every Wilfred package is fully managed by a Canadian success team. Start with one specialist, scale to the full roster. CAD-billed, 48-hour deploy, swap anytime.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="hirewilfred_icon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css?v=202605171130">
+    <link rel="stylesheet" href="agents-style.css?v=202605161400">
+    <style>
+        #packages .process-pricing-card { color: var(--text-light); }
+        #packages .process-pricing-tier { color: #9DE0FF; }
+        #packages .process-pricing-price { color: var(--text-light); }
+        #packages .process-pricing-price span { color: rgba(255,255,255,0.6); }
+        #packages .process-pricing-desc { color: rgba(255,255,255,0.72); }
+        #packages .process-pricing-features li { color: rgba(255,255,255,0.84); font-size: 0.9rem; }
+        #packages .process-pricing-features li.pkg-managed { color: #9DE0FF; font-weight: 700; }
+        #packages .process-pricing-cta {
+            background: rgba(255,255,255,0.10);
+            color: var(--text-light);
+            border: 1px solid rgba(255,255,255,0.22);
+        }
+        #packages .process-pricing-cta:hover { background: rgba(255,255,255,0.18); }
+        #packages .process-pricing-card.popular .process-pricing-cta {
+            background: linear-gradient(135deg, #9DE0FF, var(--accent-copper));
+            color: var(--text-dark);
+            border: 0;
+        }
+        #packages .pkg-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025)), rgba(20,15,12,0.62);
+            border-color: rgba(255,255,255,0.12);
+        }
+        #packages .pkg-card.popular {
+            background: linear-gradient(180deg, rgba(241,192,138,0.20), rgba(88,183,255,0.08)), rgba(20,15,12,0.62);
+            border-color: rgba(88,183,255,0.55);
+        }
+        #packages .pkg-card.custom {
+            background: linear-gradient(135deg, rgba(241,192,138,0.12), rgba(255,255,255,0.03)), rgba(20,15,12,0.65);
+            border-color: rgba(241,192,138,0.32);
+            display: grid; grid-template-columns: 1fr auto;
+            align-items: center; gap: 2rem;
+        }
+        #packages .pkg-managed-band {
+            margin: 2.2rem auto 0; max-width: 920px;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 1.4rem;
+            padding: 1rem 1.4rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.78);
+            font-size: 0.84rem; font-weight: 600; letter-spacing: 0.04em;
+        }
+        #packages .pkg-managed-band strong { color: #9DE0FF; font-weight: 800; margin-right: 0.4rem; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.74rem; }
+        #packages .pkg-managed-band span::before { content: "● "; color: var(--accent-copper); margin-right: 0.3rem; }
+        @media (max-width: 1100px) {
+            #packages .process-pricing-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 640px) {
+            #packages .process-pricing-grid { grid-template-columns: 1fr !important; }
+            #packages .pkg-card.custom { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-shell">
+            <a href="index.html" class="brand-lockup"><img class="brand-logo" src="hirewilfred_logo_reverse.svg" alt="Hire Wilfred" style="height: 64px; width: auto;"></a>
+            <div class="nav-right">
+                <a href="index.html#about" class="nav-link">How Wilfred works</a>
+                <a href="team.html" class="nav-link">The Team</a>
+                <a href="integrations.html" class="nav-link">Integrations</a>
+                <a href="case-studies.html" class="nav-link">Case Studies</a>
+                <a href="partners.html" class="nav-link">Partners</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="index.html#hire" class="nav-cta">Deploy Wilfred</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Open menu">≡</button>
+        </div>
+    </nav>
+
+    <header class="agent-hero">
+        <div class="agent-hero-panel" style="grid-template-columns: 1fr;">
+            <div class="agent-meta" style="max-width: 820px; margin: 0 auto; text-align: center;">
+                <span class="badge">Packages</span>
+                <h1>Pick the size of your AI team.</h1>
+                <p class="agent-tagline" style="font-size: 1.2rem;">Every package is fully managed by Wilfred plus a real Canadian success manager — 24/7 monitoring, weekly evals, swap or scale anytime. Average per-specialist cost lands around <strong>$2,000/mo CAD</strong>, all-in.</p>
+                <div class="agent-quick-stats" style="justify-content: center;">
+                    <div><strong>48 hrs</strong><span>to first deploy</span></div>
+                    <div><strong>24/7</strong><span>managed monitoring</span></div>
+                    <div><strong>Anytime</strong><span>swap or scale</span></div>
+                </div>
+                <a href="index.html#hire" class="hero-cta">Deploy Wilfred <span>↗</span></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="packages" class="faq-section" style="clip-path: none; margin-top: 0; padding: 4rem 1.5rem 8rem;">
+        <div class="faq-shell">
+            <div class="pkg-managed-band">
+                <strong>Included on every plan</strong>
+                <span>24/7 monitoring</span>
+                <span>Weekly evals</span>
+                <span>Named success manager</span>
+                <span>Canadian-hosted</span>
+                <span>CAD-billed</span>
+            </div>
+
+            <div class="process-pricing-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 2.4rem;">
+                <div class="process-pricing-card pkg-card">
+                    <div class="process-pricing-tier">The Starter</div>
+                    <div class="process-pricing-price" style="font-size: 1.8rem;">1 specialist</div>
+                    <p class="process-pricing-desc">Pick one agent off the bench. Wilfred runs them for you end-to-end — the lowest-risk way to bring AI into the business.</p>
+                    <ul class="process-pricing-features">
+                        <li class="pkg-managed">✓ Fully managed · 24/7 monitored</li>
+                        <li>✓ Up to <strong>25 changes / updates per month</strong></li>
+                        <li>✓ Choose any 1 specialist</li>
+                        <li>✓ 48-hour start</li>
+                        <li>✓ Weekly performance recap</li>
+                    </ul>
+                    <a href="index.html#hire" class="process-pricing-cta">Start with one ↗</a>
+                </div>
+
+                <div class="process-pricing-card pkg-card">
+                    <div class="process-pricing-tier">The Duo</div>
+                    <div class="process-pricing-price" style="font-size: 1.8rem;">2 specialists</div>
+                    <p class="process-pricing-desc">Two agents handing work to each other — Sam books, Olivia preps. A real workflow, not a one-off task.</p>
+                    <ul class="process-pricing-features">
+                        <li class="pkg-managed">✓ Fully managed · 24/7 monitored</li>
+                        <li>✓ Up to <strong>60 changes / updates per month</strong></li>
+                        <li>✓ Any 2 specialists from the bench</li>
+                        <li>✓ Cross-agent workflows wired up</li>
+                        <li>✓ Live KPI dashboard · monthly review</li>
+                    </ul>
+                    <a href="index.html#hire" class="process-pricing-cta">Build the Duo ↗</a>
+                </div>
+
+                <div class="process-pricing-card pkg-card popular">
+                    <span class="process-pricing-badge">Most Popular</span>
+                    <div class="process-pricing-tier">The Department</div>
+                    <div class="process-pricing-price" style="font-size: 1.8rem;">6 specialists</div>
+                    <p class="process-pricing-desc">A cross-functional team — front office, back office, and growth — orchestrated by Wilfred from one dashboard.</p>
+                    <ul class="process-pricing-features">
+                        <li class="pkg-managed">✓ Fully managed · 24/7 monitored</li>
+                        <li>✓ Up to <strong>180 changes / updates per month</strong></li>
+                        <li>✓ Any 6 specialists from the bench</li>
+                        <li>✓ Named Canadian success manager</li>
+                        <li>✓ Custom voice + persona tuning</li>
+                        <li>✓ Quarterly business review</li>
+                    </ul>
+                    <a href="index.html#hire" class="process-pricing-cta">Build the Department ↗</a>
+                </div>
+
+                <div class="process-pricing-card pkg-card">
+                    <div class="process-pricing-tier">The Full Roster</div>
+                    <div class="process-pricing-price" style="font-size: 1.8rem;">10 specialists</div>
+                    <p class="process-pricing-desc">The whole bench plus extra seats for power roles. Best for SMBs replacing a multi-team headcount plan.</p>
+                    <ul class="process-pricing-features">
+                        <li class="pkg-managed">✓ Fully managed · 24/7 monitored</li>
+                        <li>✓ Up to <strong>300 changes / updates per month</strong></li>
+                        <li>✓ 10 specialist seats (duplicates ok)</li>
+                        <li>✓ Multi-team orchestration</li>
+                        <li>✓ White-label client portal option</li>
+                        <li>✓ Priority bench access (new agents first)</li>
+                    </ul>
+                    <a href="index.html#hire" class="process-pricing-cta">Roster it out ↗</a>
+                </div>
+            </div>
+
+            <div class="process-pricing-grid" style="grid-template-columns: 1fr; margin-top: 1.4rem;">
+                <div class="process-pricing-card pkg-card custom">
+                    <div>
+                        <div class="process-pricing-tier">Custom</div>
+                        <div class="process-pricing-price" style="font-size: 1.7rem; margin-bottom: 0.6rem;">Build it your way</div>
+                        <p class="process-pricing-desc" style="margin: 0;">Need a role that isn't on the bench? Sovereign-tier data residency? White-label across multiple clients? <strong style="color:#9DE0FF;">Fully managed</strong> with <strong style="color:#9DE0FF;">unlimited monthly changes</strong> and dedicated 24/7 monitoring. Tell Wilfred the job — we'll spin up the team, write the brief, and price it for you.</p>
+                    </div>
+                    <a href="mailto:hire@hirewilfred.ai?subject=Custom Wilfred package" class="process-pricing-cta" style="white-space: nowrap;">Talk to us ↗</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="agent-cta-band">
+        <h2>Not sure which package fits?</h2>
+        <p>Tell us about the work and we'll size it for you. No pressure, no obligation — just a clear recommendation in plain English.</p>
+        <a class="hero-cta" href="mailto:hire@hirewilfred.ai?subject=Help me size a package">Talk to a human <span>↗</span></a>
+    </section>
+
+    <footer class="site-footer">
+        <div class="site-footer-shell">
+            <div class="site-footer-top">
+                <div class="site-footer-brand">
+                    <a href="index.html" class="brand-lockup">
+                        <img class="brand-logo" src="hirewilfred_logo_reverse.svg" alt="Hire Wilfred" style="height: 64px; width: auto;">
+                    </a>
+                    <p>Canada's AI workforce conductor. Wilfred hires, manages, and replaces a full team of pre-trained AI specialists — so you don't have to. Hosted on Canadian soil, billed in CAD, backed by a Canadian success team.</p>
+                </div>
+                <div class="site-footer-links">
+                    <div class="site-footer-col">
+                        <span class="col-head">The Bench</span>
+                        <a href="agents/quinn.html">Quinn — Bookkeeper</a>
+                        <a href="agents/sam.html">Sam — SDR</a>
+                        <a href="agents/claire.html">Claire — Marketing</a>
+                        <a href="agents/olivia.html">Olivia — EA</a>
+                        <a href="agents/david.html">David — Paralegal</a>
+                        <a href="agents/maya.html">Maya — Receptionist</a>
+                        <a href="agents/theo.html">Theo — Community</a>
+                    </div>
+                    <div class="site-footer-col">
+                        <span class="col-head">Employers</span>
+                        <a href="index.html#about">How Wilfred works</a>
+                        <a href="team.html">The Team</a>
+                        <a href="integrations.html">Integrations</a>
+                        <a href="case-studies.html">Case Studies</a>
+                        <a href="packages.html">Packages</a>
+                        <a href="partners.html">Partners</a>
+                        <a href="index.html#hire">Deploy Wilfred</a>
+                    </div>
+                    <div class="site-footer-col">
+                        <span class="col-head">Legal</span>
+                        <a href="#">PIPEDA / Law 25</a>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Master Services Agreement</a>
+                    </div>
+                </div>
+            </div>
+            <div class="site-footer-bottom">
+                <p>&copy; 2026 Wilfred AI Staffing Inc. Made in Canada. Hosted in Canada.</p>
+                <div class="site-footer-bottom-links">
+                    <a href="#">PIPEDA</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

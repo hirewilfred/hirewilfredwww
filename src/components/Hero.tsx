@@ -51,7 +51,7 @@ const Hero = () => {
           <div className="flex flex-col gap-[0.45rem]">
             <span className="inline-flex items-center gap-2 text-[0.76rem] font-extrabold tracking-[0.14em] uppercase text-[#FBF6EE]/55">
               <MessageCircle className="h-3.5 w-3.5" />
-              Your AI Assistant on Telegram
+              AI Workforce for SMBs
             </span>
           </div>
         </div>
@@ -67,20 +67,20 @@ const Hero = () => {
               letterSpacing: '-0.085em',
             }}
           >
-            Meet Wilfred.{' '}
+            Fill the gap.{' '}
             <span className="bg-gradient-to-r from-accent via-orange-400 to-orange-500 bg-clip-text text-transparent">
-              He runs your AI team.
+              Not the headcount.
             </span>
           </h1>
 
           {/* Side column */}
           <div className="max-w-[440px] lg:justify-self-end">
             <p className="text-2xl md:text-[1.6rem] text-[#FBF6EE] font-light leading-snug mb-4">
-              One message away from getting things done.
+              Deploy a capable AI agent in days — at a third of what a hire costs.
             </p>
             <p className="text-[1.06rem] leading-[1.7] text-[#FBF6EE]/80 mb-7">
-              Tasks, emails, calendar, expenses — all managed through Telegram.
-              Just tell Wilfred what you need.
+              Wilfred handles the admin, scheduling, follow-ups, and ops tasks piling
+              up on your team — without adding headcount, payroll, or onboarding time.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
@@ -90,7 +90,7 @@ const Hero = () => {
                 asChild
               >
                 <Link to="/call-to-action">
-                  Get Wilfred Now
+                  Deploy Wilfred
                   <ArrowUpRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
@@ -101,19 +101,19 @@ const Hero = () => {
                 asChild
               >
                 <Link to="/case-studies">
-                  See How It Works
+                  See Real Results
                 </Link>
               </Button>
             </div>
 
-            {/* Feature chips */}
+            {/* Outcome chips */}
             <div className="flex flex-wrap gap-2.5 mt-7">
               {[
-                { emoji: "✅", label: "Task Management" },
-                { emoji: "📅", label: "Calendar Events" },
-                { emoji: "📧", label: "Email & Gmail" },
-                { emoji: "👥", label: "Contacts" },
-                { emoji: "💵", label: "Expense Tracking" },
+                { emoji: "💰", label: "1/3 the Cost of a Hire" },
+                { emoji: "⚡", label: "Live in Days" },
+                { emoji: "📋", label: "Admin & Ops" },
+                { emoji: "📞", label: "Client Follow-Up" },
+                { emoji: "📅", label: "Scheduling" },
               ].map((item, index) => (
                 <span
                   key={index}

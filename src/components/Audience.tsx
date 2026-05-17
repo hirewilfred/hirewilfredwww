@@ -1,33 +1,33 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Building, Users, Briefcase, Rocket } from 'lucide-react';
+import { Wrench, BookOpen, ShoppingBag, Rocket } from 'lucide-react';
 
 const Audience = () => {
   const audiences = [
     {
+      icon: <Wrench className="h-12 w-12 text-wilfred-accent mb-4" />,
+      title: "Trades & Field Services",
+      description: "HVAC, plumbing, electrical, landscaping — your techs are in the field, not at a desk. Wilfred handles scheduling, dispatch coordination, client follow-ups, and job confirmations so you don't need a full-time admin.",
+      benefits: ["No more missed callbacks", "Scheduling handled automatically", "Runs while you're on-site"]
+    },
+    {
+      icon: <BookOpen className="h-12 w-12 text-wilfred-accent mb-4" />,
+      title: "Professional Services",
+      description: "Law firms, accountants, consultants, and brokers all carry admin weight that doesn't bill. Wilfred takes on intake coordination, appointment booking, document follow-ups, and routine client communication — without adding overhead.",
+      benefits: ["More billable hours recovered", "Client communication on autopilot", "No hiring, no onboarding"]
+    },
+    {
+      icon: <ShoppingBag className="h-12 w-12 text-wilfred-accent mb-4" />,
+      title: "Small Retailers & E-Commerce",
+      description: "Between orders, suppliers, customer questions, and social, you're stretched thin. Wilfred covers order follow-up, customer service responses, inventory reminders, and vendor coordination — at a fraction of a part-time hire.",
+      benefits: ["Customer response time drops", "Ops gaps closed without hiring", "Works across email and chat"]
+    },
+    {
       icon: <Rocket className="h-12 w-12 text-wilfred-accent mb-4" />,
-      title: "Startups",
-      description: "Reach more potential customers without expanding your team. Scale your outreach efforts efficiently as you grow.",
-      benefits: ["Quick implementation", "Flexible scaling", "ROI-focused approach"]
-    },
-    {
-      icon: <Users className="h-12 w-12 text-wilfred-accent mb-4" />,
-      title: "Sales Teams",
-      description: "Empower your sales team with AI tools that automate prospecting and personalize outreach at scale.",
-      benefits: ["More qualified leads", "Higher conversion rates", "Data-driven insights"]
-    },
-    {
-      icon: <Briefcase className="h-12 w-12 text-wilfred-accent mb-4" />,
-      title: "Agencies",
-      description: "Deliver better results for clients through intelligent outreach automation and detailed performance tracking.",
-      benefits: ["Client reporting tools", "White-label options", "Multi-account management"]
-    },
-    {
-      icon: <Building className="h-12 w-12 text-wilfred-accent mb-4" />,
-      title: "Enterprises",
-      description: "Enterprise-grade automation with the security, compliance, and scalability your organization demands.",
-      benefits: ["Enterprise security", "Custom integrations", "Dedicated support"]
+      title: "Early-Stage Startups",
+      description: "You need output, not payroll. Wilfred gives you the operational capacity of a small team without the burn rate — handling the tasks that eat founder time before you're ready to hire for them.",
+      benefits: ["Extend runway, not headcount", "Deploy in days, not weeks", "Scales as you grow"]
     }
   ];
 
@@ -37,14 +37,13 @@ const Audience = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Who It's For</h2>
           <p className="text-lg md:text-xl text-muted-foreground">
-            Our solutions are designed for organizations serious about scaling their outreach 
-            and creating meaningful connections.
+            If you have work that needs doing and a hire you can't justify yet — Wilfred fills that gap.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {audiences.map((audience, index) => (
-            <Card key={index} className="card-hover border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
+            <Card key={index} className="card-hover border border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden relative">
               <div className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-wilfred-accent to-amber-400"></div>
               <CardHeader className="pb-2">
                 {audience.icon}
