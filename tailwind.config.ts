@@ -65,7 +65,7 @@ export default {
 				},
 				wilfred: {
 					DEFAULT: '#0D0D0D', // Black (Strength, Authority)
-					accent: '#FF6A00',  // Orange (Energy, Action)
+					accent: '#58B7FF',  // Orange (Energy, Action)
 					light: '#F5F5F5',   // Light Gray (Balance, Simplicity)
 					dark: '#4A4A4A',    // Dark Gray (Stability, Professionalism)
 				}
