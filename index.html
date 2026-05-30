@@ -103,72 +103,331 @@
         </div>
     </header>
 
-    <!-- ====================== ABOUT — COST COMPARISON ====================== -->
-    <section id="about" class="automate-section">
-        <div class="automate-shell">
-            <div class="automate-header-grid">
-                <div class="automate-header-copy">
+    <!-- ====================== THE BENCH — AGENTS SCROLLER ====================== -->
+    <section id="team" class="agents-showcase-section">
+        <div class="agents-showcase-shell">
+            <div class="carousel-header-wrap">
+                <div class="agents-showcase-header" style="margin-bottom: 0;">
                     <span class="section-eyebrow">
                         <span class="eyebrow-dot"></span>
-                        The math
+                        The Bench
                     </span>
-                    <h2 class="section-title light">Wilfred vs.<br>a traditional hire.</h2>
+                    <h2 class="section-title light">Meet our AI Specialists.</h2>
+                    <p class="section-text light">Fully trained, PIPEDA-compliant, and ready to deploy in 48 hours. Tap on any specialist to view their details or hire them instantly.</p>
                 </div>
-                <div class="automate-side-copy">
-                    <p>Before you post the job, run the numbers. The typical Wilfred specialist averages around <strong>$2,000/month CAD</strong> all-in — the equivalent Canadian hire averages 3–4× that once you load the salary. Wilfred ships in days instead of months, never calls in sick, and never quits. Here's the side-by-side a business owner actually needs.</p>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="scrollCarousel('bench-scroll', -1)">&#8592;</button>
+                    <button class="carousel-btn next" onclick="scrollCarousel('bench-scroll', 1)">&#8594;</button>
                 </div>
             </div>
 
-            <div class="cost-compare-wrap">
-                <table class="cost-compare-table">
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th class="cost-compare-us">A Wilfred specialist</th>
-                            <th>The equivalent hire</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">Typical monthly cost</th>
-                            <td class="cost-compare-us"><strong>~ $2,000</strong> CAD<span class="cost-compare-sub">includes Wilfred (the conductor) + one trained specialist</span></td>
-                            <td><strong>$6,500 – $8,000</strong> CAD<span class="cost-compare-sub">avg loaded cost: $55–75K salary + CPP/EI + benefits + tools</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Time to deploy</th>
-                            <td class="cost-compare-us"><strong>2 – 5 days</strong><span class="cost-compare-sub">connect tools, brief, go</span></td>
-                            <td><strong>60 – 120 days</strong><span class="cost-compare-sub">post, interview, offer, notice period</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Onboarding effort</th>
-                            <td class="cost-compare-us"><strong>~ 2 hours</strong> of your time<span class="cost-compare-sub">one kickoff call, one brief doc</span></td>
-                            <td><strong>40 – 80 hours</strong> over first 90 days<span class="cost-compare-sub">training, shadowing, ramp-up</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Availability</th>
-                            <td class="cost-compare-us"><strong>24 / 7 / 365</strong><span class="cost-compare-sub">no sick days, no vacation, no notice</span></td>
-                            <td><strong>~ 38 hrs/week</strong><span class="cost-compare-sub">minus 15 PTO days, 10 stat holidays, sick time</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Scaling up or down</th>
-                            <td class="cost-compare-us"><strong>Same week</strong><span class="cost-compare-sub">add a specialist or pause anytime</span></td>
-                            <td><strong>Weeks to months</strong><span class="cost-compare-sub">new req, severance risk, ESA notice</span></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Turnover risk</th>
-                            <td class="cost-compare-us"><strong>None</strong><span class="cost-compare-sub">we replace the agent, you keep the context</span></td>
-                            <td><strong>20 – 30% / year</strong><span class="cost-compare-sub">~$15K to re-hire and re-train</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p class="cost-compare-note">Figures based on Canadian SMB averages for entry-to-mid roles in admin, bookkeeping, reception, SDR, and paralegal work. Your numbers may vary; happy to walk through them on a call.</p>
+            <!-- Primary Agents Scroller -->
+            <div class="agents-scroll-wrap" id="bench-scroll">
+                <!-- Quinn -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #58B7FF;">01 | Finance</span>
+                            <h3 class="agent-card-name">Quinn</h3>
+                            <p class="agent-card-title">QuickBooks Bookkeeper</p>
+                            <div class="agent-card-divider" style="background-color: #58B7FF;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Reconciles bank feeds and credit cards weekly</li>
+                                <li>Categorizes expenses and flags tax-deductions</li>
+                                <li>Matches invoices to payments and chases AR</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #58B7FF;">Flawlessly closes your books every single week.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Quinn (QuickBooks Bookkeeper)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #BBDEFB, #58B7FF); box-shadow: 0 14px 40px rgba(88, 183, 255, 0.28);">Hire Quinn ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="Quinn2.png" alt="Quinn">
+                    </div>
+                </div>
+
+                <!-- Sam -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #58B7FF;">02 | Sales</span>
+                            <h3 class="agent-card-name">Sam</h3>
+                            <p class="agent-card-title">Sales Development Rep</p>
+                            <div class="agent-card-divider" style="background-color: #58B7FF;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Sources high-fit B2B prospects from databases</li>
+                                <li>Runs personalized email and social campaigns</li>
+                                <li>Books qualified discovery calls for your reps</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #58B7FF;">Drives consistent pipeline without burnout.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Sam (Sales Development Rep)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #BBDEFB, #58B7FF); box-shadow: 0 14px 40px rgba(88, 183, 255, 0.28);">Hire Sam ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="sam2.png" alt="Sam">
+                    </div>
+                </div>
+
+                <!-- Claire -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #58B7FF;">03 | Marketing</span>
+                            <h3 class="agent-card-name">Claire</h3>
+                            <p class="agent-card-title">Content Marketing Specialist</p>
+                            <div class="agent-card-divider" style="background-color: #58B7FF;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Writes SEO-optimized B2B blog posts</li>
+                                <li>Drafts weekly newsletters & social threads</li>
+                                <li>Repurposes content across multiple channels</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #58B7FF;">Keeps your editorial calendar active 24/7.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Claire (Content Marketing)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #BBDEFB, #58B7FF); box-shadow: 0 14px 40px rgba(88, 183, 255, 0.28);">Hire Claire ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="claire2.png" alt="Claire">
+                    </div>
+                </div>
+
+                <!-- Olivia -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #58B7FF;">04 | Operations</span>
+                            <h3 class="agent-card-name">Olivia</h3>
+                            <p class="agent-card-title">Executive Assistant</p>
+                            <div class="agent-card-divider" style="background-color: #58B7FF;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Triages and organizes email inboxes 24/7</li>
+                                <li>Schedules meetings and avoids conflicts</li>
+                                <li>Drafts email responses in your exact voice</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #58B7FF;">Protects your calendar and deep-work blocks.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Olivia (Executive Assistant)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #BBDEFB, #58B7FF); box-shadow: 0 14px 40px rgba(88, 183, 255, 0.28);">Hire Olivia ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="Olivia2.png" alt="Olivia">
+                    </div>
+                </div>
+
+                <!-- David -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #58B7FF;">05 | Legal</span>
+                            <h3 class="agent-card-name">David</h3>
+                            <p class="agent-card-title">Paralegal / Compliance Analyst</p>
+                            <div class="agent-card-divider" style="background-color: #58B7FF;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Reviews contracts and flags risky clauses</li>
+                                <li>Drafts standard NDAs & service agreements</li>
+                                <li>Pulls regulations and compliance updates</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #58B7FF;">Keeps legal operations clean and audit-ready.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring David (Paralegal / Compliance)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #BBDEFB, #58B7FF); box-shadow: 0 14px 40px rgba(88, 183, 255, 0.28);">Hire David ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="david2.png" alt="David">
+                    </div>
+                </div>
+
+                <!-- Maya -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #58B7FF;">06 | Front Office</span>
+                            <h3 class="agent-card-name">Maya</h3>
+                            <p class="agent-card-title">Virtual Receptionist</p>
+                            <div class="agent-card-divider" style="background-color: #58B7FF;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Answers phone calls and chats in under 2 rings</li>
+                                <li>Qualifies leads against custom criteria</li>
+                                <li>Books jobs directly into field calendars</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #58B7FF;">Never lets a phone lead drop, 24/7/365.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Maya (Virtual Receptionist)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #BBDEFB, #58B7FF); box-shadow: 0 14px 40px rgba(88, 183, 255, 0.28);">Hire Maya ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="Maya2.png" alt="Maya">
+                    </div>
+                </div>
+
+                <!-- Theo -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #58B7FF;">07 | Support</span>
+                            <h3 class="agent-card-name">Theo</h3>
+                            <p class="agent-card-title">Community & Support Manager</p>
+                            <div class="agent-card-divider" style="background-color: #58B7FF;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Monitors communities and chats 24/7</li>
+                                <li>Resolves tier-1 tickets from your knowledge base</li>
+                                <li>Escalates complex requests to human leads</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #58B7FF;">Keeps customer support response times near zero.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Theo (Community & Support)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #BBDEFB, #58B7FF); box-shadow: 0 14px 40px rgba(88, 183, 255, 0.28);">Hire Theo ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="theo2.png" alt="Theo">
+                    </div>
+                </div>
             </div>
 
-            <div class="automate-stats-row">
-                <div class="automate-stat"><strong>~ 70%</strong><span>Lower fully-loaded cost</span></div>
-                <div class="automate-stat"><strong>20×</strong><span>Faster to deploy</span></div>
-                <div class="automate-stat"><strong>0%</strong><span>Turnover · zero re-onboarding</span></div>
+            <!-- Subsection: Junior Agents -->
+            <div class="carousel-header-wrap junior-agents-header" style="margin-bottom: 3rem;">
+                <div style="max-width: 720px;">
+                    <span class="section-eyebrow">
+                        <span class="eyebrow-dot" style="background-color: #00E676; box-shadow: 0 0 24px rgba(0, 230, 118, 0.65);"></span>
+                        Junior / Assistant Series
+                    </span>
+                    <h2 class="section-title light" style="font-size: clamp(2rem, 3.5vw, 3.5rem);">Junior AI Agents.</h2>
+                    <p class="section-text light" style="margin-bottom: 0;">Need support staff for lighter operational tasks? Our Junior Series specialists are trained on focused workflows to assist your team. Starting at $497/mo CAD.</p>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="scrollCarousel('junior-scroll', -1)">&#8592;</button>
+                    <button class="carousel-btn next" onclick="scrollCarousel('junior-scroll', 1)">&#8594;</button>
+                </div>
             </div>
+
+            <div class="agents-scroll-wrap" id="junior-scroll">
+                <!-- Sage -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #00E676;">01 | Junior Community</span>
+                            <h3 class="agent-card-name">Sage</h3>
+                            <p class="agent-card-title">Junior Community Manager</p>
+                            <div class="agent-card-divider" style="background-color: #00E676;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Posts in private community every two days</li>
+                                <li>Pulls topics from Scout's research</li>
+                                <li>Rotates insight, story, tip and mindset formats</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #00E676;">Keeps the community alive on autopilot.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Sage (Junior Community Manager)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #A7FFEB, #00E676); box-shadow: 0 14px 40px rgba(0, 230, 118, 0.28);">Hire Sage ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="sage.png" alt="Sage">
+                    </div>
+                </div>
+
+                <!-- Scout -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #00E676;">02 | Junior Research</span>
+                            <h3 class="agent-card-name">Scout</h3>
+                            <p class="agent-card-title">Junior Research Assistant</p>
+                            <div class="agent-card-divider" style="background-color: #00E676;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Gathers data and web insights based on guidelines</li>
+                                <li>Summarizes competitor activity & industry reports</li>
+                                <li>Finds relevant topics for Sage's community content</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #00E676;">Feeds your team with fresh data insights.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Scout (Junior Research Assistant)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #A7FFEB, #00E676); box-shadow: 0 14px 40px rgba(0, 230, 118, 0.28);">Hire Scout ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="scout.png" alt="Scout">
+                    </div>
+                </div>
+
+                <!-- Jace -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #00E676;">03 | Junior Social</span>
+                            <h3 class="agent-card-name">Jace</h3>
+                            <p class="agent-card-title">Junior Social Media Assistant</p>
+                            <div class="agent-card-divider" style="background-color: #00E676;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Drafts posts for LinkedIn, Twitter, and Facebook</li>
+                                <li>Schedules and queues social media updates</li>
+                                <li>Monitors basic engagement metrics and comments</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #00E676;">Maintains a consistent brand presence online.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Jace (Junior Social Media)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #A7FFEB, #00E676); box-shadow: 0 14px 40px rgba(0, 230, 118, 0.28);">Hire Jace ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="jace.png" alt="Jace">
+                    </div>
+                </div>
+
+                <!-- Piper -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #00E676;">04 | Junior Ops</span>
+                            <h3 class="agent-card-name">Piper</h3>
+                            <p class="agent-card-title">Junior Data Entry Clerk</p>
+                            <div class="agent-card-divider" style="background-color: #00E676;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Organizes spreadsheets and database records</li>
+                                <li>Inputs customer details and cleans formatting errors</li>
+                                <li>Migrates listings and records between tools</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #00E676;">Keeps your database records clean and orderly.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Piper (Junior Data Entry)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #A7FFEB, #00E676); box-shadow: 0 14px 40px rgba(0, 230, 118, 0.28);">Hire Piper ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="piper.png" alt="Piper">
+                    </div>
+                </div>
+
+                <!-- Finn -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #00E676;">05 | Junior Content</span>
+                            <h3 class="agent-card-name">Finn</h3>
+                            <p class="agent-card-title">Junior Content Writer</p>
+                            <div class="agent-card-divider" style="background-color: #00E676;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Writes first-draft outlines for blogs and guides</li>
+                                <li>Compiles notes for newsletters and updates</li>
+                                <li>Proofreads documents for grammar and tone</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #00E676;">Accelerates content creation workflows.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Finn (Junior Content Writer)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #A7FFEB, #00E676); box-shadow: 0 14px 40px rgba(0, 230, 118, 0.28);">Hire Finn ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="finn.png" alt="Finn">
+                    </div>
+                </div>
+
+                <!-- Rory -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #00E676;">06 | Junior Inbox</span>
+                            <h3 class="agent-card-name">Rory</h3>
+                            <p class="agent-card-title">Junior Inbox Manager</p>
+                            <div class="agent-card-divider" style="background-color: #00E676;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Sorts and labels incoming customer emails</li>
+                                <li>Drafts basic email templates for common FAQs</li>
+                                <li>Flags high-priority messages for human review</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #00E676;">Streamlines daily inbox triage.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Hiring Rory (Junior Inbox Manager)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #A7FFEB, #00E676); box-shadow: 0 14px 40px rgba(0, 230, 118, 0.28);">Hire Rory ↗</a>
+                    </div>
+                    <div class="agent-card-portrait">
+                        <img src="rory.png" alt="Rory">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -575,8 +834,6 @@
             </div>
         </div>
     </footer>
-        </div>
-    </div>
     <script>
         // Sticky nav scroll state
         const nav = document.getElementById('siteNav');
@@ -593,14 +850,44 @@
             });
         });
 
-        // Force background videos to autoplay. Chrome/Safari sometimes refuse
-        // silent autoplay on first paint; this re-attempts on visibility change,
-        // first user gesture, and after every loadedmetadata event.
+        // Carousel scroll
+        function scrollCarousel(id, dir) {
+            const container = document.getElementById(id);
+            if (!container) return;
+            const card = container.querySelector('.agent-showcase-card');
+            const scrollAmount = card ? (card.offsetWidth + 32) : container.clientWidth * 0.5;
+            container.scrollBy({ left: scrollAmount * dir, behavior: 'smooth' });
+        }
+
+        // Auto-scroll both carousels — pauses on hover, resets at end
+        (function initAutoScroll() {
+            ['bench-scroll', 'junior-scroll'].forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                let paused = false;
+                el.addEventListener('mouseenter', () => paused = true);
+                el.addEventListener('mouseleave', () => paused = false);
+                el.addEventListener('touchstart', () => paused = true, { passive: true });
+                setInterval(() => {
+                    if (paused) return;
+                    const card = el.querySelector('.agent-showcase-card');
+                    const step = card ? (card.offsetWidth + 32) : 400;
+                    const maxScroll = el.scrollWidth - el.clientWidth;
+                    if (el.scrollLeft >= maxScroll - 4) {
+                        el.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        el.scrollBy({ left: step, behavior: 'smooth' });
+                    }
+                }, 4000);
+            });
+        })();
+
+        // Force background videos to autoplay
         (function forceVideoAutoplay() {
             const vids = document.querySelectorAll('video[autoplay]');
             if (!vids.length) return;
             const attempt = () => vids.forEach(v => {
-                v.muted = true;            // required for unattended autoplay
+                v.muted = true;
                 v.playsInline = true;
                 const p = v.play();
                 if (p && typeof p.catch === 'function') p.catch(() => {});
