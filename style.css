@@ -2025,7 +2025,7 @@ a { color: inherit; text-decoration: none; }
 .agent-card-portrait {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 3/4;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.06);
@@ -2035,6 +2035,7 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top center;
 }
 
 .junior-agents-header {
@@ -2052,7 +2053,7 @@ a { color: inherit; text-decoration: none; }
     flex: 0 0 clamp(320px, 80vw, 500px);
   }
   .agent-card-portrait {
-    aspect-ratio: 1;
+    aspect-ratio: 3/4;
     order: -1;
   }
   .agent-card-cta {
