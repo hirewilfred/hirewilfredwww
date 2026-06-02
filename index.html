@@ -501,21 +501,49 @@
     <section id="realtors-pack" class="agents-showcase-section" style="padding-top: 5rem; padding-bottom: 5rem; border-top: 1px solid rgba(229,50,50,0.18);">
         <div class="agents-showcase-shell">
 
-            <div class="carousel-header-wrap" style="margin-bottom: 0;">
-                <div class="agents-showcase-header" style="margin-bottom: 0;">
+            <div class="rp-feature-wrap">
+                <!-- Left: copy -->
+                <div class="rp-feature-copy">
                     <span class="section-eyebrow">
-                        <span class="eyebrow-dot" style="background-color: #E53232; box-shadow: 0 0 24px rgba(229,50,50,0.65);"></span>
+                        <span class="eyebrow-dot" style="background-color:#E53232; box-shadow:0 0 24px rgba(229,50,50,0.65);"></span>
                         Industry Pack · Real Estate
                     </span>
                     <h2 class="section-title light">The Realtor Pack.</h2>
-                    <p class="section-text light">Six specialists managed by Wilfred, built for Canadian realtors. Listings go live on time, leads never cool, deals close clean. From $4,997/mo CAD.</p>
+                    <p class="section-text light">Six specialists managed by Wilfred, built for Canadian realtors. Listings go live on time, leads never cool, deals close clean — all at a fraction of what a support staff costs.</p>
+                    <div class="rp-feature-agents">
+                        <span>Rex · Listings</span>
+                        <span>Nova · Lead Nurture</span>
+                        <span>Dot · Transactions</span>
+                        <span>Lena · Social</span>
+                        <span>Miles · CRM</span>
+                        <span>Harper · Reputation</span>
+                    </div>
+                    <div class="rp-feature-price">From <strong>$4,997</strong><span>/mo CAD · all six · managed by Wilfred</span></div>
+                    <a href="realtors.html" class="btn btn-primary" style="background:linear-gradient(135deg,#FFB3B3,#E53232); box-shadow:0 14px 40px rgba(229,50,50,0.28); margin-top:1.75rem; display:inline-block;">Meet the Realtor Team ↗</a>
                 </div>
-                <div class="carousel-controls">
-                    <button class="carousel-btn prev" onclick="scrollCarousel('realtor-scroll', -1)">&#8592;</button>
-                    <button class="carousel-btn next" onclick="scrollCarousel('realtor-scroll', 1)">&#8594;</button>
-                </div>
+
+                <!-- Right: group photo mosaic linking to realtors.html -->
+                <a href="realtors.html" class="rp-group-card" aria-label="Meet the full Realtor Pack team">
+                    <div class="rp-group-mosaic">
+                        <div class="rp-group-photo" style="grid-column:1; grid-row:1;"><img src="rex.png" alt="Rex"><span>Rex</span></div>
+                        <div class="rp-group-photo" style="grid-column:2; grid-row:1;"><img src="nova.png" alt="Nova"><span>Nova</span></div>
+                        <div class="rp-group-photo" style="grid-column:3; grid-row:1;"><img src="dot.png" alt="Dot"><span>Dot</span></div>
+                        <div class="rp-group-photo" style="grid-column:1; grid-row:2;"><img src="lena.png" alt="Lena"><span>Lena</span></div>
+                        <div class="rp-group-photo" style="grid-column:2; grid-row:2;"><img src="miles.png" alt="Miles"><span>Miles</span></div>
+                        <div class="rp-group-photo" style="grid-column:3; grid-row:2;"><img src="harper.png" alt="Harper"><span>Harper</span></div>
+                    </div>
+                    <div class="rp-group-cta">
+                        <span class="rp-group-badge"><span style="color:#E53232;">●</span> Realtor Pack · 6 Agents</span>
+                        <span class="rp-group-link">View the full team →</span>
+                    </div>
+                </a>
             </div>
 
+        </div>
+    </section>
+
+    <!-- HIDDEN — kept for realtors.html reference, not rendered -->
+    <div hidden>
             <div class="agents-scroll-wrap" id="realtor-scroll">
 
                 <!-- Rex -->
@@ -652,12 +680,8 @@
 
             </div>
 
-            <div style="text-align:center; margin-top:2.5rem;">
-                <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack Inquiry" class="btn btn-primary" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28);">Deploy the Full Realtor Pack — $4,997/mo ↗</a>
-            </div>
-
         </div>
-    </section>
+    </div>
 
     <!-- ====================== WHY CANADIAN (promoted to full section) ====================== -->
     <section id="canadian" class="process-section">

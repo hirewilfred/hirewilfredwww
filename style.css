@@ -1153,7 +1153,9 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.82rem;
 }
 
-/* ====================== REALTORS PACK — red halo portrait ====================== */
+/* ====================== REALTORS PACK ====================== */
+
+/* Red halo on individual agent portraits (used on realtors.html carousel) */
 .realtor-portrait {
   border: 1px solid rgba(229, 50, 50, 0.45) !important;
   box-shadow: 0 0 0 4px rgba(229, 50, 50, 0.15),
@@ -1162,6 +1164,111 @@ a { color: inherit; text-decoration: none; }
 }
 .realtor-portrait img {
   filter: drop-shadow(0 0 12px rgba(229, 50, 50, 0.4));
+}
+
+/* Main-page feature card: copy + group mosaic */
+.rp-feature-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.rp-feature-copy { display: flex; flex-direction: column; }
+.rp-feature-agents {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin: 1.25rem 0 1rem;
+}
+.rp-feature-agents span {
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  background: rgba(229,50,50,0.12);
+  color: #E53232;
+  border: 1px solid rgba(229,50,50,0.25);
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+.rp-feature-price {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+}
+.rp-feature-price strong {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 800;
+  color: #E53232; letter-spacing: -0.03em;
+  margin-right: 0.2rem;
+}
+
+/* Group mosaic card */
+.rp-group-card {
+  display: flex; flex-direction: column;
+  border-radius: 24px; overflow: hidden;
+  border: 1px solid rgba(229,50,50,0.3);
+  box-shadow: 0 20px 60px rgba(229,50,50,0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+.rp-group-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 80px rgba(229,50,50,0.32);
+}
+.rp-group-mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3px;
+  background: #0a0404;
+}
+.rp-group-photo {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #1a0808;
+}
+.rp-group-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
+  display: block;
+}
+.rp-group-card:hover .rp-group-photo img { transform: scale(1.05); }
+.rp-group-photo span {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 0.5rem 0.4rem 0.35rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: rgba(255,255,255,0.85);
+  text-align: center;
+}
+/* Fallback initial when image missing */
+.rp-group-photo::before {
+  content: attr(data-init);
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 2rem; font-weight: 800;
+  color: rgba(229,50,50,0.4);
+  z-index: 0;
+}
+.rp-group-cta {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: rgba(229,50,50,0.08);
+  border-top: 1px solid rgba(229,50,50,0.2);
+}
+.rp-group-badge {
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.rp-group-link {
+  font-size: 0.8rem; font-weight: 700;
+  color: #E53232;
+}
+
+@media (max-width: 900px) {
+  .rp-feature-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
 /* Junior agent card overrides */
