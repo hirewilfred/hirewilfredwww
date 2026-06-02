@@ -498,125 +498,162 @@
     </section>
 
     <!-- ====================== REALTORS PACK ====================== -->
-    <section id="realtors-pack" class="agents-showcase-section" style="padding-top: 5rem; padding-bottom: 5rem;">
+    <section id="realtors-pack" class="agents-showcase-section" style="padding-top: 5rem; padding-bottom: 5rem; border-top: 1px solid rgba(229,50,50,0.18);">
         <div class="agents-showcase-shell">
 
-            <div class="carousel-header-wrap" style="margin-bottom: 3rem;">
-                <div style="max-width: 720px;">
+            <div class="carousel-header-wrap" style="margin-bottom: 0;">
+                <div class="agents-showcase-header" style="margin-bottom: 0;">
                     <span class="section-eyebrow">
                         <span class="eyebrow-dot" style="background-color: #E53232; box-shadow: 0 0 24px rgba(229,50,50,0.65);"></span>
                         Industry Pack · Real Estate
                     </span>
-                    <h2 class="section-title light" style="font-size: clamp(2rem, 3.5vw, 3.5rem);">The Realtor Pack.</h2>
-                    <p class="section-text light" style="margin-bottom: 0;">Six pre-trained agents, managed by Wilfred, built for Canadian realtors. Listings go live on time, leads never cool, deals close clean — all at a fraction of what a support staff costs. From $4,997/mo CAD.</p>
+                    <h2 class="section-title light">The Realtor Pack.</h2>
+                    <p class="section-text light">Six specialists managed by Wilfred, built for Canadian realtors. Listings go live on time, leads never cool, deals close clean. From $4,997/mo CAD.</p>
                 </div>
-                <div style="display:flex; flex-direction:column; align-items:flex-end; gap:0.75rem;">
-                    <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack Inquiry" class="btn btn-primary" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28); white-space:nowrap;">Deploy the Realtor Pack ↗</a>
+                <div class="carousel-controls">
+                    <button class="carousel-btn prev" onclick="scrollCarousel('realtor-scroll', -1)">&#8592;</button>
+                    <button class="carousel-btn next" onclick="scrollCarousel('realtor-scroll', 1)">&#8594;</button>
                 </div>
             </div>
 
-            <!-- Wilfred Hero + Agent Mini Cards -->
-            <div class="rp-pack-layout">
+            <div class="agents-scroll-wrap" id="realtor-scroll">
 
-                <!-- Wilfred large card -->
-                <div class="rp-wilfred-hero">
-                    <img src="wilfred_1.jpg" alt="Wilfred — Realtor Pack Conductor">
-                    <div class="rp-wilfred-overlay">
-                        <span class="rp-wilfred-badge"><span style="color:#E53232;">●</span> Conducting · Realtor Pack</span>
-                        <div>
-                            <h3 class="rp-wilfred-name">Wilfred</h3>
-                            <p class="rp-wilfred-sub">Manages all six agents.<br>You focus on showings.</p>
+                <!-- Rex -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #E53232;">01 | Listings</span>
+                            <h3 class="agent-card-name">Rex</h3>
+                            <p class="agent-card-title" style="color:#FFB3B3;">Listing Coordinator</p>
+                            <div class="agent-card-divider" style="background-color: #E53232;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Writes MLS &amp; REALTOR.ca listing descriptions</li>
+                                <li>Manages photo uploads and go-live deadlines</li>
+                                <li>Tracks price changes, open house dates &amp; status updates</li>
+                            </ul>
                         </div>
-                        <div class="rp-wilfred-stats">
-                            <div class="rp-wilfred-stat"><strong>6</strong><span>Agents on your team</span></div>
-                            <div class="rp-wilfred-stat"><strong>&lt;48h</strong><span>Full team deployed</span></div>
-                            <div class="rp-wilfred-stat"><strong>24/7</strong><span>Running without you</span></div>
-                        </div>
+                        <p class="agent-card-highlight" style="color: #E53232;">Every listing goes live on time, every time.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack — Rex (Listing Coordinator)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28);">Hire Rex ↗</a>
+                    </div>
+                    <div class="agent-card-portrait realtor-portrait">
+                        <img src="rex.png" alt="Rex">
                     </div>
                 </div>
 
-                <!-- 6 Mini Agent Cards -->
-                <div class="rp-agents-grid">
-
-                    <div class="rp-mini-card">
-                        <div class="rp-mini-photo">
-                            <img src="rex.svg" alt="Rex" onerror="this.style.display='none'">
-                            <div class="rp-mini-initial" style="background:linear-gradient(135deg,#FFB3B3,#E53232);">R</div>
+                <!-- Nova -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #E53232;">02 | Lead Nurture</span>
+                            <h3 class="agent-card-name">Nova</h3>
+                            <p class="agent-card-title" style="color:#FFB3B3;">Lead Nurture Agent</p>
+                            <div class="agent-card-divider" style="background-color: #E53232;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Follows up with buyer &amp; seller leads within minutes</li>
+                                <li>Qualifies leads against your price point and timeline</li>
+                                <li>Books showings and consultations into your calendar</li>
+                            </ul>
                         </div>
-                        <div class="rp-mini-info">
-                            <span class="rp-mini-dept" style="color:#E53232;">Listings</span>
-                            <strong class="rp-mini-name">Rex</strong>
-                            <p class="rp-mini-title">Listing Coordinator</p>
-                            <p class="rp-mini-desc">MLS descriptions, photo uploads & go-live deadlines.</p>
-                        </div>
+                        <p class="agent-card-highlight" style="color: #E53232;">No lead goes cold while you're at a showing.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack — Nova (Lead Nurture)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28);">Hire Nova ↗</a>
                     </div>
-
-                    <div class="rp-mini-card">
-                        <div class="rp-mini-photo">
-                            <img src="nova.svg" alt="Nova" onerror="this.style.display='none'">
-                            <div class="rp-mini-initial" style="background:linear-gradient(135deg,#FFB3B3,#E53232);">N</div>
-                        </div>
-                        <div class="rp-mini-info">
-                            <span class="rp-mini-dept" style="color:#E53232;">Lead Nurture</span>
-                            <strong class="rp-mini-name">Nova</strong>
-                            <p class="rp-mini-title">Lead Nurture Agent</p>
-                            <p class="rp-mini-desc">Follows up, qualifies & books showings 24/7.</p>
-                        </div>
+                    <div class="agent-card-portrait realtor-portrait">
+                        <img src="nova.png" alt="Nova">
                     </div>
-
-                    <div class="rp-mini-card">
-                        <div class="rp-mini-photo">
-                            <img src="dot.svg" alt="Dot" onerror="this.style.display='none'">
-                            <div class="rp-mini-initial" style="background:linear-gradient(135deg,#FFB3B3,#E53232);">D</div>
-                        </div>
-                        <div class="rp-mini-info">
-                            <span class="rp-mini-dept" style="color:#E53232;">Transactions</span>
-                            <strong class="rp-mini-name">Dot</strong>
-                            <p class="rp-mini-title">Transaction Coordinator</p>
-                            <p class="rp-mini-desc">Conditions, deadlines & lawyer reminders tracked.</p>
-                        </div>
-                    </div>
-
-                    <div class="rp-mini-card">
-                        <div class="rp-mini-photo">
-                            <img src="lena.svg" alt="Lena" onerror="this.style.display='none'">
-                            <div class="rp-mini-initial" style="background:linear-gradient(135deg,#FFB3B3,#E53232);">L</div>
-                        </div>
-                        <div class="rp-mini-info">
-                            <span class="rp-mini-dept" style="color:#E53232;">Social Media</span>
-                            <strong class="rp-mini-name">Lena</strong>
-                            <p class="rp-mini-title">Social Media Manager</p>
-                            <p class="rp-mini-desc">Listings, sold posts & market updates on autopilot.</p>
-                        </div>
-                    </div>
-
-                    <div class="rp-mini-card">
-                        <div class="rp-mini-photo">
-                            <img src="miles.svg" alt="Miles" onerror="this.style.display='none'">
-                            <div class="rp-mini-initial" style="background:linear-gradient(135deg,#FFB3B3,#E53232);">M</div>
-                        </div>
-                        <div class="rp-mini-info">
-                            <span class="rp-mini-dept" style="color:#E53232;">CRM</span>
-                            <strong class="rp-mini-name">Miles</strong>
-                            <p class="rp-mini-title">CRM & Database Manager</p>
-                            <p class="rp-mini-desc">Tags contacts, logs touchpoints & surfaces warm leads.</p>
-                        </div>
-                    </div>
-
-                    <div class="rp-mini-card">
-                        <div class="rp-mini-photo">
-                            <img src="harper.svg" alt="Harper" onerror="this.style.display='none'">
-                            <div class="rp-mini-initial" style="background:linear-gradient(135deg,#FFB3B3,#E53232);">H</div>
-                        </div>
-                        <div class="rp-mini-info">
-                            <span class="rp-mini-dept" style="color:#E53232;">Reputation</span>
-                            <strong class="rp-mini-name">Harper</strong>
-                            <p class="rp-mini-title">Reviews & Reputation Agent</p>
-                            <p class="rp-mini-desc">Post-close review requests & Google rating management.</p>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- Dot -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #E53232;">03 | Transactions</span>
+                            <h3 class="agent-card-name">Dot</h3>
+                            <p class="agent-card-title" style="color:#FFB3B3;">Transaction Coordinator</p>
+                            <div class="agent-card-divider" style="background-color: #E53232;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Tracks conditions, deadlines &amp; document collection</li>
+                                <li>Sends reminders to lawyers, clients &amp; co-op agents</li>
+                                <li>Flags deals at risk before conditions expire</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #E53232;">Deals close clean. Conditions never slip.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack — Dot (Transaction Coordinator)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28);">Hire Dot ↗</a>
+                    </div>
+                    <div class="agent-card-portrait realtor-portrait">
+                        <img src="dot.png" alt="Dot">
+                    </div>
+                </div>
+
+                <!-- Lena -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #E53232;">04 | Social Media</span>
+                            <h3 class="agent-card-name">Lena</h3>
+                            <p class="agent-card-title" style="color:#FFB3B3;">Social Media Manager</p>
+                            <div class="agent-card-divider" style="background-color: #E53232;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Posts new listings &amp; sold announcements automatically</li>
+                                <li>Creates weekly market update content for Instagram &amp; Facebook</li>
+                                <li>Schedules &amp; queues branded content consistently</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #E53232;">Your brand stays visible between every deal.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack — Lena (Social Media)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28);">Hire Lena ↗</a>
+                    </div>
+                    <div class="agent-card-portrait realtor-portrait">
+                        <img src="lena.png" alt="Lena">
+                    </div>
+                </div>
+
+                <!-- Miles -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #E53232;">05 | CRM</span>
+                            <h3 class="agent-card-name">Miles</h3>
+                            <p class="agent-card-title" style="color:#FFB3B3;">CRM &amp; Database Manager</p>
+                            <div class="agent-card-divider" style="background-color: #E53232;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Keeps contacts tagged by buyer, seller &amp; investor status</li>
+                                <li>Logs all touchpoints and creates follow-up tasks automatically</li>
+                                <li>Surfaces warm contacts ready to transact this quarter</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #E53232;">Your database works for you, not the other way around.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack — Miles (CRM Manager)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28);">Hire Miles ↗</a>
+                    </div>
+                    <div class="agent-card-portrait realtor-portrait">
+                        <img src="miles.png" alt="Miles">
+                    </div>
+                </div>
+
+                <!-- Harper -->
+                <div class="agent-showcase-card">
+                    <div class="agent-card-info">
+                        <div class="agent-card-meta">
+                            <span class="agent-card-eyebrow" style="color: #E53232;">06 | Reputation</span>
+                            <h3 class="agent-card-name">Harper</h3>
+                            <p class="agent-card-title" style="color:#FFB3B3;">Reviews &amp; Reputation Agent</p>
+                            <div class="agent-card-divider" style="background-color: #E53232;"></div>
+                            <ul class="agent-card-bullets">
+                                <li>Requests Google &amp; REALTOR.ca reviews post-close</li>
+                                <li>Monitors your online ratings and flags new mentions</li>
+                                <li>Drafts professional responses to every review</li>
+                            </ul>
+                        </div>
+                        <p class="agent-card-highlight" style="color: #E53232;">5-star reputation — without asking for it yourself.</p>
+                        <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack — Harper (Reputation)" class="btn btn-primary agent-card-cta" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28);">Hire Harper ↗</a>
+                    </div>
+                    <div class="agent-card-portrait realtor-portrait">
+                        <img src="harper.png" alt="Harper">
+                    </div>
+                </div>
+
+            </div>
+
+            <div style="text-align:center; margin-top:2.5rem;">
+                <a href="mailto:hire@hirewilfred.ai?subject=Realtor Pack Inquiry" class="btn btn-primary" style="background: linear-gradient(135deg, #FFB3B3, #E53232); box-shadow: 0 14px 40px rgba(229,50,50,0.28);">Deploy the Full Realtor Pack — $4,997/mo ↗</a>
             </div>
 
         </div>

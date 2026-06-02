@@ -1153,137 +1153,15 @@ a { color: inherit; text-decoration: none; }
   font-size: 0.82rem;
 }
 
-/* ====================== REALTORS PACK ====================== */
-.rp-pack-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.8fr;
-  gap: 1.5rem;
-  align-items: start;
+/* ====================== REALTORS PACK — red halo portrait ====================== */
+.realtor-portrait {
+  border: 1px solid rgba(229, 50, 50, 0.45) !important;
+  box-shadow: 0 0 0 4px rgba(229, 50, 50, 0.15),
+              0 0 40px 8px rgba(229, 50, 50, 0.35),
+              0 16px 40px rgba(0,0,0,0.3) !important;
 }
-
-/* Wilfred hero card */
-.rp-wilfred-hero {
-  position: relative;
-  border-radius: 26px;
-  overflow: hidden;
-  min-height: 560px;
-  border: 1px solid rgba(229,50,50,0.35);
-  box-shadow: 0 30px 70px rgba(229,50,50,0.18);
-}
-.rp-wilfred-hero img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-}
-.rp-wilfred-hero::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(8,7,6,0.92) 0%, rgba(8,7,6,0.45) 55%, rgba(8,7,6,0.1) 100%);
-}
-.rp-wilfred-overlay {
-  position: absolute; inset: 0; z-index: 2;
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 2rem 2.25rem;
-  gap: 1.25rem;
-}
-.rp-wilfred-badge {
-  font-size: 0.75rem; font-weight: 700;
-  letter-spacing: 0.07em; text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
-  backdrop-filter: blur(10px);
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  align-self: flex-start;
-}
-.rp-wilfred-name {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 800; color: #fff;
-  letter-spacing: -0.03em;
-  margin: 0 0 0.25rem;
-}
-.rp-wilfred-sub {
-  font-size: 0.96rem; color: rgba(255,255,255,0.72);
-  font-weight: 500; line-height: 1.55; margin: 0;
-}
-.rp-wilfred-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 1.25rem;
-}
-.rp-wilfred-stat { display: flex; flex-direction: column; gap: 0.2rem; }
-.rp-wilfred-stat strong {
-  font-family: var(--font-display);
-  font-size: 1.3rem; font-weight: 800;
-  color: #E53232; letter-spacing: -0.02em;
-}
-.rp-wilfred-stat span { font-size: 0.72rem; color: rgba(255,255,255,0.55); font-weight: 500; }
-
-/* Mini agent cards grid */
-.rp-agents-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.rp-mini-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(229,50,50,0.22);
-  border-radius: 18px;
-  padding: 1.25rem;
-  display: flex; gap: 1rem; align-items: flex-start;
-  transition: border-color 0.22s, box-shadow 0.22s;
-}
-.rp-mini-card:hover {
-  border-color: rgba(229,50,50,0.55);
-  box-shadow: 0 10px 32px rgba(229,50,50,0.15);
-}
-.rp-mini-photo {
-  position: relative;
-  width: 64px; height: 64px; flex-shrink: 0;
-  border-radius: 14px; overflow: hidden;
-  border: 2px solid rgba(229,50,50,0.35);
-}
-.rp-mini-photo img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center top;
-  position: absolute; inset: 0;
-}
-.rp-mini-initial {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  font-size: 1.4rem; font-weight: 800; color: #fff;
-}
-.rp-mini-info { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
-.rp-mini-dept {
-  font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.07em; text-transform: uppercase;
-}
-.rp-mini-name {
-  font-family: var(--font-display);
-  font-size: 1.05rem; font-weight: 800;
-  color: #fff; letter-spacing: -0.02em;
-}
-.rp-mini-title {
-  font-size: 0.75rem; color: rgba(255,255,255,0.5);
-  font-weight: 500; margin: 0;
-}
-.rp-mini-desc {
-  font-size: 0.78rem; color: rgba(255,255,255,0.65);
-  line-height: 1.45; margin: 0.25rem 0 0;
-}
-
-@media (max-width: 960px) {
-  .rp-pack-layout { grid-template-columns: 1fr; }
-  .rp-wilfred-hero { min-height: 380px; }
-  .rp-agents-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 540px) {
-  .rp-agents-grid { grid-template-columns: 1fr; }
+.realtor-portrait img {
+  filter: drop-shadow(0 0 12px rgba(229, 50, 50, 0.4));
 }
 
 /* Junior agent card overrides */
