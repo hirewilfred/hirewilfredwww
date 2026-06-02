@@ -1154,262 +1154,149 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ====================== REALTORS PACK ====================== */
-.realtors-pack-section {
-  background: #f5f0e8;
-  padding: 7rem 1.5rem;
-}
-.realtors-pack-shell {
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-.realtors-pack-header {
-  max-width: 720px;
-}
-.realtors-pack-pricing {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-.rp-price {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 800;
-  color: #C8A96E;
-  letter-spacing: -0.03em;
-}
-.rp-price span {
-  font-size: 0.55em;
-  color: var(--text-dark);
-  opacity: 0.6;
-  font-weight: 600;
-}
-.rp-price-note {
-  font-size: 0.88rem;
-  color: var(--text-dark);
-  opacity: 0.6;
-  font-weight: 500;
+.rp-pack-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 1.5rem;
+  align-items: start;
 }
 
-/* Group Mosaic */
-.realtors-pack-mosaic {
+/* Wilfred hero card */
+.rp-wilfred-hero {
   position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  border-radius: 26px;
+  overflow: hidden;
+  min-height: 560px;
+  border: 1px solid rgba(229,50,50,0.35);
+  box-shadow: 0 30px 70px rgba(229,50,50,0.18);
+}
+.rp-wilfred-hero img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+.rp-wilfred-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,7,6,0.92) 0%, rgba(8,7,6,0.45) 55%, rgba(8,7,6,0.1) 100%);
+}
+.rp-wilfred-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 2rem 2.25rem;
   gap: 1.25rem;
-  max-width: 560px;
-  align-self: center;
 }
-.rp-avatar {
+.rp-wilfred-badge {
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(10px);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  align-self: flex-start;
+}
+.rp-wilfred-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 800; color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.25rem;
+}
+.rp-wilfred-sub {
+  font-size: 0.96rem; color: rgba(255,255,255,0.72);
+  font-weight: 500; line-height: 1.55; margin: 0;
+}
+.rp-wilfred-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.25rem;
+}
+.rp-wilfred-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+.rp-wilfred-stat strong {
+  font-family: var(--font-display);
+  font-size: 1.3rem; font-weight: 800;
+  color: #E53232; letter-spacing: -0.02em;
+}
+.rp-wilfred-stat span { font-size: 0.72rem; color: rgba(255,255,255,0.55); font-weight: 500; }
+
+/* Mini agent cards grid */
+.rp-agents-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.rp-mini-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(229,50,50,0.22);
+  border-radius: 18px;
+  padding: 1.25rem;
+  display: flex; gap: 1rem; align-items: flex-start;
+  transition: border-color 0.22s, box-shadow 0.22s;
+}
+.rp-mini-card:hover {
+  border-color: rgba(229,50,50,0.55);
+  box-shadow: 0 10px 32px rgba(229,50,50,0.15);
+}
+.rp-mini-photo {
   position: relative;
-  border-radius: 24px;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--rp-hue, #C8A96E) 18%, #fff), color-mix(in srgb, var(--rp-hue, #C8A96E) 8%, #f5f0e8));
-  border: 2px solid color-mix(in srgb, var(--rp-hue, #C8A96E) 40%, transparent);
-  padding: 1.25rem 0.75rem 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  animation: rp-float 3s ease-in-out infinite;
-  animation-delay: var(--rp-delay, 0ms);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  width: 64px; height: 64px; flex-shrink: 0;
+  border-radius: 14px; overflow: hidden;
+  border: 2px solid rgba(229,50,50,0.35);
 }
-@keyframes rp-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+.rp-mini-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  position: absolute; inset: 0;
 }
-.rp-avatar-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-}
-.rp-avatar-initial {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  background: var(--rp-hue, #C8A96E);
+.rp-mini-initial {
+  width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-display);
-  font-size: 1.4rem; font-weight: 800;
-  color: #07160d;
+  font-size: 1.4rem; font-weight: 800; color: #fff;
 }
-.rp-avatar-label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  text-align: center;
-  line-height: 1.3;
+.rp-mini-info { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
+.rp-mini-dept {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase;
 }
-.rp-avatar-label small {
-  font-size: 0.68rem;
-  font-weight: 500;
-  opacity: 0.65;
-}
-.rp-status-dot {
-  position: absolute;
-  top: 0.6rem; right: 0.6rem;
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #00E676;
-  box-shadow: 0 0 8px rgba(0,230,118,0.7);
-}
-.rp-mosaic-badge {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: #C8A96E;
-  padding: 0.6rem 1rem;
-  background: rgba(200,169,110,0.1);
-  border: 1px solid rgba(200,169,110,0.3);
-  border-radius: 999px;
-  margin-top: 0.5rem;
-}
-
-/* Agent Cards Grid */
-.realtors-pack-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.rp-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 2rem 1.75rem;
-  border: 1px solid rgba(0,0,0,0.07);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.rp-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 44px rgba(0,0,0,0.12);
-}
-.rp-card-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-.rp-card-num {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--rp-accent, #C8A96E);
-}
-.rp-card-dept {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  background: color-mix(in srgb, var(--rp-accent, #C8A96E) 12%, transparent);
-  color: var(--rp-accent, #C8A96E);
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-}
-.rp-card-name {
+.rp-mini-name {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.2vw, 2rem);
-  font-weight: 800;
-  color: var(--text-dark);
-  margin: 0 0 0.2rem;
-  letter-spacing: -0.03em;
+  font-size: 1.05rem; font-weight: 800;
+  color: #fff; letter-spacing: -0.02em;
 }
-.rp-card-title {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text-dark);
-  opacity: 0.55;
-  margin: 0 0 1rem;
+.rp-mini-title {
+  font-size: 0.75rem; color: rgba(255,255,255,0.5);
+  font-weight: 500; margin: 0;
 }
-.rp-card-divider {
-  height: 2px;
-  border-radius: 2px;
-  margin-bottom: 1rem;
-  opacity: 0.7;
-}
-.rp-card-bullets {
-  list-style: none;
-  padding: 0; margin: 0 0 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-}
-.rp-card-bullets li {
-  font-size: 0.88rem;
-  color: var(--text-dark);
-  opacity: 0.75;
-  padding-left: 1rem;
-  position: relative;
-  line-height: 1.45;
-}
-.rp-card-bullets li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  opacity: 0.5;
-  font-size: 0.75rem;
-}
-.rp-card-highlight {
-  font-size: 0.84rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.4;
+.rp-mini-desc {
+  font-size: 0.78rem; color: rgba(255,255,255,0.65);
+  line-height: 1.45; margin: 0.25rem 0 0;
 }
 
-/* CTA Bar */
-.realtors-pack-cta-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  background: #fff;
-  border-radius: 20px;
-  padding: 2rem 2.5rem;
-  border: 1px solid rgba(200,169,110,0.3);
-  box-shadow: 0 8px 32px rgba(200,169,110,0.12);
-  flex-wrap: wrap;
+@media (max-width: 960px) {
+  .rp-pack-layout { grid-template-columns: 1fr; }
+  .rp-wilfred-hero { min-height: 380px; }
+  .rp-agents-grid { grid-template-columns: 1fr 1fr; }
 }
-.rp-cta-copy strong {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--text-dark);
-  display: block;
-  margin-bottom: 0.3rem;
-}
-.rp-cta-copy p {
-  font-size: 0.9rem;
-  color: var(--text-dark);
-  opacity: 0.6;
-  margin: 0;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .realtors-pack-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .realtors-pack-grid { grid-template-columns: 1fr; }
-  .realtors-pack-mosaic { grid-template-columns: repeat(2, 1fr); max-width: 320px; }
-  .realtors-pack-cta-bar { flex-direction: column; align-items: flex-start; }
+@media (max-width: 540px) {
+  .rp-agents-grid { grid-template-columns: 1fr; }
 }
 
 /* Junior agent card overrides */
 .junior-roster-card {
-  border: 2px solid rgba(0, 230, 118, 0.55) !important;
-  box-shadow: 0 18px 44px rgba(0, 230, 118, 0.14) !important;
+  border: 2px solid rgba(229, 50, 50, 0.55) !important;
+  box-shadow: 0 18px 44px rgba(229, 50, 50, 0.14) !important;
 }
 .junior-roster-card:hover {
-  border-color: #00E676 !important;
-  box-shadow: 0 28px 60px rgba(0, 230, 118, 0.32) !important;
+  border-color: #E53232 !important;
+  box-shadow: 0 28px 60px rgba(229, 50, 50, 0.32) !important;
 }
 .junior-roster-card .featured-agent-cta {
-  background: #00E676 !important;
+  background: #E53232 !important;
   color: #07160d !important;
   font-weight: 800;
   padding: 0.7rem 1.15rem;
