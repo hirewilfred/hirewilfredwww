@@ -431,48 +431,57 @@
         </div>
     </section>
 
-    <!-- ====================== REALTORS PACK ====================== -->
-    <section id="realtors-pack" class="rp-light-section">
-        <div class="agents-showcase-shell">
+    <!-- ====================== REALTORS PACK — CIRCULAR CAROUSEL ====================== -->
+    <section id="realtors-pack" class="rp-circular-section">
+        <div class="rp-circular-shell">
 
-            <div class="rp-feature-wrap">
-                <!-- Left: copy -->
-                <div class="rp-feature-copy">
-                    <span class="section-eyebrow dark">
-                        <span class="eyebrow-dot" style="background-color:#E53232; box-shadow:0 0 20px rgba(229,50,50,0.5);"></span>
-                        Industry Pack · Real Estate
-                    </span>
-                    <h2 class="section-title dark">The Realtor Pack.</h2>
-                    <p class="section-text dark">Six AI specialists managed by Wilfred, built for Canadian realtors. Listings go live on time, leads never cool, deals close clean — at a fraction of what support staff costs.</p>
-                    <div class="rp-feature-agents rp-feature-agents--light">
-                        <span>Rex · Listings</span>
-                        <span>Nova · Lead Nurture</span>
-                        <span>Dot · Transactions</span>
-                        <span>Lena · Social</span>
-                        <span>Miles · CRM</span>
-                        <span>Harper · Reputation</span>
-                    </div>
-                    <div class="rp-feature-price rp-feature-price--light">From <strong>$4,997</strong><span>/mo CAD · all six · managed by Wilfred</span></div>
-                    <a href="realtors.html" class="btn btn-primary" style="background:linear-gradient(135deg,#FFB3B3,#E53232); box-shadow:0 14px 40px rgba(229,50,50,0.28); margin-top:1.75rem; display:inline-block;">Meet the Realtor Team ↗</a>
-                </div>
-
-                <!-- Right: group photo mosaic linking to realtors.html -->
-                <a href="realtors.html" class="rp-group-card rp-group-card--light" aria-label="Meet the full Realtor Pack team">
-                    <div class="rp-group-mosaic">
-                        <div class="rp-group-photo" style="grid-column:1; grid-row:1;"><img src="rex.png" alt="Rex"><span>Rex</span></div>
-                        <div class="rp-group-photo" style="grid-column:2; grid-row:1;"><img src="nova.png" alt="Nova"><span>Nova</span></div>
-                        <div class="rp-group-photo" style="grid-column:3; grid-row:1;"><img src="dot.png" alt="Dot"><span>Dot</span></div>
-                        <div class="rp-group-photo" style="grid-column:1; grid-row:2;"><img src="lena.png" alt="Lena"><span>Lena</span></div>
-                        <div class="rp-group-photo" style="grid-column:2; grid-row:2;"><img src="miles.png" alt="Miles"><span>Miles</span></div>
-                        <div class="rp-group-photo" style="grid-column:3; grid-row:2;"><img src="harper.png" alt="Harper"><span>Harper</span></div>
-                    </div>
-                    <div class="rp-group-cta rp-group-cta--light">
-                        <span class="rp-group-badge"><span style="color:#E53232;">●</span> Realtor Pack · 6 Agents</span>
-                        <span class="rp-group-link">View the full team →</span>
-                    </div>
-                </a>
+            <!-- Section intro -->
+            <div class="rp-circular-intro">
+                <span class="section-eyebrow dark">
+                    <span class="eyebrow-dot" style="background:#E53232; box-shadow:0 0 20px rgba(229,50,50,0.5);"></span>
+                    Industry Pack · Real Estate
+                </span>
+                <h2 class="section-title dark">The Realtor Pack.</h2>
             </div>
 
+            <!-- Two-column layout -->
+            <div class="rp-circular-grid">
+
+                <!-- Left: stacked 3-image carousel -->
+                <div class="rp-img-stage" id="rp-img-stage">
+                    <img class="rp-agent-img" src="nova.png"   alt="Nova"   data-idx="0">
+                    <img class="rp-agent-img" src="dot.png"    alt="Dot"    data-idx="1">
+                    <img class="rp-agent-img" src="lena.png"   alt="Lena"   data-idx="2">
+                    <img class="rp-agent-img" src="miles.png"  alt="Miles"  data-idx="3">
+                    <img class="rp-agent-img" src="harper.png" alt="Harper" data-idx="4">
+                    <img class="rp-agent-img" src="rex.png"    alt="Rex"    data-idx="5">
+                </div>
+
+                <!-- Right: animated content -->
+                <div class="rp-circular-content">
+                    <div class="rp-agent-text" id="rp-agent-text">
+                        <h3 class="rp-agent-name"  id="rp-agent-name">Nova</h3>
+                        <p  class="rp-agent-role"  id="rp-agent-role">Lead Nurture Agent</p>
+                        <p  class="rp-agent-desc"  id="rp-agent-desc"></p>
+                    </div>
+
+                    <div class="rp-circular-bottom">
+                        <div class="rp-arrow-row">
+                            <button class="rp-arrow-btn" id="rp-prev-btn" aria-label="Previous agent">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                            </button>
+                            <button class="rp-arrow-btn" id="rp-next-btn" aria-label="Next agent">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                            </button>
+                        </div>
+                        <a href="realtors.html" class="btn btn-primary rp-cta-btn">Meet the full team ↗</a>
+                    </div>
+
+                    <!-- Dots indicator -->
+                    <div class="rp-dots" id="rp-dots"></div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -1097,6 +1106,130 @@
             ['click', 'touchstart', 'scroll'].forEach(evt =>
                 window.addEventListener(evt, attempt, { once: true, passive: true })
             );
+        })();
+
+        // ===== REALTOR PACK CIRCULAR CAROUSEL =====
+        (function initRealtorCarousel() {
+            const agents = [
+                { name: 'Nova',   role: 'Lead Nurture Agent',       desc: 'No lead goes cold while you\'re at a showing. Nova follows up with buyers and sellers within minutes, qualifies them against your criteria, and books showings straight into your calendar.' },
+                { name: 'Dot',    role: 'Transaction Coordinator',   desc: 'Deals close clean. Dot tracks every condition, deadline and document, sends reminders to lawyers, clients and co-op agents, and flags deals at risk before conditions expire.' },
+                { name: 'Lena',   role: 'Social Media Manager',      desc: 'Your brand stays visible between every deal. Lena posts new listings, sold announcements and weekly market updates on Instagram and Facebook — automatically, consistently.' },
+                { name: 'Miles',  role: 'CRM & Database Manager',    desc: 'Your database works for you. Miles keeps contacts tagged by buyer, seller and investor status, logs every touchpoint, and surfaces warm leads ready to transact this quarter.' },
+                { name: 'Harper', role: 'Reviews & Reputation Agent', desc: '5-star reputation without asking for it yourself. Harper requests Google and REALTOR.ca reviews post-close, monitors your ratings, and drafts professional responses to every review.' },
+                { name: 'Rex',    role: 'Listing Coordinator',       desc: 'Every listing goes live on time, every time. Rex writes MLS and REALTOR.ca descriptions, manages photo uploads and go-live deadlines, and tracks price changes and open house dates.' },
+            ];
+
+            let active = 0;
+            const total = agents.length;
+            let autoTimer = null;
+
+            const imgs   = document.querySelectorAll('.rp-agent-img');
+            const nameEl = document.getElementById('rp-agent-name');
+            const roleEl = document.getElementById('rp-agent-role');
+            const descEl = document.getElementById('rp-agent-desc');
+            const dotsEl = document.getElementById('rp-dots');
+            const prevBtn = document.getElementById('rp-prev-btn');
+            const nextBtn = document.getElementById('rp-next-btn');
+            const stage   = document.getElementById('rp-img-stage');
+
+            if (!imgs.length || !nameEl) return;
+
+            // Build dots
+            agents.forEach((_, i) => {
+                const d = document.createElement('span');
+                d.className = 'rp-dot';
+                d.addEventListener('click', () => goTo(i));
+                if (dotsEl) dotsEl.appendChild(d);
+            });
+
+            function gap() {
+                return stage ? Math.max(60, Math.min(100, stage.offsetWidth * 0.18)) : 80;
+            }
+
+            function applyTransforms() {
+                const g = gap();
+                imgs.forEach((img, i) => {
+                    const isActive = i === active;
+                    const isLeft   = ((active - 1 + total) % total) === i;
+                    const isRight  = ((active + 1) % total) === i;
+                    if (isActive) {
+                        img.style.cssText = 'transform:translateX(0) translateY(0) scale(1) rotateY(0deg);opacity:1;z-index:3;pointer-events:auto;';
+                    } else if (isLeft) {
+                        img.style.cssText = `transform:translateX(-${g}px) translateY(-${g*0.55}px) scale(0.82) rotateY(15deg);opacity:1;z-index:2;pointer-events:auto;`;
+                    } else if (isRight) {
+                        img.style.cssText = `transform:translateX(${g}px) translateY(-${g*0.55}px) scale(0.82) rotateY(-15deg);opacity:1;z-index:2;pointer-events:auto;`;
+                    } else {
+                        img.style.cssText = 'transform:scale(0.7) translateY(20px);opacity:0;z-index:1;pointer-events:none;';
+                    }
+                });
+            }
+
+            function animateWords(text) {
+                descEl.innerHTML = '';
+                text.split(' ').forEach((word, i) => {
+                    const s = document.createElement('span');
+                    s.className = 'rp-word';
+                    s.textContent = word + ' ';
+                    s.style.animationDelay = (i * 0.035) + 's';
+                    descEl.appendChild(s);
+                });
+            }
+
+            function updateDots() {
+                if (!dotsEl) return;
+                dotsEl.querySelectorAll('.rp-dot').forEach((d, i) => {
+                    d.classList.toggle('rp-dot--active', i === active);
+                });
+            }
+
+            function updateContent() {
+                const a = agents[active];
+                nameEl.style.opacity = '0';
+                roleEl.style.opacity = '0';
+                setTimeout(() => {
+                    nameEl.textContent = a.name;
+                    roleEl.textContent = a.role;
+                    nameEl.style.opacity = '1';
+                    roleEl.style.opacity = '1';
+                }, 80);
+                animateWords(a.desc);
+                updateDots();
+            }
+
+            function goTo(idx) {
+                active = ((idx % total) + total) % total;
+                applyTransforms();
+                updateContent();
+            }
+
+            function startAutoplay() {
+                stopAutoplay();
+                autoTimer = setInterval(() => goTo(active + 1), 5000);
+            }
+            function stopAutoplay() {
+                if (autoTimer) clearInterval(autoTimer);
+            }
+
+            prevBtn && prevBtn.addEventListener('click', () => { goTo(active - 1); startAutoplay(); });
+            nextBtn && nextBtn.addEventListener('click', () => { goTo(active + 1); startAutoplay(); });
+
+            // Keyboard
+            document.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft')  { goTo(active - 1); startAutoplay(); }
+                if (e.key === 'ArrowRight') { goTo(active + 1); startAutoplay(); }
+            });
+
+            // Pause on hover
+            const section = document.getElementById('realtors-pack');
+            section && section.addEventListener('mouseenter', stopAutoplay);
+            section && section.addEventListener('mouseleave', startAutoplay);
+
+            window.addEventListener('resize', applyTransforms);
+
+            // Init
+            applyTransforms();
+            updateContent();
+            startAutoplay();
         })();
     </script>
 </body>
