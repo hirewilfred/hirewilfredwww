@@ -1410,6 +1410,75 @@ a { color: inherit; text-decoration: none; }
   .rp-feature-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
 }
 
+/* ===== REALTOR PACK FTE SAVINGS STRIP ===== */
+.rp-fte-strip {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: #fff;
+  border: 1px solid rgba(229,50,50,0.18);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-bottom: 3.5rem;
+  box-shadow: 0 4px 24px rgba(229,50,50,0.08);
+  flex-wrap: wrap;
+  gap: 0;
+}
+.rp-fte-strip--team {
+  margin-bottom: 2.5rem;
+}
+.rp-fte-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 2rem;
+  flex: 1;
+  min-width: 140px;
+}
+.rp-fte-stat strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.rp-fte-stat--highlight strong {
+  color: #E53232;
+}
+.rp-fte-stat span {
+  font-size: 0.75rem;
+  color: rgba(15,15,15,0.5);
+  font-weight: 500;
+  line-height: 1.35;
+}
+.rp-fte-divider {
+  width: 1px;
+  height: 2.5rem;
+  background: rgba(229,50,50,0.15);
+  flex-shrink: 0;
+}
+.rp-fte-badge {
+  margin-left: auto;
+  background: linear-gradient(135deg, #FFB3B3, #E53232);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  align-self: center;
+  margin-left: 1.5rem;
+}
+@media (max-width: 700px) {
+  .rp-fte-strip { flex-wrap: wrap; gap: 1rem; padding: 1.25rem; }
+  .rp-fte-divider { display: none; }
+  .rp-fte-stat { padding: 0 0.5rem; min-width: 100px; }
+  .rp-fte-badge { margin-left: 0; }
+}
+
 /* Realtor roster card overrides — red */
 .realtor-roster-card {
   border: 1px solid rgba(229,50,50,0.3) !important;
