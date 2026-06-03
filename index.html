@@ -468,44 +468,39 @@
                 <div class="rp-fte-badge">84% savings vs. hiring</div>
             </div>
 
-            <!-- Two-column layout -->
-            <div class="rp-circular-grid">
+            <!-- Profile card layout -->
+            <div class="rp2-layout">
 
-                <!-- Left: stacked 3-image carousel -->
-                <div class="rp-img-stage" id="rp-img-stage">
-                    <img class="rp-agent-img" src="nova.png"   alt="Nova"   data-idx="0">
-                    <img class="rp-agent-img" src="dot.png"    alt="Dot"    data-idx="1">
-                    <img class="rp-agent-img" src="lena.png"   alt="Lena"   data-idx="2">
-                    <img class="rp-agent-img" src="miles.png"  alt="Miles"  data-idx="3">
-                    <img class="rp-agent-img" src="harper.png" alt="Harper" data-idx="4">
-                    <img class="rp-agent-img" src="rex.png"    alt="Rex"    data-idx="5">
+                <!-- Left: large photo -->
+                <div class="rp2-photo-wrap">
+                    <img class="rp2-photo" id="rp2-photo" src="nova.png" alt="Nova">
                 </div>
 
-                <!-- Right: animated content -->
-                <div class="rp-circular-content">
-                    <div class="rp-agent-text" id="rp-agent-text">
-                        <h3 class="rp-agent-name"  id="rp-agent-name">Nova</h3>
-                        <p  class="rp-agent-role"  id="rp-agent-role">Lead Nurture Agent</p>
-                        <p  class="rp-agent-desc"  id="rp-agent-desc"></p>
+                <!-- Right: overlapping white card -->
+                <div class="rp2-card" id="rp2-card">
+                    <span class="rp2-dept" id="rp2-dept">Lead Nurture</span>
+                    <h3 class="rp2-name" id="rp2-name">Nova</h3>
+                    <p class="rp2-title" id="rp2-title">Lead Nurture Agent</p>
+                    <p class="rp2-desc" id="rp2-desc">No lead goes cold while you're at a showing. Nova follows up with buyers and sellers within minutes, qualifies them against your criteria, and books showings straight into your calendar.</p>
+                    <div class="rp2-actions">
+                        <a class="rp2-hire-btn" id="rp2-hire-btn" href="mailto:hire@hirewilfred.ai?subject=Realtor Pack — Nova">Hire Nova ↗</a>
+                        <a class="rp2-team-link" href="realtors.html">View the full team →</a>
                     </div>
-
-                    <div class="rp-circular-bottom">
-                        <div class="rp-arrow-row">
-                            <button class="rp-arrow-btn" id="rp-prev-btn" aria-label="Previous agent">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                            </button>
-                            <button class="rp-arrow-btn" id="rp-next-btn" aria-label="Next agent">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-                            </button>
-                        </div>
-                        <a href="realtors.html" class="btn btn-primary rp-cta-btn">Meet the full team ↗</a>
-                    </div>
-
-                    <!-- Dots indicator -->
-                    <div class="rp-dots" id="rp-dots"></div>
                 </div>
 
             </div>
+
+            <!-- Bottom navigation -->
+            <div class="rp2-nav">
+                <button class="rp2-nav-btn" id="rp2-prev" aria-label="Previous agent">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <div class="rp2-dots" id="rp2-dots"></div>
+                <button class="rp2-nav-btn" id="rp2-next" aria-label="Next agent">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+                </button>
+            </div>
+
         </div>
     </section>
 
@@ -1132,127 +1127,86 @@
             );
         })();
 
-        // ===== REALTOR PACK CIRCULAR CAROUSEL =====
+        // ===== REALTOR PACK PROFILE CARD CAROUSEL =====
         (function initRealtorCarousel() {
             const agents = [
-                { name: 'Nova',   role: 'Lead Nurture Agent',       desc: 'No lead goes cold while you\'re at a showing. Nova follows up with buyers and sellers within minutes, qualifies them against your criteria, and books showings straight into your calendar.' },
-                { name: 'Dot',    role: 'Transaction Coordinator',   desc: 'Deals close clean. Dot tracks every condition, deadline and document, sends reminders to lawyers, clients and co-op agents, and flags deals at risk before conditions expire.' },
-                { name: 'Lena',   role: 'Social Media Manager',      desc: 'Your brand stays visible between every deal. Lena posts new listings, sold announcements and weekly market updates on Instagram and Facebook — automatically, consistently.' },
-                { name: 'Miles',  role: 'CRM & Database Manager',    desc: 'Your database works for you. Miles keeps contacts tagged by buyer, seller and investor status, logs every touchpoint, and surfaces warm leads ready to transact this quarter.' },
-                { name: 'Harper', role: 'Reviews & Reputation Agent', desc: '5-star reputation without asking for it yourself. Harper requests Google and REALTOR.ca reviews post-close, monitors your ratings, and drafts professional responses to every review.' },
-                { name: 'Rex',    role: 'Listing Coordinator',       desc: 'Every listing goes live on time, every time. Rex writes MLS and REALTOR.ca descriptions, manages photo uploads and go-live deadlines, and tracks price changes and open house dates.' },
+                { name: 'Nova',   dept: 'Lead Nurture',   role: 'Lead Nurture Agent',        src: 'nova.png',   desc: 'No lead goes cold while you are at a showing. Nova follows up with buyers and sellers within minutes, qualifies them against your criteria, and books showings straight into your calendar.' },
+                { name: 'Dot',    dept: 'Transactions',   role: 'Transaction Coordinator',   src: 'dot.png',    desc: 'Deals close clean. Dot tracks every condition, deadline and document, sends reminders to lawyers, clients and co-op agents, and flags deals at risk before conditions expire.' },
+                { name: 'Lena',   dept: 'Social Media',   role: 'Social Media Manager',      src: 'lena.png',   desc: 'Your brand stays visible between every deal. Lena posts new listings, sold announcements and weekly market updates on Instagram and Facebook — automatically, consistently.' },
+                { name: 'Miles',  dept: 'CRM',            role: 'CRM & Database Manager',    src: 'miles.png',  desc: 'Your database works for you. Miles keeps contacts tagged by buyer, seller and investor status, logs every touchpoint, and surfaces warm leads ready to transact this quarter.' },
+                { name: 'Harper', dept: 'Reputation',     role: 'Reviews & Reputation Agent', src: 'harper.png', desc: '5-star reputation without asking for it yourself. Harper requests Google and REALTOR.ca reviews post-close, monitors your ratings, and drafts professional responses to every review.' },
+                { name: 'Rex',    dept: 'Listings',       role: 'Listing Coordinator',       src: 'rex.png',    desc: 'Every listing goes live on time, every time. Rex writes MLS and REALTOR.ca descriptions, manages photo uploads and go-live deadlines, and tracks price changes and open house dates.' },
             ];
 
             let active = 0;
             const total = agents.length;
             let autoTimer = null;
+            let transitioning = false;
 
-            const imgs   = document.querySelectorAll('.rp-agent-img');
-            const nameEl = document.getElementById('rp-agent-name');
-            const roleEl = document.getElementById('rp-agent-role');
-            const descEl = document.getElementById('rp-agent-desc');
-            const dotsEl = document.getElementById('rp-dots');
-            const prevBtn = document.getElementById('rp-prev-btn');
-            const nextBtn = document.getElementById('rp-next-btn');
-            const stage   = document.getElementById('rp-img-stage');
+            const photoEl = document.getElementById('rp2-photo');
+            const cardEl  = document.getElementById('rp2-card');
+            const deptEl  = document.getElementById('rp2-dept');
+            const nameEl  = document.getElementById('rp2-name');
+            const titleEl = document.getElementById('rp2-title');
+            const descEl  = document.getElementById('rp2-desc');
+            const hireBtn = document.getElementById('rp2-hire-btn');
+            const dotsEl  = document.getElementById('rp2-dots');
+            const prevBtn = document.getElementById('rp2-prev');
+            const nextBtn = document.getElementById('rp2-next');
 
-            if (!imgs.length || !nameEl) return;
+            if (!photoEl || !nameEl) return;
 
             // Build dots
             agents.forEach((_, i) => {
-                const d = document.createElement('span');
-                d.className = 'rp-dot';
+                const d = document.createElement('button');
+                d.className = 'rp2-dot';
+                d.setAttribute('aria-label', 'Agent ' + (i + 1));
                 d.addEventListener('click', () => goTo(i));
-                if (dotsEl) dotsEl.appendChild(d);
+                dotsEl && dotsEl.appendChild(d);
             });
 
-            function gap() {
-                return stage ? Math.max(60, Math.min(100, stage.offsetWidth * 0.18)) : 80;
-            }
-
-            function applyTransforms() {
-                const g = gap();
-                imgs.forEach((img, i) => {
-                    const isActive = i === active;
-                    const isLeft   = ((active - 1 + total) % total) === i;
-                    const isRight  = ((active + 1) % total) === i;
-                    if (isActive) {
-                        img.style.cssText = 'transform:translateX(0) translateY(0) scale(1) rotateY(0deg);opacity:1;z-index:3;pointer-events:auto;';
-                    } else if (isLeft) {
-                        img.style.cssText = `transform:translateX(-${g}px) translateY(-${g*0.55}px) scale(0.82) rotateY(15deg);opacity:1;z-index:2;pointer-events:auto;`;
-                    } else if (isRight) {
-                        img.style.cssText = `transform:translateX(${g}px) translateY(-${g*0.55}px) scale(0.82) rotateY(-15deg);opacity:1;z-index:2;pointer-events:auto;`;
-                    } else {
-                        img.style.cssText = 'transform:scale(0.7) translateY(20px);opacity:0;z-index:1;pointer-events:none;';
-                    }
-                });
-            }
-
-            function animateWords(text) {
-                descEl.innerHTML = '';
-                text.split(' ').forEach((word, i) => {
-                    const s = document.createElement('span');
-                    s.className = 'rp-word';
-                    s.textContent = word + ' ';
-                    s.style.animationDelay = (i * 0.035) + 's';
-                    descEl.appendChild(s);
-                });
-            }
-
             function updateDots() {
-                if (!dotsEl) return;
-                dotsEl.querySelectorAll('.rp-dot').forEach((d, i) => {
-                    d.classList.toggle('rp-dot--active', i === active);
+                dotsEl && dotsEl.querySelectorAll('.rp2-dot').forEach((d, i) => {
+                    d.classList.toggle('rp2-dot--active', i === active);
                 });
-            }
-
-            function updateContent() {
-                const a = agents[active];
-                nameEl.style.opacity = '0';
-                roleEl.style.opacity = '0';
-                setTimeout(() => {
-                    nameEl.textContent = a.name;
-                    roleEl.textContent = a.role;
-                    nameEl.style.opacity = '1';
-                    roleEl.style.opacity = '1';
-                }, 80);
-                animateWords(a.desc);
-                updateDots();
             }
 
             function goTo(idx) {
-                active = ((idx % total) + total) % total;
-                applyTransforms();
-                updateContent();
+                if (transitioning) return;
+                const next = ((idx % total) + total) % total;
+                if (next === active) return;
+                transitioning = true;
+                photoEl.classList.add('rp2-fading');
+                cardEl.classList.add('rp2-fading');
+                setTimeout(() => {
+                    active = next;
+                    const a = agents[active];
+                    photoEl.src = a.src;
+                    photoEl.alt = a.name;
+                    deptEl.textContent  = a.dept;
+                    nameEl.textContent  = a.name;
+                    titleEl.textContent = a.role;
+                    descEl.textContent  = a.desc;
+                    hireBtn.textContent = 'Hire ' + a.name + ' ↗';
+                    hireBtn.href = 'mailto:hire@hirewilfred.ai?subject=Realtor Pack — ' + a.name;
+                    updateDots();
+                    photoEl.classList.remove('rp2-fading');
+                    cardEl.classList.remove('rp2-fading');
+                    transitioning = false;
+                }, 380);
             }
 
-            function startAutoplay() {
-                stopAutoplay();
-                autoTimer = setInterval(() => goTo(active + 1), 5000);
-            }
-            function stopAutoplay() {
-                if (autoTimer) clearInterval(autoTimer);
-            }
+            function startAutoplay() { stopAutoplay(); autoTimer = setInterval(() => goTo(active + 1), 5500); }
+            function stopAutoplay()  { if (autoTimer) clearInterval(autoTimer); }
 
             prevBtn && prevBtn.addEventListener('click', () => { goTo(active - 1); startAutoplay(); });
             nextBtn && nextBtn.addEventListener('click', () => { goTo(active + 1); startAutoplay(); });
 
-            // Keyboard
-            document.addEventListener('keydown', e => {
-                if (e.key === 'ArrowLeft')  { goTo(active - 1); startAutoplay(); }
-                if (e.key === 'ArrowRight') { goTo(active + 1); startAutoplay(); }
-            });
-
-            // Pause on hover
             const section = document.getElementById('realtors-pack');
             section && section.addEventListener('mouseenter', stopAutoplay);
             section && section.addEventListener('mouseleave', startAutoplay);
 
-            window.addEventListener('resize', applyTransforms);
-
-            // Init
-            applyTransforms();
-            updateContent();
+            updateDots();
             startAutoplay();
         })();
     </script>
