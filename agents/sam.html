@@ -25,7 +25,7 @@
                     <a href="../index.html#canadian" class="nav-link">Canadian-Hosted</a>
                     <a href="../index.html#packages" class="nav-link">Packages</a>
                     <a href="../index.html#faq" class="nav-link">FAQ</a>
-                    <a href="#hire" class="nav-cta">Hire Sam</a>
+                    <a href="#hire" class="nav-cta">Deploy Sam</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Open menu">≡</button>
         </div>
@@ -48,7 +48,7 @@
                     <div><strong>48 hrs</strong><span>to start</span></div>
                     <div><strong>500+ leads/wk</strong><span>contacted</span></div>
                 </div>
-                <a href="#hire" class="hero-cta">Hire Sam <span>↗</span></a>
+                <a href="#hire" class="hero-cta">Deploy Sam <span>↗</span></a>
             </div>
         </div>
     </header>
@@ -111,10 +111,24 @@
         </div>
     </section>
 
-    <section id="hire" class="agent-cta-band">
-        <h2>Ready to hire Sam?</h2>
-        <p>He'll be sending the first email within 48 hours. Replaces a $65K SDR for $1,997/mo CAD.</p>
-        <a class="hero-cta" href="mailto:hire@hirewilfred.ai?subject=Hiring Sam (SDR)">Hire Sam Now <span>↗</span></a>
+    <section id="hire" class="agent-section partner-form-section deploy-section">
+        <h2>Deploy Sam now</h2>
+        <p class="lead">He'll be sending the first email within 48 hours. Replaces a $65K SDR for $1,997/mo CAD. Tell us who to go after.</p>
+        <form class="partner-form" action="mailto:hire@hirewilfred.ai?subject=Deploy Sam (SDR)" method="POST" enctype="text/plain">
+            <div class="form-row">
+                <label>Your name <input type="text" name="name" required placeholder="Jane Doe"></label>
+                <label>Work email <input type="email" name="email" required placeholder="jane@company.com"></label>
+            </div>
+            <div class="form-row">
+                <label>Company <input type="text" name="company" required placeholder="Acme Inc."></label>
+                <label>Phone (optional) <input type="tel" name="phone" placeholder="(555) 555-5555"></label>
+            </div>
+            <label>What should Sam work on?
+                <textarea name="message" rows="4" placeholder="e.g. source prospects in our ICP and run outreach to book meetings."></textarea>
+            </label>
+            <label class="form-checkbox"><input type="checkbox" name="consent" required> I'd like Wilfred to contact me about deploying Sam.</label>
+            <button type="submit" class="hero-cta partner-submit">Deploy Sam <span>↗</span></button>
+        </form>
     </section>
 
         <footer class="site-footer">
