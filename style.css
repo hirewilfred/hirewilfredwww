@@ -2454,3 +2454,148 @@ a { color: inherit; text-decoration: none; }
 }
 
 
+
+/* =========================================================
+   EXPLAINER — WHAT IS AN AI AGENT?
+   ========================================================= */
+.explainer-section { background: var(--surface-cream); }
+.explainer-compare {
+  display: grid; grid-template-columns: 1fr 1.2fr; gap: 1.5rem;
+  max-width: 1080px; margin: 3rem auto 0;
+}
+.explainer-compare-card {
+  background: #fff; border: 1px solid var(--border-light);
+  border-radius: var(--radius-md); padding: 2rem;
+  color: var(--text-dark);
+}
+.explainer-compare-card.is-agent {
+  border: 2px solid var(--accent-copper);
+  box-shadow: 0 18px 50px rgba(88, 183, 255, 0.18);
+}
+.explainer-compare-tag {
+  display: inline-block; font-size: 0.78rem; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-muted-dark); margin-bottom: 1.1rem;
+}
+.explainer-compare-card.is-agent .explainer-compare-tag { color: var(--accent-copper); }
+.explainer-compare-card ul { margin: 0; padding: 0; list-style: none; }
+.explainer-compare-card li {
+  position: relative; padding: 0.45rem 0 0.45rem 1.6rem;
+  font-size: 0.95rem; line-height: 1.55; color: rgba(13,13,13,0.78);
+}
+.explainer-compare-card li::before {
+  content: "—"; position: absolute; left: 0; color: var(--text-muted);
+}
+.explainer-compare-card.is-agent li::before { content: "✓"; color: var(--accent-copper); font-weight: 800; }
+
+.explainer-example {
+  max-width: 1080px; margin: 2.5rem auto 0;
+  background: var(--bg-ink); border-radius: var(--radius-lg);
+  padding: 2.4rem; color: var(--text-light);
+}
+.explainer-example-head { display: flex; align-items: center; gap: 1.1rem; margin-bottom: 1.8rem; }
+.explainer-example-head img {
+  width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
+  border: 2px solid var(--accent-copper);
+}
+.explainer-example-head strong { display: block; font-size: 1.08rem; letter-spacing: -0.02em; }
+.explainer-example-head span { font-size: 0.88rem; color: rgba(255,255,255,0.55); }
+.explainer-timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.explainer-step {
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border-dark);
+  border-radius: var(--radius-md); padding: 1.3rem;
+}
+.explainer-step span {
+  display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--accent-gold); margin-bottom: 0.5rem;
+}
+.explainer-step p { margin: 0; font-size: 0.87rem; line-height: 1.6; color: rgba(255,255,255,0.78); }
+.explainer-step.is-result { background: rgba(88,183,255,0.12); border-color: rgba(88,183,255,0.4); }
+.explainer-step.is-result span { color: #9DE0FF; }
+.explainer-step.is-result p { color: rgba(255,255,255,0.92); }
+
+.explainer-honest {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  max-width: 1080px; margin: 2.5rem auto 0;
+}
+.explainer-honest-col {
+  background: #fff; border: 1px solid var(--border-light);
+  border-radius: var(--radius-md); padding: 2rem; color: var(--text-dark);
+}
+.explainer-honest-col h3 { margin: 0 0 1rem; font-size: 1.05rem; letter-spacing: -0.02em; }
+.explainer-honest-col ul { margin: 0; padding: 0; list-style: none; }
+.explainer-honest-col li { padding: 0.4rem 0; font-size: 0.93rem; line-height: 1.6; color: rgba(13,13,13,0.75); }
+
+/* =========================================================
+   LINEUP — THREE WAYS TO HIRE
+   ========================================================= */
+.lineup-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.lineup-card {
+  position: relative; display: flex; flex-direction: column;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid var(--border-dark); border-radius: var(--radius-lg);
+  padding: 2.2rem; transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+}
+.lineup-card:hover { transform: translateY(-6px); }
+.lineup-card--specialist:hover { border-color: rgba(88,183,255,0.5); }
+.lineup-card--junior:hover { border-color: rgba(0,230,118,0.5); }
+.lineup-card--pack:hover { border-color: rgba(229,50,50,0.5); }
+.lineup-num {
+  position: absolute; top: 1.6rem; right: 1.8rem;
+  font-family: var(--font-display, 'Inter'); font-size: 1.4rem; font-weight: 800;
+  color: rgba(255,255,255,0.14); letter-spacing: -0.04em;
+}
+.lineup-tag {
+  font-size: 0.76rem; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 1rem;
+}
+.lineup-card h3 { margin: 0 0 0.9rem; font-size: 1.45rem; letter-spacing: -0.03em; color: var(--text-light); }
+.lineup-card > p { margin: 0 0 1.5rem; font-size: 0.93rem; line-height: 1.65; color: rgba(255,255,255,0.7); flex: 1; }
+.lineup-meta { border-top: 1px solid var(--border-dark); padding-top: 1.2rem; margin-bottom: 1.2rem; }
+.lineup-price { display: block; font-weight: 800; font-size: 1.05rem; color: var(--text-light); letter-spacing: -0.02em; }
+.lineup-fit { display: block; margin-top: 0.35rem; font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.5; }
+.lineup-cta { font-size: 0.9rem; font-weight: 700; }
+
+/* =========================================================
+   INDUSTRY PACKS OVERVIEW
+   ========================================================= */
+.packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+.pack-card {
+  display: flex; flex-direction: column;
+  background: #fff; border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg); padding: 2.2rem; color: var(--text-dark);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+.pack-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(13,13,13,0.14); }
+.pack-card-tag {
+  align-self: flex-start; font-size: 0.74rem; font-weight: 800;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.35rem 0.8rem; border-radius: 999px; margin-bottom: 1.2rem;
+}
+.pack-card--realtor .pack-card-tag { background: rgba(229,50,50,0.1); color: #E53232; }
+.pack-card--law .pack-card-tag { background: rgba(124,77,255,0.1); color: #7C4DFF; }
+.pack-card--accounting .pack-card-tag { background: rgba(255,145,0,0.12); color: #E07800; }
+.pack-card h3 { margin: 0 0 0.8rem; font-size: 1.5rem; letter-spacing: -0.03em; }
+.pack-card > p { margin: 0 0 1.4rem; font-size: 0.92rem; line-height: 1.65; color: rgba(13,13,13,0.68); }
+.pack-card-roles { margin: 0 0 1.6rem; padding: 0; list-style: none; flex: 1; }
+.pack-card-roles li {
+  padding: 0.42rem 0; font-size: 0.88rem; font-weight: 600;
+  color: rgba(13,13,13,0.8); border-bottom: 1px dashed rgba(13,13,13,0.1);
+}
+.pack-card-roles li:last-child { border-bottom: 0; }
+.pack-card-foot { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1.2rem; }
+.pack-card-price { font-weight: 800; font-size: 1rem; letter-spacing: -0.02em; }
+.pack-card-cta { font-size: 0.88rem; font-weight: 700; }
+.pack-card--realtor .pack-card-cta { color: #E53232; }
+.pack-card--law .pack-card-cta { color: #7C4DFF; }
+.pack-card--accounting .pack-card-cta { color: #E07800; }
+
+@media (max-width: 1024px) {
+  .explainer-timeline { grid-template-columns: repeat(2, 1fr); }
+  .lineup-grid, .packs-grid { grid-template-columns: 1fr; }
+  .explainer-compare, .explainer-honest { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .explainer-timeline { grid-template-columns: 1fr; }
+  .explainer-example { padding: 1.6rem; }
+}
