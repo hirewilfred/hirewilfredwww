@@ -998,77 +998,90 @@ async function sbFetch(path, opts){
    1. DEFAULT DATA
    ========================================================================= */
 
-/* --- Wilfred: three sales teams, their reps, statuses and automations --- */
-const TEAMS = [
-    { id:'media',   name:'Media',   colour:'var(--series-tokens)' },
-    { id:'animals', name:'Animals', colour:'var(--series-infra)'  },
-    { id:'experts', name:'Experts', colour:'var(--series-margin)' }
-];
+/* -------------------------------------------------------------------------
+   Wilfred desk — modelled on the live AudcompAudit schema.
+
+   Statuses are the exact set outreach_leads.status uses in that system
+   (see supabase/migrations/20260313_outreach_schema.sql in the AudcompAudit
+   repo): researched → contacted → replied → interested → booked → closed,
+   with disqualified as the dead end. Do not invent new ones here — the
+   column is free TEXT, so a typo silently creates an orphan status that no
+   automation matches.
+
+   The grouping dimension is the CAMPAIGN (outreach_campaigns), not a team:
+   that schema has no team concept. Campaigns carry an expert_id, and leads
+   are round-robined to experts, so "who owns it" is the expert.
+   ------------------------------------------------------------------------- */
+const CAMPAIGN_COLOURS = ['var(--series-tokens)','var(--series-infra)','var(--series-margin)','var(--series-mgmt)','var(--ord-2)','var(--ord-5)'];
 
 const STATUSES = [
-    { id:'new',        name:'New',              colour:'var(--ord-1)', prob:5,   open:true  },
-    { id:'contacted',  name:'Contacted',        colour:'var(--ord-2)', prob:10,  open:true  },
-    { id:'qualified',  name:'Qualified',        colour:'var(--ord-3)', prob:25,  open:true  },
-    { id:'discovery',  name:'Discovery booked', colour:'var(--ord-4)', prob:45,  open:true  },
-    { id:'proposal',   name:'Proposal sent',    colour:'var(--ord-5)', prob:60,  open:true  },
-    { id:'negotiation',name:'Negotiation',      colour:'var(--series-mgmt)', prob:80, open:true },
-    { id:'stalled',    name:'Stalled',          colour:'var(--serious)', prob:10, open:true  },
-    { id:'won',        name:'Won',              colour:'var(--good)',    prob:100,open:false },
-    { id:'lost',       name:'Lost',             colour:'var(--critical)',prob:0,  open:false }
+    { id:'researched',   name:'Researched',   colour:'var(--ord-1)',      prob:5,   open:true,  stamp:'researched_at' },
+    { id:'contacted',    name:'Contacted',    colour:'var(--ord-2)',      prob:15,  open:true,  stamp:'contacted_at'  },
+    { id:'replied',      name:'Replied',      colour:'var(--ord-3)',      prob:30,  open:true,  stamp:'replied_at'    },
+    { id:'interested',   name:'Interested',   colour:'var(--ord-4)',      prob:50,  open:true,  stamp:'interested_at' },
+    { id:'booked',       name:'Booked',       colour:'var(--ord-5)',      prob:70,  open:true,  stamp:'booked_at'     },
+    { id:'closed',       name:'Closed',       colour:'var(--good)',       prob:100, open:false, stamp:'closed_at'     },
+    { id:'disqualified', name:'Disqualified', colour:'var(--critical)',   prob:0,   open:false, stamp:null            }
 ];
 const statusById = id => STATUSES.find(s=>s.id===id) || STATUSES[0];
 
-/* Automation rules: fired when an opportunity ENTERS the given status. */
+/* Automation rules: fired when a lead ENTERS the given status. Each maps to
+   an agent, and each run is written to outreach_agent_events when live. */
 const RULES = [
-    { id:'r_new',        on:'new',        title:'Enrich and route',
-      detail:'Sam pulls firmographics and the decision-maker contact, then routes the opportunity to the right team queue. Wilfred assigns an owner if none is set.' },
-    { id:'r_contacted',  on:'contacted',  title:'Start the follow-up cadence',
-      detail:'Sam runs a three-touch sequence over eight days. Any reply stops the cadence and pings the owner.' },
-    { id:'r_qualified',  on:'qualified',  title:'Offer the discovery slot',
-      detail:'Olivia sends the calendar link and drafts the $3,000 audit SOW from the vertical template. Owner approves before it goes out.' },
-    { id:'r_discovery',  on:'discovery',  title:'Prep the audit',
-      detail:'Olivia builds the workshop brief 24 hours ahead — org chart, current tooling, workflow map. Scout compiles the vertical research pack.' },
-    { id:'r_proposal',   on:'proposal',   title:'Chase the proposal',
-      detail:'Sam follows up on day 3 and day 7. No response by day 10 moves the opportunity to Stalled automatically.' },
-    { id:'r_negotiation',on:'negotiation',title:'Review the paper',
-      detail:'David reviews redlines against the MSA and flags any deviation on liability, term or data residency to the owner.' },
-    { id:'r_stalled',    on:'stalled',    title:'Re-engage, then park',
-      detail:'Claire drops the opportunity into a value-led nurture track. Wilfred re-surfaces it to the owner in 30 days.' },
-    { id:'r_won',        on:'won',        title:'Hand off to delivery',
-      detail:'Creates the pipeline deal at Agent building, generates the agents.json seed config, and raises the first invoice through Quinn.' },
-    { id:'r_lost',       on:'lost',       title:'Capture the reason',
-      detail:'Prompts the owner for a loss reason, then adds the company to Claire’s long-cycle nurture list.' }
+    { id:'r_researched',   on:'researched',   agent:'Scout', title:'Enrich and assign',
+      detail:'Scout completes the firmographics and decision-maker contact, then round-robins the lead to an expert. Nothing is sent until the owner approves — approval_status stays pending_review.' },
+    { id:'r_contacted',    on:'contacted',    agent:'Sam',   title:'Run the send cadence',
+      detail:'Sam pushes the sequence through Instantly, respecting the campaign daily_send_cap. Each touch increments follow_up_count and stamps last_touch_at.' },
+    { id:'r_replied',      on:'replied',      agent:'Sam',   title:'Stop the cadence, classify the reply',
+      detail:'Any reply halts the sequence immediately so nobody gets chased after answering. Sam classifies intent and pings the owning expert.' },
+    { id:'r_interested',   on:'interested',   agent:'Olivia',title:'Offer the booking link',
+      detail:'Olivia sends the owning expert’s bookings_url and proposes times. Sets next_action_at so the lead cannot go quiet unnoticed.' },
+    { id:'r_booked',       on:'booked',       agent:'Olivia',title:'Prep the meeting',
+      detail:'Olivia builds the pre-call brief 24 hours ahead — company, tooling, audit score if they have one — and confirms the calendar hold.' },
+    { id:'r_closed',       on:'closed',       agent:'Quinn', title:'Hand off to delivery',
+      detail:'Creates the AMS client record and the delivery deal, then raises the first invoice. This is the only rule that writes outside the outreach tables.' },
+    { id:'r_disqualified', on:'disqualified', agent:'Claire',title:'Capture the reason and suppress',
+      detail:'Prompts for a loss reason, suppresses the contact from all live cadences so they are never re-contacted by accident, and adds them to long-cycle nurture.' }
 ];
 
+/* Local demo data. Campaign names default to the three you gave; when the
+   database is connected these are replaced by the real outreach_campaigns. */
+function seedCampaigns(){
+    return [
+        { id:'camp_media',   name:'Media',   colour:CAMPAIGN_COLOURS[0], channel:'multi' },
+        { id:'camp_animals', name:'Animals', colour:CAMPAIGN_COLOURS[1], channel:'email' },
+        { id:'camp_experts', name:'Experts', colour:CAMPAIGN_COLOURS[2], channel:'linkedin' }
+    ];
+}
 function seedReps(){
     return [
-        { id:'rep1', name:'Alexis Moreau',  team:'media',   initials:'AM' },
-        { id:'rep2', name:'Devon Clarke',   team:'media',   initials:'DC' },
-        { id:'rep3', name:'Priya Raman',    team:'animals', initials:'PR' },
-        { id:'rep4', name:'Sean Whitfield', team:'animals', initials:'SW' },
-        { id:'rep5', name:'Noor Haddad',    team:'experts', initials:'NH' },
-        { id:'rep6', name:'Marcus Bell',    team:'experts', initials:'MB' }
+        { id:'rep1', name:'Alexis Moreau',  initials:'AM', isBdm:true  },
+        { id:'rep2', name:'Devon Clarke',   initials:'DC', isBdm:true  },
+        { id:'rep3', name:'Priya Raman',    initials:'PR', isBdm:true  },
+        { id:'rep4', name:'Sean Whitfield', initials:'SW', isBdm:false },
+        { id:'rep5', name:'Noor Haddad',    initials:'NH', isBdm:true  },
+        { id:'rep6', name:'Marcus Bell',    initials:'MB', isBdm:false }
     ];
 }
 function seedOpps(){
-    const o = (name, company, team, rep, status, value, recurring, next, close) =>
-        ({ id:uid(), name, company, team, rep, status, value, recurring, next, close, updated:Date.now(), created:Date.now() });
+    const o = (name, company, campaign, rep, status, value, recurring, next, close) =>
+        ({ id:uid(), name, company, campaign, rep, status, value, recurring, next, close, updated:Date.now(), created:Date.now() });
     return [
-        o('Full roster rollout','Meridian Broadcast Group','media','rep1','negotiation',8997,'mrr','Legal reviewing the MSA — chase Thursday','2026-08-14'),
-        o('Content desk pilot','Cadence Media Co','media','rep2','proposal',4997,'mrr','Proposal sent Monday, follow up day 3','2026-08-22'),
-        o('Reception + intake','Lakeshore Studios','media','rep1','discovery',3497,'mrr','Audit workshop booked for the 5th','2026-09-05'),
-        o('Social + community','Harbourlight Films','media','rep2','qualified',1997,'mrr','Send the audit SOW','2026-09-19'),
-        o('Vet clinic front desk','Riverbend Animal Hospital','animals','rep3','won',4997,'mrr','Won — provision this week','2026-07-18'),
-        o('Multi-site receptionist','Pawsitive Care Group','animals','rep4','negotiation',8997,'mrr','Negotiating a 24-month term','2026-08-29'),
-        o('Booking + reminders','Northfield Veterinary','animals','rep3','proposal',3497,'mrr','Proposal with the practice manager','2026-09-02'),
-        o('Intake automation','Willow Creek Boarding','animals','rep4','contacted',1997,'mrr','Second touch scheduled','2026-10-01'),
-        o('Grooming chain rollout','Bark Avenue','animals','rep3','stalled',4997,'mrr','No reply in 14 days — nurture','2026-11-15'),
-        o('Paralegal + compliance','Corbett & Vance LLP','experts','rep5','discovery',4997,'mrr','Audit under way, map intake flow','2026-09-01'),
-        o('Bookkeeping desk','Ridgeway CPA Group','experts','rep6','won',3994,'mrr','Live — expansion conversation open','2026-05-19'),
-        o('Advisory back office','Northshore Wealth','experts','rep6','proposal',4997,'mrr','Chase the audit SOW signature','2026-09-15'),
-        o('Claims support','Halton Insurance Brokers','experts','rep5','negotiation',8997,'mrr','Security questionnaire returned','2026-08-08'),
-        o('Discovery & audit','Grand River Logistics','experts','rep6','new',3000,'once','Qualify — may not have the volume','2026-10-30'),
-        o('Paralegal trial','Fenwick Legal','experts','rep5','lost',4997,'mrr','Lost to in-house hire','2026-06-30')
+        o('Full roster rollout','Meridian Broadcast Group','camp_media','rep1','interested',8997,'mrr','Sent times for next week','2026-08-14'),
+        o('Content desk pilot','Cadence Media Co','camp_media','rep2','contacted',4997,'mrr','Touch 2 of 3 goes Thursday','2026-08-22'),
+        o('Reception + intake','Lakeshore Studios','camp_media','rep1','booked',3497,'mrr','Call booked for the 5th','2026-09-05'),
+        o('Social + community','Harbourlight Films','camp_media','rep2','researched',1997,'mrr','Awaiting owner approval to send','2026-09-19'),
+        o('Vet clinic front desk','Riverbend Animal Hospital','camp_animals','rep3','closed',4997,'mrr','Won — provision this week','2026-07-18'),
+        o('Multi-site receptionist','Pawsitive Care Group','camp_animals','rep4','interested',8997,'mrr','Practice manager wants a demo','2026-08-29'),
+        o('Booking + reminders','Northfield Veterinary','camp_animals','rep3','replied',3497,'mrr','Asked about pricing — classify','2026-09-02'),
+        o('Intake automation','Willow Creek Boarding','camp_animals','rep4','contacted',1997,'mrr','Second touch scheduled','2026-10-01'),
+        o('Grooming chain rollout','Bark Avenue','camp_animals','rep3','researched',4997,'mrr','Enriched, not yet assigned','2026-11-15'),
+        o('Paralegal + compliance','Corbett & Vance LLP','camp_experts','rep5','booked',4997,'mrr','Discovery call Thursday','2026-09-01'),
+        o('Bookkeeping desk','Ridgeway CPA Group','camp_experts','rep6','closed',3994,'mrr','Live — expansion conversation open','2026-05-19'),
+        o('Advisory back office','Northshore Wealth','camp_experts','rep6','interested',4997,'mrr','Chasing the signature','2026-09-15'),
+        o('Claims support','Halton Insurance Brokers','camp_experts','rep5','replied',8997,'mrr','Security questionnaire returned','2026-08-08'),
+        o('Discovery & audit','Grand River Logistics','camp_experts','rep6','researched',3000,'once','Qualify — may not have the volume','2026-10-30'),
+        o('Paralegal trial','Fenwick Legal','camp_experts','rep5','disqualified',4997,'mrr','Hired in-house instead','2026-06-30')
     ];
 }
 
@@ -1129,10 +1142,11 @@ function defaults(){ return {
     scenarios:[],
     checks:{},
     reps:seedReps(),
+    campaigns:seedCampaigns(),
     opps:seedOpps(),
     ruleState:Object.fromEntries(RULES.map(r=>[r.id,true])),
     feed:[],
-    wFilter:{ team:'all', rep:'all', status:'open', q:'' }
+    wFilter:{ campaign:'all', rep:'all', status:'open', q:'' }
 };}
 
 function seedDeals(){
@@ -1212,8 +1226,11 @@ function load(){
             DB.wFilter = Object.assign(defaults().wFilter, parsed.wFilter||{});
             DB.ruleState = Object.assign(defaults().ruleState, parsed.ruleState||{});
             if(!Array.isArray(DB.reps) || !DB.reps.length) DB.reps = seedReps();
+            if(!Array.isArray(DB.campaigns) || !DB.campaigns.length) DB.campaigns = seedCampaigns();
             if(!Array.isArray(DB.opps)) DB.opps = seedOpps();
             if(!Array.isArray(DB.feed)) DB.feed = [];
+            // Statuses changed to the AudcompAudit set — drop anything orphaned.
+            DB.opps.forEach(o => { if(!STATUSES.some(s=>s.id===o.status)) o.status = 'researched'; });
             return;
         }
     }catch(e){ console.warn('Could not read saved state, starting fresh.', e); }
@@ -1584,7 +1601,7 @@ function burnSeries(current){
    WILFRED — opportunity desk, status tracking and automation
    ========================================================================= */
 const repById  = id => DB.reps.find(r=>r.id===id);
-const teamById = id => TEAMS.find(t=>t.id===id) || TEAMS[0];
+const campaignById = id => DB.campaigns.find(c=>c.id===id) || DB.campaigns[0] || { id:'', name:'Unassigned', colour:'var(--muted)' };
 const oppOpen  = o => statusById(o.status).open;
 const oppWeighted = o => o.value * (statusById(o.status).prob/100);
 
@@ -1592,7 +1609,7 @@ function filteredOpps(){
     const f = DB.wFilter;
     const q = (f.q||'').trim().toLowerCase();
     return DB.opps.filter(o => {
-        if(f.team !== 'all' && o.team !== f.team) return false;
+        if(f.campaign !== 'all' && o.campaign !== f.campaign) return false;
         if(f.rep  !== 'all' && o.rep  !== f.rep)  return false;
         if(f.status === 'open'  && !oppOpen(o)) return false;
         if(f.status === 'closed' && oppOpen(o)) return false;
@@ -1611,29 +1628,37 @@ function fireAutomation(opp, fromStatus){
         return null;
     }
     logFeed(opp, '<b>' + esc(opp.company) + '</b> moved ' + esc(statusById(fromStatus).name) + ' → <b>' +
-                 esc(statusById(opp.status).name) + '</b>. Fired <b>' + esc(rule.title) + '</b>.');
+                 esc(statusById(opp.status).name) + '</b>. ' + esc(rule.agent) + ' fired <b>' + esc(rule.title) + '</b>.');
 
     // Side effects that change data live here, so the log matches reality.
-    if(opp.status === 'won'){
+    if(opp.status === 'closed'){
         const exists = DB.deals.some(d => d.name.toLowerCase() === opp.company.toLowerCase());
         if(!exists){
             DB.deals.push({
                 id:uid(), created:Date.now(), name:opp.company, contact:'', stage:'building',
-                vertical: opp.team === 'experts' ? 'General SME' : 'General SME',
+                vertical:'General SME',
                 owner:(repById(opp.rep)||{}).name || '', package:'department', seniors:6, juniors:0,
                 mrr: opp.recurring === 'mrr' ? opp.value : 0,
                 discovery: DB.assumptions.discoveryFee, onboard:1500,
                 infra:'shared', intensity:1, close:opp.close || '',
-                next:'Won from the Wilfred desk — provision the roster'
+                next:'Closed from the Wilfred desk — provision the roster'
             });
-            logFeed(opp, 'Created pipeline deal for <b>' + esc(opp.company) + '</b> at Agent building.');
+            logFeed(opp, 'Created delivery deal for <b>' + esc(opp.company) + '</b> at Agent building.');
         }
     }
-    if(opp.status === 'stalled')
-        logFeed(opp, 'Queued <b>' + esc(opp.company) + '</b> for a 30-day re-surface to ' + esc((repById(opp.rep)||{}).name || 'the owner') + '.');
-    if(opp.status === 'new' && !opp.rep){
-        const pool = DB.reps.filter(r=>r.team===opp.team);
-        if(pool.length){ opp.rep = pool[0].id; logFeed(opp, 'Assigned <b>' + esc(pool[0].name) + '</b> as owner.'); }
+    if(opp.status === 'replied')
+        logFeed(opp, 'Halted the send cadence for <b>' + esc(opp.company) + '</b> so they are not chased after replying.');
+    if(opp.status === 'disqualified')
+        logFeed(opp, 'Suppressed <b>' + esc(opp.company) + '</b> from every live cadence.');
+    if(opp.status === 'researched' && !opp.rep){
+        // Round-robin across BDMs, mirroring the assignment model in AudcompAudit.
+        const pool = DB.reps.filter(r=>r.isBdm);
+        if(pool.length){
+            const load = pool.map(r => ({ r, n: DB.opps.filter(x=>x.rep===r.id && oppOpen(x)).length }));
+            load.sort((a,b)=>a.n-b.n);
+            opp.rep = load[0].r.id;
+            logFeed(opp, 'Assigned <b>' + esc(load[0].r.name) + '</b> as owner (lightest open load).');
+        }
     }
     return rule;
 }
@@ -1652,10 +1677,15 @@ async function setOppStatus(id, status){
     save();
     renderWilfred();
     toast(o.company + ' → ' + statusById(status).name);
-    if(sbReady() && sbSession){
+    if(sbReady() && sbSession && o.remoteId){
+        // Stamp the matching *_at column too, so the app's own funnel maths
+        // (which reads contacted_at / replied_at / booked_at) stays correct.
+        const body = { status, updated_at:new Date().toISOString() };
+        const stamp = statusById(status).stamp;
+        if(stamp) body[stamp] = new Date().toISOString();
         try{
-            await sbFetch('opportunities?id=eq.' + encodeURIComponent(o.remoteId || o.id),
-                { method:'PATCH', body: JSON.stringify({ status, updated_at:new Date().toISOString() }) });
+            await sbFetch('outreach_leads?id=eq.' + encodeURIComponent(o.remoteId),
+                { method:'PATCH', headers:{ Prefer:'return=minimal' }, body: JSON.stringify(body) });
         }catch(e){ toast('Status saved locally — database write failed.'); console.warn(e); }
     }
 }
@@ -1675,18 +1705,17 @@ function renderWilfred(){
     // filters
     const f = DB.wFilter;
     document.getElementById('wTeamTabs').innerHTML =
-        ['<button class="team-pill ' + (f.team==='all'?'is-active':'') + '" onclick="setWFilter(\'team\',\'all\')">All teams <span class="tp-n">' + DB.opps.filter(oppOpen).length + '</span></button>']
-        .concat(TEAMS.map(t => {
-            const n = DB.opps.filter(o=>o.team===t.id && oppOpen(o)).length;
-            return '<button class="team-pill ' + (f.team===t.id?'is-active':'') + '" onclick="setWFilter(\'team\',\'' + t.id + '\')">' +
-                   '<span class="tp-dot" style="background:' + t.colour + '"></span>' + esc(t.name) + ' <span class="tp-n">' + n + '</span></button>';
+        ['<button class="team-pill ' + (f.campaign==='all'?'is-active':'') + '" onclick="setWFilter(\'campaign\',\'all\')">All campaigns <span class="tp-n">' + DB.opps.filter(oppOpen).length + '</span></button>']
+        .concat(DB.campaigns.map(c => {
+            const n = DB.opps.filter(o=>o.campaign===c.id && oppOpen(o)).length;
+            return '<button class="team-pill ' + (f.campaign===c.id?'is-active':'') + '" onclick="setWFilter(\'campaign\',\'' + c.id + '\')">' +
+                   '<span class="tp-dot" style="background:' + c.colour + '"></span>' + esc(c.name) + ' <span class="tp-n">' + n + '</span></button>';
         })).join('');
 
     const repSel = document.getElementById('wRep');
-    const repPool = DB.reps.filter(r => f.team==='all' || r.team===f.team);
     repSel.innerHTML = '<option value="all">All reps</option>' +
-        repPool.map(r=>'<option value="'+r.id+'">'+esc(r.name)+'</option>').join('');
-    repSel.value = repPool.some(r=>r.id===f.rep) ? f.rep : 'all';
+        DB.reps.map(r=>'<option value="'+r.id+'">'+esc(r.name)+(r.isBdm?' (BDM)':'')+'</option>').join('');
+    repSel.value = DB.reps.some(r=>r.id===f.rep) ? f.rep : 'all';
     if(repSel.value === 'all') f.rep = 'all';
 
     const stSel = document.getElementById('wStatusFilter');
@@ -1699,24 +1728,24 @@ function renderWilfred(){
     const open = rows.filter(oppOpen);
     const openVal = open.reduce((s,o)=>s+o.value,0);
     const weighted = open.reduce((s,o)=>s+oppWeighted(o),0);
-    const won = DB.opps.filter(o=>o.status==='won');
-    const lost = DB.opps.filter(o=>o.status==='lost');
+    const won = DB.opps.filter(o=>o.status==='closed');
+    const lost = DB.opps.filter(o=>o.status==='disqualified');
     const winRate = (won.length+lost.length) ? won.length/(won.length+lost.length) : 0;
 
     document.getElementById('navOpps').textContent = DB.opps.filter(oppOpen).length;
     document.getElementById('wKpis').innerHTML = [
-        kpiTile('Open opportunities', open.length, (f.team==='all'?'Across all three teams':esc(teamById(f.team).name) + ' team'), ''),
+        kpiTile('Open opportunities', open.length, (f.campaign==='all'?'Across all campaigns':esc(campaignById(f.campaign).name) + ' campaign'), ''),
         kpiTile('Open value', cad(openVal), 'Sum of everything still in play', 'accent'),
         kpiTile('Weighted', cad(weighted), 'Adjusted by status probability', 'copper'),
-        kpiTile('Win rate', pct(winRate), won.length + ' won · ' + lost.length + ' lost', 'margin'),
+        kpiTile('Close rate', pct(winRate), won.length + ' closed · ' + lost.length + ' disqualified', 'margin'),
         kpiTile('Automations fired', DB.feed.filter(x=>!x.muted).length, 'This session', '')
     ].join('');
 
     // table
     document.getElementById('wTable').innerHTML = rows.length ?
-        '<thead><tr><th>Opportunity</th><th>Team</th><th>Owner</th><th class="num">Value</th><th>Status</th><th>Next action</th><th class="num">Updated</th><th></th></tr></thead><tbody>' +
+        '<thead><tr><th>Opportunity</th><th>Campaign</th><th>Owner</th><th class="num">Value</th><th>Status</th><th>Next action</th><th class="num">Updated</th><th></th></tr></thead><tbody>' +
         rows.map(o => {
-            const r = repById(o.rep), t = teamById(o.team), st = statusById(o.status);
+            const r = repById(o.rep), t = campaignById(o.campaign), st = statusById(o.status);
             return '<tr>' +
                 '<td><strong>' + esc(o.name) + '</strong><br><span class="note">' + esc(o.company) + '</span></td>' +
                 '<td><span class="chip" style="border-color:' + t.colour + ';color:' + t.colour + '">' + esc(t.name) + '</span></td>' +
@@ -1745,23 +1774,23 @@ function renderWilfred(){
                 '<div class="tt-r"><span>Weighted</span><b>'+cad(v*s.prob/100)+'</b></div>' };
     }), 'var(--ord-3)');
 
-    rankBars(document.getElementById('wTeamChart'), TEAMS.map(t => {
-        const set = DB.opps.filter(o=>o.team===t.id && oppOpen(o));
+    rankBars(document.getElementById('wTeamChart'), DB.campaigns.map(c => {
+        const set = DB.opps.filter(o=>o.campaign===c.id && oppOpen(o));
         const v = set.reduce((a,o)=>a+o.value,0);
-        return { label:t.name, value:v, colour:t.colour, sub:set.length + ' open',
-            tip:'<div class="tt-h">'+esc(t.name)+'</div><div class="tt-r"><span>Open value</span><b>'+cad(v)+'</b></div><div class="tt-r"><span>Weighted</span><b>'+cad(set.reduce((a,o)=>a+oppWeighted(o),0))+'</b></div>' };
+        return { label:c.name, value:v, colour:c.colour, sub:set.length + ' open',
+            tip:'<div class="tt-h">'+esc(c.name)+'</div><div class="tt-r"><span>Open value</span><b>'+cad(v)+'</b></div><div class="tt-r"><span>Weighted</span><b>'+cad(set.reduce((a,o)=>a+oppWeighted(o),0))+'</b></div>' };
     }), 'var(--series-tokens)');
 
     const board = DB.reps.map(r => {
         const set = DB.opps.filter(o=>o.rep===r.id && oppOpen(o));
-        const w = DB.opps.filter(o=>o.rep===r.id && o.status==='won').length;
-        const l = DB.opps.filter(o=>o.rep===r.id && o.status==='lost').length;
+        const w = DB.opps.filter(o=>o.rep===r.id && o.status==='closed').length;
+        const l = DB.opps.filter(o=>o.rep===r.id && o.status==='disqualified').length;
         return { r, open:set.length, value:set.reduce((a,o)=>a+o.value,0), weighted:set.reduce((a,o)=>a+oppWeighted(o),0), w, l };
     }).sort((a,b)=>b.value-a.value);
     document.getElementById('wRepTable').innerHTML =
-        '<thead><tr><th>Rep</th><th>Team</th><th class="num">Open</th><th class="num">Value</th><th class="num">Weighted</th><th class="num">W/L</th></tr></thead><tbody>' +
-        board.map(b => '<tr><td><span class="rep"><span class="rep-av" style="background:' + teamById(b.r.team).colour + '">' + esc(b.r.initials) + '</span><strong>' + esc(b.r.name) + '</strong></span></td>' +
-            '<td>' + esc(teamById(b.r.team).name) + '</td><td class="num">' + b.open + '</td>' +
+        '<thead><tr><th>Rep</th><th>Role</th><th class="num">Open</th><th class="num">Value</th><th class="num">Weighted</th><th class="num">C/D</th></tr></thead><tbody>' +
+        board.map(b => '<tr><td><span class="rep"><span class="rep-av" style="background:var(--surface-3);color:var(--ink)">' + esc(b.r.initials) + '</span><strong>' + esc(b.r.name) + '</strong></span></td>' +
+            '<td>' + (b.r.isBdm ? '<span class="chip s">BDM</span>' : '<span class="note">Expert</span>') + '</td><td class="num">' + b.open + '</td>' +
             '<td class="num">' + cad(b.value) + '</td><td class="num">' + cad(b.weighted) + '</td>' +
             '<td class="num">' + b.w + '/' + b.l + '</td></tr>').join('') + '</tbody>';
 
@@ -1771,7 +1800,7 @@ function renderWilfred(){
         return '<div class="auto-rule">' +
             '<input type="checkbox" ' + (DB.ruleState[r.id] ? 'checked' : '') + ' onchange="toggleRule(\'' + r.id + '\')">' +
             '<div><span class="ar-when"><span class="st-swatch" style="background:' + s.colour + '"></span>When status becomes ' + esc(s.name) + '</span>' +
-            '<span class="ar-do">' + esc(r.title) + '</span>' +
+            '<span class="ar-do">' + esc(r.title) + ' <span class="chip" style="font-size:0.6rem;">' + esc(r.agent) + '</span></span>' +
             '<span class="ar-detail">' + esc(r.detail) + '</span></div>' +
             '<span class="chip ' + (DB.ruleState[r.id] ? 'good' : '') + '">' + (DB.ruleState[r.id] ? 'Live' : 'Off') + '</span></div>';
     }).join('');
@@ -1805,30 +1834,26 @@ function openOpp(id){
     editingOpp = id ? DB.opps.find(o=>o.id===id) : null;
     document.getElementById('oppModalTitle').textContent = editingOpp ? 'Edit opportunity' : 'New opportunity';
     document.getElementById('oDelete').style.display = editingOpp ? '' : 'none';
-    document.getElementById('oTeam').innerHTML   = TEAMS.map(t=>'<option value="'+t.id+'">'+esc(t.name)+'</option>').join('');
+    document.getElementById('oTeam').innerHTML   = DB.campaigns.map(c=>'<option value="'+c.id+'">'+esc(c.name)+'</option>').join('');
     document.getElementById('oStatus').innerHTML = STATUSES.map(s=>'<option value="'+s.id+'">'+esc(s.name)+'</option>').join('');
-    const o = editingOpp || { name:'', company:'', team:(DB.wFilter.team==='all'?'media':DB.wFilter.team), rep:'', status:'new', value:4997, recurring:'mrr', close:'', next:'' };
-    document.getElementById('oTeam').value = o.team;
-    fillOppReps(o.team, o.rep);
+    document.getElementById('oRep').innerHTML = '<option value="">Unassigned</option>' +
+        DB.reps.map(r=>'<option value="'+r.id+'">'+esc(r.name)+(r.isBdm?' (BDM)':'')+'</option>').join('');
+    const first = (DB.campaigns[0]||{}).id || '';
+    const o = editingOpp || { name:'', company:'', campaign:(DB.wFilter.campaign==='all'?first:DB.wFilter.campaign), rep:'', status:'researched', value:4997, recurring:'mrr', close:'', next:'' };
+    document.getElementById('oTeam').value = o.campaign;
+    document.getElementById('oRep').value = DB.reps.some(r=>r.id===o.rep) ? o.rep : '';
     ['oName:name','oCompany:company','oStatus:status','oValue:value','oRecurring:recurring','oClose:close','oNext:next'].forEach(p=>{
         const [el,k] = p.split(':');
         document.getElementById(el).value = o[k] == null ? '' : o[k];
     });
     document.getElementById('oppModal').classList.add('show');
 }
-function fillOppReps(team, selected){
-    const pool = DB.reps.filter(r=>r.team===team);
-    document.getElementById('oRep').innerHTML = '<option value="">Unassigned</option>' +
-        pool.map(r=>'<option value="'+r.id+'">'+esc(r.name)+'</option>').join('');
-    document.getElementById('oRep').value = pool.some(r=>r.id===selected) ? selected : '';
-}
-document.getElementById('oTeam').addEventListener('change', e => fillOppReps(e.target.value, ''));
 function closeOpp(){ document.getElementById('oppModal').classList.remove('show'); editingOpp = null; }
 document.getElementById('oppModal').addEventListener('click', e => { if(e.target.id==='oppModal') closeOpp(); });
 document.getElementById('oppForm').addEventListener('submit', e => {
     e.preventDefault();
     const payload = {
-        name:val('oName').trim(), company:val('oCompany').trim(), team:val('oTeam'), rep:val('oRep'),
+        name:val('oName').trim(), company:val('oCompany').trim(), campaign:val('oTeam'), rep:val('oRep'),
         status:val('oStatus'), value:num('oValue'), recurring:val('oRecurring'),
         close:val('oClose'), next:val('oNext').trim(), updated:Date.now()
     };
@@ -1840,7 +1865,7 @@ document.getElementById('oppForm').addEventListener('submit', e => {
     } else {
         const o = Object.assign({ id:uid(), created:Date.now() }, payload);
         DB.opps.push(o);
-        fireAutomation(o, 'new');
+        fireAutomation(o, 'researched');
     }
     save(); closeOpp(); renderWilfred();
     toast(payload.company + ' saved.');
@@ -1866,25 +1891,41 @@ async function connectSupabase(){
         renderConn(); return;
     }
     try{
-        const [reps, opps] = await Promise.all([
-            sbFetch('salespeople?select=*&order=name'),
-            sbFetch('opportunities?select=*&order=updated_at.desc')
+        // Reads the live AudcompAudit tables. outreach_leads IS the opportunity
+        // table — it already carries status, expert_id and next_action_note.
+        const [experts, campaigns, leads] = await Promise.all([
+            sbFetch('experts?select=id,full_name,email,is_bdm&order=full_name'),
+            sbFetch('outreach_campaigns?select=id,name,status,channel,expert_id&order=name'),
+            sbFetch('outreach_leads?select=id,company_name,contact_name,campaign_id,expert_id,assigned_rep,status,next_action_note,next_action_at,updated_at&order=updated_at.desc&limit=1000')
         ]);
-        if(Array.isArray(reps) && reps.length){
-            DB.reps = reps.map(r=>({ id:r.id, remoteId:r.id, name:r.name, team:r.team, initials:r.initials || initialsOf(r.name) }));
+        if(Array.isArray(experts) && experts.length){
+            DB.reps = experts.map(e=>({ id:e.id, remoteId:e.id, name:e.full_name, initials:initialsOf(e.full_name), isBdm:!!e.is_bdm }));
         }
-        if(Array.isArray(opps)){
-            DB.opps = opps.map(o=>({
-                id:o.id, remoteId:o.id, name:o.name, company:o.company, team:o.team,
-                rep:o.salesperson_id, status:o.status, value:Number(o.value)||0,
-                recurring:o.is_recurring ? 'mrr' : 'once', next:o.next_action || '',
-                close:o.expected_close || '', updated:Date.parse(o.updated_at)||Date.now()
+        if(Array.isArray(campaigns) && campaigns.length){
+            DB.campaigns = campaigns.map((c,i)=>({
+                id:c.id, remoteId:c.id, name:c.name, channel:c.channel,
+                colour: CAMPAIGN_COLOURS[i] || 'var(--muted)'   // fixed order, never cycled
             }));
         }
-        sbState = { status:'live', detail:'Reading ' + DB.opps.length + ' opportunities from Supabase.' };
+        if(Array.isArray(leads)){
+            DB.opps = leads.map(l=>({
+                id:l.id, remoteId:l.id,
+                name: l.contact_name || l.company_name,
+                company: l.company_name,
+                campaign: l.campaign_id,
+                rep: l.expert_id,
+                status: STATUSES.some(s=>s.id===l.status) ? l.status : 'researched',
+                value: 0,                       // outreach_leads carries no value column
+                recurring:'mrr',
+                next: l.next_action_note || '',
+                close: (l.next_action_at||'').slice(0,10),
+                updated: Date.parse(l.updated_at) || Date.now()
+            }));
+        }
+        sbState = { status:'live', detail:'Reading ' + DB.opps.length + ' leads from AudcompAudit.' };
         save();
     }catch(e){
-        sbState = { status:'offline', detail:'Connection failed — ' + e.message + ' Anonymous reads are denied by design; sign-in wiring is the next step.' };
+        sbState = { status:'offline', detail:'Connection failed — ' + e.message + ' RLS denies anonymous reads by design; staff sign-in is the next step.' };
     }
     renderConn(); renderAll();
 }
