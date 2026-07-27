@@ -1,6 +1,15 @@
 # Supabase project configuration
-# Replace YOUR_PROJECT_REF with your actual project reference ID
-# Found at: Supabase Dashboard → Project Settings → General → Reference ID
+#
+# Project:   AudcompAudit
+# Ref:       hqmahvhyljkllbcpqaeg
+# URL:       https://hqmahvhyljkllbcpqaeg.supabase.co
+#
+# Link and apply migrations:
+#   supabase link --project-ref hqmahvhyljkllbcpqaeg
+#   supabase db push
+# See supabase/README.md for the full first-run sequence.
+
+project_id = "hqmahvhyljkllbcpqaeg"
 
 [api]
 enabled = true
