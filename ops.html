@@ -8,11 +8,12 @@
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="/hirewilfred_icon.svg">
     <link rel="icon" type="image/svg+xml" sizes="32x32" href="/favicon.svg">
     <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/favicon.svg">
+    <link rel="stylesheet" href="style.css?v=202605171130">
 <style>
 :root{
     /* ---- app chrome (matches admin.html) ---- */
@@ -62,32 +63,38 @@ button{cursor:pointer;}
 ::-webkit-scrollbar-thumb{background:#2e2e2e;border-radius:6px;}
 ::-webkit-scrollbar-thumb:hover{background:#3d3d3d;}
 
-/* ---------- shell ---------- */
-.preview-band{background:linear-gradient(90deg,rgba(255,183,77,0.20),rgba(88,183,255,0.14));border-bottom:1px solid var(--border);text-align:center;font-size:0.76rem;font-weight:600;padding:0.5rem 1rem;color:var(--ink-2);}
+/* ---------- shell (matches the public site chrome) ---------- */
+body{padding-top:78px;}
+.preview-band{position:fixed;top:78px;inset-inline:0;z-index:70;background:linear-gradient(90deg,rgba(250,178,25,0.18),rgba(88,183,255,0.13));border-bottom:1px solid var(--border);text-align:center;font-size:0.76rem;font-weight:600;padding:0.45rem 1rem;color:var(--ink-2);}
 .preview-band strong{color:var(--warning);}
 .preview-band a{color:var(--accent);text-decoration:underline;}
 
-.app{display:grid;grid-template-columns:236px 1fr;min-height:calc(100vh - 34px);}
-.sidebar{background:var(--surface);border-right:1px solid var(--border);padding:1.5rem 0.9rem;display:flex;flex-direction:column;gap:0.2rem;position:sticky;top:0;height:100vh;overflow-y:auto;}
-.sidebar .logo{height:42px;width:auto;align-self:flex-start;margin:0 0 1rem 0.5rem;}
-.side-head{font-size:0.66rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);padding:0.9rem 0.65rem 0.35rem;}
-.side-link{display:flex;align-items:center;gap:0.6rem;width:100%;background:none;border:0;color:var(--ink-2);font-size:0.88rem;font-weight:600;text-align:left;padding:0.6rem 0.65rem;border-radius:10px;}
-.side-link:hover{background:var(--surface-2);color:var(--ink);}
-.side-link.is-active{background:var(--accent-soft);color:var(--accent);}
-.side-link .badge{margin-left:auto;background:var(--surface-3);color:var(--ink-2);font-size:0.68rem;font-weight:800;border-radius:999px;padding:0.08rem 0.45rem;}
-.side-foot{margin-top:auto;padding:0.9rem 0.65rem 0;border-top:1px solid var(--border);font-size:0.72rem;color:var(--ink-3);line-height:1.6;}
-.side-foot a{color:var(--accent);}
+.ops-head{border-bottom:1px solid var(--border);background:
+    radial-gradient(circle at 12% 0%, rgba(88,183,255,0.10), transparent 42%),
+    linear-gradient(180deg, rgba(255,255,255,0.035), transparent);
+    padding-top:34px;}
+.ops-head-shell{max-width:1440px;margin:0 auto;padding:1.6rem 2rem 0;}
+.ops-head-top{display:flex;align-items:flex-end;gap:1.2rem;flex-wrap:wrap;}
+.ops-head-top h1{font-family:'Sora','Inter',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.045em;margin:0.35rem 0 0.2rem;}
+.ops-head-top .sub{font-size:0.9rem;color:var(--ink-3);}
+.ops-head-top .spacer{flex:1;}
+.ops-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.66rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border:1px solid rgba(88,183,255,0.3);border-radius:999px;padding:0.22rem 0.7rem;}
+.tabs{display:flex;gap:0.15rem;margin-top:1.3rem;overflow-x:auto;}
+.tab{position:relative;background:none;border:0;color:var(--ink-3);font-size:0.87rem;font-weight:700;padding:0.65rem 0.95rem 0.8rem;white-space:nowrap;border-bottom:2px solid transparent;display:inline-flex;align-items:center;gap:0.45rem;}
+.tab:hover{color:var(--ink);}
+.tab.is-active{color:var(--ink);border-bottom-color:var(--accent);}
+.tab .badge{background:var(--surface-3);color:var(--ink-2);font-size:0.66rem;font-weight:800;border-radius:999px;padding:0.06rem 0.42rem;}
+.tab.is-active .badge{background:var(--accent);color:#0D0D0D;}
 
-.main{min-width:0;}
-.topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:1rem;padding:1.1rem 1.8rem;border-bottom:1px solid var(--border);background:rgba(13,13,13,0.92);backdrop-filter:blur(10px);}
-.topbar h1{font-size:1.32rem;letter-spacing:-0.03em;font-weight:800;}
-.topbar .sub{font-size:0.8rem;color:var(--ink-3);margin-top:0.1rem;}
-.topbar .spacer{flex:1;}
-.view{display:none;padding:1.6rem 1.8rem 5rem;}
+.ops-main{max-width:1440px;margin:0 auto;min-width:0;}
+.view{display:none;padding:1.6rem 2rem 5rem;}
 .view.is-active{display:block;}
+.site-footer{margin-top:0;}
 
 /* ---------- primitives ---------- */
-.btn{background:var(--surface-2);border:1px solid var(--border);color:var(--ink);font-size:0.82rem;font-weight:700;border-radius:9px;padding:0.5rem 0.85rem;white-space:nowrap;}
+/* style.css also defines .btn (uppercase pill); neutralise what it would leak in. */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.4rem;text-transform:none;letter-spacing:normal;
+    background:var(--surface-2);border:1px solid var(--border);color:var(--ink);font-size:0.82rem;font-weight:700;border-radius:9px;padding:0.5rem 0.85rem;white-space:nowrap;}
 .btn:hover{background:var(--surface-3);border-color:var(--border-2);}
 .btn.primary{background:linear-gradient(135deg,#9DE0FF,var(--accent));color:#0D0D0D;border:0;}
 .btn.primary:hover{filter:brightness(1.07);}
@@ -220,60 +227,96 @@ pre{background:var(--bg);border:1px solid var(--border);border-radius:10px;paddi
 .toast{position:fixed;bottom:1.6rem;left:50%;pointer-events:none;transform:translateX(-50%) translateY(140%);background:#fff;color:#0D0D0D;font-size:0.84rem;font-weight:700;padding:0.7rem 1.2rem;border-radius:999px;z-index:400;transition:transform .28s cubic-bezier(.4,0,.2,1);box-shadow:0 12px 40px rgba(0,0,0,0.5);}
 .toast.show{transform:translateX(-50%) translateY(0);}
 
+/* ---------- Wilfred: opportunity desk ---------- */
+.conn{display:flex;align-items:center;gap:0.55rem;font-size:0.76rem;font-weight:700;border-radius:999px;padding:0.28rem 0.75rem;border:1px solid var(--border-2);color:var(--ink-2);}
+.conn .dot{width:8px;height:8px;border-radius:50%;flex:none;}
+.conn.live{border-color:rgba(12,163,12,0.5);background:rgba(12,163,12,0.12);color:#7be07b;}
+.conn.live .dot{background:var(--good);}
+.conn.offline{border-color:rgba(250,178,25,0.45);background:rgba(250,178,25,0.10);color:#ffd478;}
+.conn.offline .dot{background:var(--warning);}
+
+.team-tabs{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.team-pill{background:var(--surface-2);border:1px solid var(--border);color:var(--ink-2);font-size:0.8rem;font-weight:700;border-radius:999px;padding:0.4rem 0.9rem;display:inline-flex;align-items:center;gap:0.45rem;}
+.team-pill:hover{border-color:var(--border-2);color:var(--ink);}
+.team-pill.is-active{background:var(--accent-soft);border-color:rgba(88,183,255,0.5);color:var(--accent);}
+.team-pill .tp-dot{width:9px;height:9px;border-radius:3px;flex:none;}
+.team-pill .tp-n{font-variant-numeric:tabular-nums;opacity:0.75;}
+
+select.status-sel{background:var(--bg);border:1px solid var(--border-2);border-radius:999px;color:var(--ink);font-size:0.76rem;font-weight:700;padding:0.3rem 0.55rem;max-width:170px;}
+select.status-sel:focus{outline:2px solid var(--accent);outline-offset:-1px;}
+.st-swatch{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:0.4rem;vertical-align:middle;}
+.rep{display:flex;align-items:center;gap:0.5rem;}
+.rep-av{width:26px;height:26px;border-radius:50%;flex:none;display:grid;place-items:center;font-size:0.66rem;font-weight:800;color:#0D0D0D;}
+
+.auto-rule{display:grid;grid-template-columns:auto 1fr auto;gap:0.75rem;align-items:flex-start;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.auto-rule:last-child{border-bottom:0;}
+.auto-rule input[type=checkbox]{margin-top:0.3rem;accent-color:var(--accent);width:15px;height:15px;}
+.auto-rule .ar-when{font-size:0.75rem;color:var(--ink-3);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;}
+.auto-rule .ar-do{font-size:0.85rem;color:var(--ink);font-weight:700;display:block;margin:0.15rem 0 0.2rem;}
+.auto-rule .ar-detail{font-size:0.78rem;color:var(--ink-3);line-height:1.6;}
+.feed{max-height:420px;overflow-y:auto;}
+.feed-item{display:flex;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.8rem;color:var(--ink-2);line-height:1.6;}
+.feed-item:last-child{border-bottom:0;}
+.feed-time{font-size:0.7rem;color:var(--ink-3);white-space:nowrap;font-variant-numeric:tabular-nums;min-width:56px;}
+.feed-item b{color:var(--ink);}
+
 @media(max-width:1100px){
-    .app{grid-template-columns:1fr;}
-    .sidebar{position:static;height:auto;flex-direction:row;flex-wrap:wrap;align-items:center;}
-    .sidebar .logo{margin:0 0.6rem 0 0.3rem;height:34px;}
-    .side-head{display:none;}
-    .side-link{width:auto;}
-    .side-foot{width:100%;margin-top:0.4rem;}
     .g2,.g3,.g4,.g-side{grid-template-columns:1fr;}
+    .ops-head-shell,.view{padding-left:1.1rem;padding-right:1.1rem;}
+    .ops-head-top h1{font-size:1.6rem;}
 }
 </style>
 </head>
 <body>
 
+<nav class="site-nav" id="siteNav">
+    <div class="nav-shell">
+        <a href="index.html" class="brand-lockup"><img class="brand-logo" src="hirewilfred_logo_reverse.svg" alt="Hire Wilfred" style="height:64px;width:auto;"></a>
+        <div class="nav-right">
+            <a href="index.html#about" class="nav-link">How Wilfred works</a>
+            <a href="team.html" class="nav-link">The Team</a>
+            <a href="packages.html" class="nav-link">Packages</a>
+            <a href="dashboard.html" class="nav-link">Client Portal</a>
+            <a href="admin.html" class="nav-link">Admin</a>
+            <a href="ops.html" class="nav-cta">Ops Console</a>
+        </div>
+    </div>
+</nav>
+
 <div class="preview-band">
-    <strong>INTERNAL — Ops Console.</strong> Working numbers only, stored in this browser. Client-facing quotes still go out through <a href="admin.html">the Admin Console</a>.
+    <strong>INTERNAL — Ops Console.</strong> Working numbers only. Client-facing quotes still go out through <a href="admin.html">the Admin Console</a>. <span id="savedAt" style="color:var(--ink-3);"></span>
 </div>
 
-<div class="app">
-    <!-- ================= SIDEBAR ================= -->
-    <aside class="sidebar">
-        <a href="index.html"><img class="logo" src="hirewilfred_logo_reverse.svg" alt="Hire Wilfred"></a>
-
-        <span class="side-head">Revenue</span>
-        <button class="side-link is-active" data-view="overview">📊 Overview</button>
-        <button class="side-link" data-view="pipeline">🎯 Pipeline <span class="badge" id="navDeals">0</span></button>
-        <button class="side-link" data-view="quoter">🧮 Scenario Quoter</button>
-
-        <span class="side-head">Economics</span>
-        <button class="side-link" data-view="economics">⚙️ Cost Model</button>
-        <button class="side-link" data-view="clients">🏢 Book of Business</button>
-
-        <span class="side-head">Delivery</span>
-        <button class="side-link" data-view="provisioning">🚀 Onboarding</button>
-        <button class="side-link" data-view="roadmap">🧭 Infra Roadmap</button>
-        <button class="side-link" data-view="admin">🛠️ Administration</button>
-
-        <div class="side-foot">
-            <a href="admin.html">→ Admin Console</a><br>
-            <a href="dashboard.html">→ Client Portal</a><br>
-            <span id="savedAt">Not saved yet</span>
-        </div>
-    </aside>
-
-    <!-- ================= MAIN ================= -->
-    <main class="main">
-        <header class="topbar">
+<header class="ops-head">
+    <div class="ops-head-shell">
+        <div class="ops-head-top">
             <div>
+                <span class="ops-badge">Internal tooling</span>
                 <h1 id="viewTitle">Overview</h1>
                 <div class="sub" id="viewSub">Pipeline, forecast and margin at a glance</div>
             </div>
             <div class="spacer"></div>
-            <button class="btn" onclick="exportData()">Export JSON</button>
-            <button class="btn primary" onclick="openDeal()">+ New deal</button>
-        </header>
+            <div class="row" style="gap:0.5rem;">
+                <span id="connBadge"></span>
+                <button class="btn" onclick="exportData()">Export JSON</button>
+                <button class="btn primary" onclick="openDeal()">+ New deal</button>
+            </div>
+        </div>
+        <div class="tabs" role="tablist">
+            <button class="tab is-active" data-view="overview" role="tab">Overview</button>
+            <button class="tab" data-view="wilfred" role="tab">Wilfred <span class="badge" id="navOpps">0</span></button>
+            <button class="tab" data-view="pipeline" role="tab">Pipeline <span class="badge" id="navDeals">0</span></button>
+            <button class="tab" data-view="quoter" role="tab">Scenario Quoter</button>
+            <button class="tab" data-view="economics" role="tab">Cost Model</button>
+            <button class="tab" data-view="clients" role="tab">Book of Business</button>
+            <button class="tab" data-view="provisioning" role="tab">Onboarding</button>
+            <button class="tab" data-view="roadmap" role="tab">Infra Roadmap</button>
+            <button class="tab" data-view="admin" role="tab">Administration</button>
+        </div>
+    </div>
+</header>
+
+<main class="ops-main">
 
         <!-- ---------------- OVERVIEW ---------------- -->
         <section class="view is-active" id="view-overview">
@@ -306,6 +349,65 @@ pre{background:var(--bg);border:1px solid var(--border);border-radius:10px;paddi
             <div class="panel" style="margin-top:1rem;">
                 <h2>Needs attention</h2>
                 <div id="attention"></div>
+            </div>
+        </section>
+
+        <!-- ---------------- WILFRED ---------------- -->
+        <section class="view" id="view-wilfred">
+            <div id="wConnNotice"></div>
+
+            <div class="kpis" id="wKpis"></div>
+
+            <div class="panel" style="margin-top:1rem;">
+                <div class="row" style="justify-content:space-between;align-items:flex-start;">
+                    <div>
+                        <h2>Opportunity desk <span class="muted">· every opportunity, tracked by status</span></h2>
+                        <p class="panel-note" style="margin-bottom:0;">Change a status and Wilfred fires the automations wired to it. Statuses are the trigger surface — keep them accurate and the automation does the chasing.</p>
+                    </div>
+                    <button class="btn primary" onclick="openOpp()">+ New opportunity</button>
+                </div>
+
+                <div class="row" style="margin:1.1rem 0 0.9rem;justify-content:space-between;">
+                    <div class="team-tabs" id="wTeamTabs"></div>
+                    <div class="row" style="gap:0.5rem;">
+                        <select class="inp" id="wRep" style="width:auto;min-width:150px;" onchange="renderWilfred()"></select>
+                        <select class="inp" id="wStatusFilter" style="width:auto;min-width:150px;" onchange="renderWilfred()"></select>
+                        <input class="inp" id="wSearch" placeholder="Search…" style="width:150px;" oninput="renderWilfred()">
+                    </div>
+                </div>
+
+                <div class="table-wrap"><table id="wTable"></table></div>
+            </div>
+
+            <div class="grid g-side" style="margin-top:1rem;">
+                <div class="panel">
+                    <h2>Opportunities by status</h2>
+                    <p class="panel-note">Value in each status, for the current filter. The shape tells you where work is piling up.</p>
+                    <div id="wStatusChart"></div>
+                </div>
+                <div class="stack">
+                    <div class="panel">
+                        <h2>Value by team</h2>
+                        <div id="wTeamChart"></div>
+                    </div>
+                    <div class="panel">
+                        <h2>Leaderboard <span class="muted">· open value by rep</span></h2>
+                        <div class="table-wrap"><table id="wRepTable"></table></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid g-side" style="margin-top:1rem;">
+                <div class="panel">
+                    <h2>Status automations</h2>
+                    <p class="panel-note">What Wilfred does when an opportunity lands in each status. Untick to disable a rule — it stops firing immediately, existing runs are untouched.</p>
+                    <div id="wRules"></div>
+                </div>
+                <div class="panel">
+                    <h2>Automation log <span class="muted">· newest first</span></h2>
+                    <p class="panel-note">Every rule Wilfred has fired this session. When the database is connected this is written to <code>automation_runs</code> so the record survives the browser.</p>
+                    <div class="feed" id="wFeed"></div>
+                </div>
             </div>
         </section>
 
@@ -732,8 +834,50 @@ pre{background:var(--bg);border:1px solid var(--border);border-radius:10px;paddi
                 </div>
             </div>
         </section>
-    </main>
-</div>
+</main>
+
+<footer class="site-footer">
+    <div class="site-footer-shell">
+        <div class="site-footer-top">
+            <div class="site-footer-brand">
+                <a href="/index.html" class="brand-lockup">
+                    <img class="brand-logo" src="/hirewilfred_logo.svg" alt="Hire Wilfred" style="height: 64px; width: auto;">
+                </a>
+                <p>Canada's AI workforce conductor. Wilfred hires, manages, and replaces a full team of pre-trained AI specialists — so you don't have to. Hosted on Canadian soil, billed in CAD, backed by a Canadian success team.</p>
+            </div>
+            <div class="site-footer-links">
+                <div class="site-footer-col">
+                    <span class="col-head">Internal</span>
+                    <a href="/ops.html">Ops Console</a>
+                    <a href="/admin.html">Admin Console</a>
+                    <a href="/dashboard.html">Client Portal</a>
+                </div>
+                <div class="site-footer-col">
+                    <span class="col-head">Employers</span>
+                    <a href="/index.html#about">How Wilfred works</a>
+                    <a href="/integrations.html">Integrations</a>
+                    <a href="/case-studies.html">Case Studies</a>
+                    <a href="/packages.html">Packages</a>
+                    <a href="/index.html#hire">Hire Wilfred</a>
+                </div>
+                <div class="site-footer-col">
+                    <span class="col-head">Legal</span>
+                    <a href="#">PIPEDA / Law 25</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Master Services Agreement</a>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer-bottom">
+            <p>&copy; 2026 Wilfred AI Staffing Inc. Headquartered in Hamilton, Ontario. Serving SMEs across Canada.</p>
+            <div class="site-footer-bottom-links">
+                <a href="#">PIPEDA</a>
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <div class="modal-bg" id="dealModal">
     <div class="modal">
@@ -778,13 +922,156 @@ pre{background:var(--bg);border:1px solid var(--border);border-radius:10px;paddi
     </div>
 </div>
 
+<div class="modal-bg" id="oppModal">
+    <div class="modal">
+        <h2 id="oppModalTitle">New opportunity</h2>
+        <form id="oppForm">
+            <div class="inline-fields">
+                <div class="field"><label for="oName">Opportunity</label><input id="oName" required placeholder="e.g. Full roster rollout"></div>
+                <div class="field"><label for="oCompany">Company</label><input id="oCompany" required placeholder="e.g. Northshore Wealth"></div>
+            </div>
+            <div class="inline-fields three">
+                <div class="field"><label for="oTeam">Sales team</label><select id="oTeam"></select></div>
+                <div class="field"><label for="oRep">Owner</label><select id="oRep"></select></div>
+                <div class="field"><label for="oStatus">Status</label><select id="oStatus"></select></div>
+            </div>
+            <div class="inline-fields three">
+                <div class="field"><label for="oValue">Value (CAD)</label><input id="oValue" type="number" min="0" step="1" value="4997"></div>
+                <div class="field"><label for="oRecurring">Type</label>
+                    <select id="oRecurring"><option value="mrr">Recurring (MRR)</option><option value="once">One-time</option></select>
+                </div>
+                <div class="field"><label for="oClose">Expected close</label><input id="oClose" type="date"></div>
+            </div>
+            <div class="field"><label for="oNext">Next action</label><input id="oNext" placeholder="e.g. Send audit SOW"></div>
+            <div class="row" style="margin-top:0.4rem;">
+                <button type="submit" class="btn primary">Save opportunity</button>
+                <button type="button" class="btn" onclick="closeOpp()">Cancel</button>
+                <span style="flex:1;"></span>
+                <button type="button" class="btn danger" id="oDelete" onclick="deleteOpp()">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="tt" id="tt"></div>
 <div class="toast" id="toast"></div>
 
 <script>
 /* =========================================================================
+   0. SUPABASE CONNECTION
+   -------------------------------------------------------------------------
+   Paste the project's anon (publishable) key below to go live. Until then
+   the Wilfred desk runs on local demo data and says so in the banner.
+
+   SECURITY — read before you paste. This page is served from the public
+   site, so the anon key ships to anyone who loads it. That is fine ONLY if
+   row-level security denies anonymous reads. The migration in
+   supabase/migrations/ requires an authenticated staff session on every
+   table, so an anon key alone reads nothing. Do not relax those policies to
+   "allow anon read" to make the page work — that publishes your pipeline.
+   Never put the service_role key in this file.
+   ========================================================================= */
+const SUPABASE = {
+    url: 'https://hqmahvhyljkllbcpqaeg.supabase.co',
+    anonKey: '',              // <-- paste the anon / publishable key here
+    schema: 'public'
+};
+const sbReady = () => !!(SUPABASE.url && SUPABASE.anonKey);
+let sbSession = null;         // set once a staff member signs in
+let sbState = { status:'offline', detail:'No anon key configured — running on local demo data.' };
+
+async function sbFetch(path, opts){
+    opts = opts || {};
+    const headers = Object.assign({
+        'apikey': SUPABASE.anonKey,
+        'Authorization': 'Bearer ' + (sbSession ? sbSession.access_token : SUPABASE.anonKey),
+        'Content-Type': 'application/json',
+        'Accept-Profile': SUPABASE.schema,
+        'Content-Profile': SUPABASE.schema
+    }, opts.headers || {});
+    const res = await fetch(SUPABASE.url + '/rest/v1/' + path, Object.assign({}, opts, { headers }));
+    if(!res.ok) throw new Error('Supabase ' + res.status + ': ' + (await res.text()).slice(0,180));
+    return res.status === 204 ? null : res.json();
+}
+
+/* =========================================================================
    1. DEFAULT DATA
    ========================================================================= */
+
+/* --- Wilfred: three sales teams, their reps, statuses and automations --- */
+const TEAMS = [
+    { id:'media',   name:'Media',   colour:'var(--series-tokens)' },
+    { id:'animals', name:'Animals', colour:'var(--series-infra)'  },
+    { id:'experts', name:'Experts', colour:'var(--series-margin)' }
+];
+
+const STATUSES = [
+    { id:'new',        name:'New',              colour:'var(--ord-1)', prob:5,   open:true  },
+    { id:'contacted',  name:'Contacted',        colour:'var(--ord-2)', prob:10,  open:true  },
+    { id:'qualified',  name:'Qualified',        colour:'var(--ord-3)', prob:25,  open:true  },
+    { id:'discovery',  name:'Discovery booked', colour:'var(--ord-4)', prob:45,  open:true  },
+    { id:'proposal',   name:'Proposal sent',    colour:'var(--ord-5)', prob:60,  open:true  },
+    { id:'negotiation',name:'Negotiation',      colour:'var(--series-mgmt)', prob:80, open:true },
+    { id:'stalled',    name:'Stalled',          colour:'var(--serious)', prob:10, open:true  },
+    { id:'won',        name:'Won',              colour:'var(--good)',    prob:100,open:false },
+    { id:'lost',       name:'Lost',             colour:'var(--critical)',prob:0,  open:false }
+];
+const statusById = id => STATUSES.find(s=>s.id===id) || STATUSES[0];
+
+/* Automation rules: fired when an opportunity ENTERS the given status. */
+const RULES = [
+    { id:'r_new',        on:'new',        title:'Enrich and route',
+      detail:'Sam pulls firmographics and the decision-maker contact, then routes the opportunity to the right team queue. Wilfred assigns an owner if none is set.' },
+    { id:'r_contacted',  on:'contacted',  title:'Start the follow-up cadence',
+      detail:'Sam runs a three-touch sequence over eight days. Any reply stops the cadence and pings the owner.' },
+    { id:'r_qualified',  on:'qualified',  title:'Offer the discovery slot',
+      detail:'Olivia sends the calendar link and drafts the $3,000 audit SOW from the vertical template. Owner approves before it goes out.' },
+    { id:'r_discovery',  on:'discovery',  title:'Prep the audit',
+      detail:'Olivia builds the workshop brief 24 hours ahead — org chart, current tooling, workflow map. Scout compiles the vertical research pack.' },
+    { id:'r_proposal',   on:'proposal',   title:'Chase the proposal',
+      detail:'Sam follows up on day 3 and day 7. No response by day 10 moves the opportunity to Stalled automatically.' },
+    { id:'r_negotiation',on:'negotiation',title:'Review the paper',
+      detail:'David reviews redlines against the MSA and flags any deviation on liability, term or data residency to the owner.' },
+    { id:'r_stalled',    on:'stalled',    title:'Re-engage, then park',
+      detail:'Claire drops the opportunity into a value-led nurture track. Wilfred re-surfaces it to the owner in 30 days.' },
+    { id:'r_won',        on:'won',        title:'Hand off to delivery',
+      detail:'Creates the pipeline deal at Agent building, generates the agents.json seed config, and raises the first invoice through Quinn.' },
+    { id:'r_lost',       on:'lost',       title:'Capture the reason',
+      detail:'Prompts the owner for a loss reason, then adds the company to Claire’s long-cycle nurture list.' }
+];
+
+function seedReps(){
+    return [
+        { id:'rep1', name:'Alexis Moreau',  team:'media',   initials:'AM' },
+        { id:'rep2', name:'Devon Clarke',   team:'media',   initials:'DC' },
+        { id:'rep3', name:'Priya Raman',    team:'animals', initials:'PR' },
+        { id:'rep4', name:'Sean Whitfield', team:'animals', initials:'SW' },
+        { id:'rep5', name:'Noor Haddad',    team:'experts', initials:'NH' },
+        { id:'rep6', name:'Marcus Bell',    team:'experts', initials:'MB' }
+    ];
+}
+function seedOpps(){
+    const o = (name, company, team, rep, status, value, recurring, next, close) =>
+        ({ id:uid(), name, company, team, rep, status, value, recurring, next, close, updated:Date.now(), created:Date.now() });
+    return [
+        o('Full roster rollout','Meridian Broadcast Group','media','rep1','negotiation',8997,'mrr','Legal reviewing the MSA — chase Thursday','2026-08-14'),
+        o('Content desk pilot','Cadence Media Co','media','rep2','proposal',4997,'mrr','Proposal sent Monday, follow up day 3','2026-08-22'),
+        o('Reception + intake','Lakeshore Studios','media','rep1','discovery',3497,'mrr','Audit workshop booked for the 5th','2026-09-05'),
+        o('Social + community','Harbourlight Films','media','rep2','qualified',1997,'mrr','Send the audit SOW','2026-09-19'),
+        o('Vet clinic front desk','Riverbend Animal Hospital','animals','rep3','won',4997,'mrr','Won — provision this week','2026-07-18'),
+        o('Multi-site receptionist','Pawsitive Care Group','animals','rep4','negotiation',8997,'mrr','Negotiating a 24-month term','2026-08-29'),
+        o('Booking + reminders','Northfield Veterinary','animals','rep3','proposal',3497,'mrr','Proposal with the practice manager','2026-09-02'),
+        o('Intake automation','Willow Creek Boarding','animals','rep4','contacted',1997,'mrr','Second touch scheduled','2026-10-01'),
+        o('Grooming chain rollout','Bark Avenue','animals','rep3','stalled',4997,'mrr','No reply in 14 days — nurture','2026-11-15'),
+        o('Paralegal + compliance','Corbett & Vance LLP','experts','rep5','discovery',4997,'mrr','Audit under way, map intake flow','2026-09-01'),
+        o('Bookkeeping desk','Ridgeway CPA Group','experts','rep6','won',3994,'mrr','Live — expansion conversation open','2026-05-19'),
+        o('Advisory back office','Northshore Wealth','experts','rep6','proposal',4997,'mrr','Chase the audit SOW signature','2026-09-15'),
+        o('Claims support','Halton Insurance Brokers','experts','rep5','negotiation',8997,'mrr','Security questionnaire returned','2026-08-08'),
+        o('Discovery & audit','Grand River Logistics','experts','rep6','new',3000,'once','Qualify — may not have the volume','2026-10-30'),
+        o('Paralegal trial','Fenwick Legal','experts','rep5','lost',4997,'mrr','Lost to in-house hire','2026-06-30')
+    ];
+}
+
 const STAGES = [
     { id:'meeting',   name:'Initial meeting',  prob:15, colour:'var(--ord-1)', note:'First conversation held. Problem understood, no numbers yet.' },
     { id:'quoted',    name:'Quoted',           prob:35, colour:'var(--ord-2)', note:'Scenario priced and sent. Waiting on a yes to the audit.' },
@@ -840,7 +1127,12 @@ function defaults(){ return {
     ],
     deals:seedDeals(),
     scenarios:[],
-    checks:{}
+    checks:{},
+    reps:seedReps(),
+    opps:seedOpps(),
+    ruleState:Object.fromEntries(RULES.map(r=>[r.id,true])),
+    feed:[],
+    wFilter:{ team:'all', rep:'all', status:'open', q:'' }
 };}
 
 function seedDeals(){
@@ -917,6 +1209,11 @@ function load(){
             DB.models = Object.assign(defaults().models, parsed.models||{});
             DB.volumes = Object.assign(defaults().volumes, parsed.volumes||{});
             DB.infra = Object.assign(defaults().infra, parsed.infra||{});
+            DB.wFilter = Object.assign(defaults().wFilter, parsed.wFilter||{});
+            DB.ruleState = Object.assign(defaults().ruleState, parsed.ruleState||{});
+            if(!Array.isArray(DB.reps) || !DB.reps.length) DB.reps = seedReps();
+            if(!Array.isArray(DB.opps)) DB.opps = seedOpps();
+            if(!Array.isArray(DB.feed)) DB.feed = [];
             return;
         }
     }catch(e){ console.warn('Could not read saved state, starting fresh.', e); }
@@ -925,8 +1222,8 @@ function load(){
 function save(){
     try{
         localStorage.setItem(KEY, JSON.stringify(DB));
-        const t = new Date();
-        document.getElementById('savedAt').textContent = 'Saved ' + t.toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit'});
+        const el = document.getElementById('savedAt');
+        if(el) el.textContent = 'Saved ' + new Date().toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit'});
     }catch(e){ toast('Could not save — storage is full or blocked.'); }
 }
 
@@ -1167,6 +1464,7 @@ function rankBars(container, rows, colour){
    ========================================================================= */
 const TITLES = {
     overview:['Overview','Pipeline, forecast and margin at a glance'],
+    wilfred:['Wilfred','Opportunities by status across Media, Animals and Experts — and the automations they trigger'],
     pipeline:['Pipeline','Every open deal, by stage'],
     quoter:['Scenario Quoter','Price a deal and see the margin before you send it'],
     economics:['Cost Model','Infrastructure, token burn and management fees — every assumption'],
@@ -1177,14 +1475,14 @@ const TITLES = {
 };
 
 function go(view){
-    document.querySelectorAll('.side-link').forEach(b => b.classList.toggle('is-active', b.dataset.view === view));
+    document.querySelectorAll('.tab').forEach(b => b.classList.toggle('is-active', b.dataset.view === view));
     document.querySelectorAll('.view').forEach(s => s.classList.toggle('is-active', s.id === 'view-' + view));
     document.getElementById('viewTitle').textContent = TITLES[view][0];
     document.getElementById('viewSub').textContent   = TITLES[view][1];
     window.scrollTo({top:0,behavior:'instant'});
     renderAll();
 }
-document.querySelectorAll('.side-link').forEach(b => b.addEventListener('click', ()=>go(b.dataset.view)));
+document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', ()=>go(b.dataset.view)));
 
 /* ---------- overview ---------- */
 function renderOverview(){
@@ -1281,6 +1579,316 @@ function burnSeries(current){
     const shape  = [0.18,0.22,0.28,0.31,0.36,0.44,0.52,0.58,0.71,0.80,0.92,1];
     return months.map((m,i)=>({ label:m, value: current * shape[i] }));
 }
+
+/* =========================================================================
+   WILFRED — opportunity desk, status tracking and automation
+   ========================================================================= */
+const repById  = id => DB.reps.find(r=>r.id===id);
+const teamById = id => TEAMS.find(t=>t.id===id) || TEAMS[0];
+const oppOpen  = o => statusById(o.status).open;
+const oppWeighted = o => o.value * (statusById(o.status).prob/100);
+
+function filteredOpps(){
+    const f = DB.wFilter;
+    const q = (f.q||'').trim().toLowerCase();
+    return DB.opps.filter(o => {
+        if(f.team !== 'all' && o.team !== f.team) return false;
+        if(f.rep  !== 'all' && o.rep  !== f.rep)  return false;
+        if(f.status === 'open'  && !oppOpen(o)) return false;
+        if(f.status === 'closed' && oppOpen(o)) return false;
+        if(f.status !== 'all' && f.status !== 'open' && f.status !== 'closed' && o.status !== f.status) return false;
+        if(q && !(o.name + ' ' + o.company).toLowerCase().includes(q)) return false;
+        return true;
+    });
+}
+
+/* --- the automation engine --- */
+function fireAutomation(opp, fromStatus){
+    const rule = RULES.find(r => r.on === opp.status);
+    if(!rule) return null;
+    if(!DB.ruleState[rule.id]){
+        logFeed(opp, 'Rule <b>' + esc(rule.title) + '</b> is disabled — nothing fired for ' + esc(opp.company) + '.', true);
+        return null;
+    }
+    logFeed(opp, '<b>' + esc(opp.company) + '</b> moved ' + esc(statusById(fromStatus).name) + ' → <b>' +
+                 esc(statusById(opp.status).name) + '</b>. Fired <b>' + esc(rule.title) + '</b>.');
+
+    // Side effects that change data live here, so the log matches reality.
+    if(opp.status === 'won'){
+        const exists = DB.deals.some(d => d.name.toLowerCase() === opp.company.toLowerCase());
+        if(!exists){
+            DB.deals.push({
+                id:uid(), created:Date.now(), name:opp.company, contact:'', stage:'building',
+                vertical: opp.team === 'experts' ? 'General SME' : 'General SME',
+                owner:(repById(opp.rep)||{}).name || '', package:'department', seniors:6, juniors:0,
+                mrr: opp.recurring === 'mrr' ? opp.value : 0,
+                discovery: DB.assumptions.discoveryFee, onboard:1500,
+                infra:'shared', intensity:1, close:opp.close || '',
+                next:'Won from the Wilfred desk — provision the roster'
+            });
+            logFeed(opp, 'Created pipeline deal for <b>' + esc(opp.company) + '</b> at Agent building.');
+        }
+    }
+    if(opp.status === 'stalled')
+        logFeed(opp, 'Queued <b>' + esc(opp.company) + '</b> for a 30-day re-surface to ' + esc((repById(opp.rep)||{}).name || 'the owner') + '.');
+    if(opp.status === 'new' && !opp.rep){
+        const pool = DB.reps.filter(r=>r.team===opp.team);
+        if(pool.length){ opp.rep = pool[0].id; logFeed(opp, 'Assigned <b>' + esc(pool[0].name) + '</b> as owner.'); }
+    }
+    return rule;
+}
+function logFeed(opp, html, muted){
+    DB.feed.unshift({ id:uid(), at:Date.now(), oppId:opp ? opp.id : null, html, muted:!!muted });
+    if(DB.feed.length > 60) DB.feed.length = 60;
+}
+
+async function setOppStatus(id, status){
+    const o = DB.opps.find(x=>x.id===id);
+    if(!o || o.status === status) return;
+    const from = o.status;
+    o.status = status;
+    o.updated = Date.now();
+    fireAutomation(o, from);
+    save();
+    renderWilfred();
+    toast(o.company + ' → ' + statusById(status).name);
+    if(sbReady() && sbSession){
+        try{
+            await sbFetch('opportunities?id=eq.' + encodeURIComponent(o.remoteId || o.id),
+                { method:'PATCH', body: JSON.stringify({ status, updated_at:new Date().toISOString() }) });
+        }catch(e){ toast('Status saved locally — database write failed.'); console.warn(e); }
+    }
+}
+
+function renderWilfred(){
+    // connection banner
+    const notice = document.getElementById('wConnNotice');
+    if(sbState.status === 'live'){
+        notice.innerHTML = '';
+    } else {
+        notice.innerHTML = '<div class="callout warn" style="margin-bottom:1rem;">' +
+            '<b>Not connected to Supabase.</b> ' + esc(sbState.detail) +
+            ' Everything below is live and fully usable, it just persists to this browser instead of the database. ' +
+            'Paste the anon key into the <code>SUPABASE</code> block at the top of ops.html to switch over — the schema is in <code>supabase/migrations/</code>.</div>';
+    }
+
+    // filters
+    const f = DB.wFilter;
+    document.getElementById('wTeamTabs').innerHTML =
+        ['<button class="team-pill ' + (f.team==='all'?'is-active':'') + '" onclick="setWFilter(\'team\',\'all\')">All teams <span class="tp-n">' + DB.opps.filter(oppOpen).length + '</span></button>']
+        .concat(TEAMS.map(t => {
+            const n = DB.opps.filter(o=>o.team===t.id && oppOpen(o)).length;
+            return '<button class="team-pill ' + (f.team===t.id?'is-active':'') + '" onclick="setWFilter(\'team\',\'' + t.id + '\')">' +
+                   '<span class="tp-dot" style="background:' + t.colour + '"></span>' + esc(t.name) + ' <span class="tp-n">' + n + '</span></button>';
+        })).join('');
+
+    const repSel = document.getElementById('wRep');
+    const repPool = DB.reps.filter(r => f.team==='all' || r.team===f.team);
+    repSel.innerHTML = '<option value="all">All reps</option>' +
+        repPool.map(r=>'<option value="'+r.id+'">'+esc(r.name)+'</option>').join('');
+    repSel.value = repPool.some(r=>r.id===f.rep) ? f.rep : 'all';
+    if(repSel.value === 'all') f.rep = 'all';
+
+    const stSel = document.getElementById('wStatusFilter');
+    stSel.innerHTML = '<option value="open">Open only</option><option value="all">All statuses</option><option value="closed">Closed</option>' +
+        STATUSES.map(s=>'<option value="'+s.id+'">'+esc(s.name)+'</option>').join('');
+    stSel.value = f.status;
+    document.getElementById('wSearch').value = f.q || '';
+
+    const rows = filteredOpps();
+    const open = rows.filter(oppOpen);
+    const openVal = open.reduce((s,o)=>s+o.value,0);
+    const weighted = open.reduce((s,o)=>s+oppWeighted(o),0);
+    const won = DB.opps.filter(o=>o.status==='won');
+    const lost = DB.opps.filter(o=>o.status==='lost');
+    const winRate = (won.length+lost.length) ? won.length/(won.length+lost.length) : 0;
+
+    document.getElementById('navOpps').textContent = DB.opps.filter(oppOpen).length;
+    document.getElementById('wKpis').innerHTML = [
+        kpiTile('Open opportunities', open.length, (f.team==='all'?'Across all three teams':esc(teamById(f.team).name) + ' team'), ''),
+        kpiTile('Open value', cad(openVal), 'Sum of everything still in play', 'accent'),
+        kpiTile('Weighted', cad(weighted), 'Adjusted by status probability', 'copper'),
+        kpiTile('Win rate', pct(winRate), won.length + ' won · ' + lost.length + ' lost', 'margin'),
+        kpiTile('Automations fired', DB.feed.filter(x=>!x.muted).length, 'This session', '')
+    ].join('');
+
+    // table
+    document.getElementById('wTable').innerHTML = rows.length ?
+        '<thead><tr><th>Opportunity</th><th>Team</th><th>Owner</th><th class="num">Value</th><th>Status</th><th>Next action</th><th class="num">Updated</th><th></th></tr></thead><tbody>' +
+        rows.map(o => {
+            const r = repById(o.rep), t = teamById(o.team), st = statusById(o.status);
+            return '<tr>' +
+                '<td><strong>' + esc(o.name) + '</strong><br><span class="note">' + esc(o.company) + '</span></td>' +
+                '<td><span class="chip" style="border-color:' + t.colour + ';color:' + t.colour + '">' + esc(t.name) + '</span></td>' +
+                '<td>' + (r ? '<span class="rep"><span class="rep-av" style="background:' + t.colour + '">' + esc(r.initials) + '</span>' + esc(r.name) + '</span>' : '<span class="note">Unassigned</span>') + '</td>' +
+                '<td class="num"><strong>' + cad(o.value) + '</strong><br><span class="note">' + (o.recurring==='mrr'?'/mo':'one-time') + '</span></td>' +
+                '<td><select class="status-sel" onchange="setOppStatus(\'' + o.id + '\',this.value)">' +
+                    STATUSES.map(s=>'<option value="'+s.id+'"'+(s.id===o.status?' selected':'')+'>'+esc(s.name)+'</option>').join('') +
+                '</select><div class="note" style="margin-top:0.25rem;"><span class="st-swatch" style="background:' + st.colour + '"></span>' + st.prob + '% · ' + cad(oppWeighted(o)) + '</div></td>' +
+                '<td>' + esc(o.next||'—') + (o.close ? '<br><span class="note">Close ' + esc(o.close) + '</span>' : '') + '</td>' +
+                '<td class="num note">' + relTime(o.updated) + '</td>' +
+                '<td class="num"><button class="btn sm" onclick="openOpp(\'' + o.id + '\')">Edit</button></td></tr>';
+        }).join('') +
+        '<tr class="total"><td>' + rows.length + ' shown</td><td></td><td></td><td class="num">' + cad(rows.reduce((s,o)=>s+o.value,0)) + '</td>' +
+        '<td colspan="4"></td></tr></tbody>'
+        : '<tbody><tr><td class="note">Nothing matches this filter.</td></tr></tbody>';
+
+    // charts
+    rankBars(document.getElementById('wStatusChart'), STATUSES.filter(s=>s.open).map(s => {
+        const set = rows.filter(o=>o.status===s.id);
+        const v = set.reduce((a,o)=>a+o.value,0);
+        return { label:s.name, value:v, colour:s.colour, sub:set.length + (set.length===1?' opp':' opps'),
+            tip:'<div class="tt-h">'+esc(s.name)+'</div>' +
+                '<div class="tt-r"><span>Opportunities</span><b>'+set.length+'</b></div>' +
+                '<div class="tt-r"><span>Value</span><b>'+cad(v)+'</b></div>' +
+                '<div class="tt-r"><span>Probability</span><b>'+s.prob+'%</b></div>' +
+                '<div class="tt-r"><span>Weighted</span><b>'+cad(v*s.prob/100)+'</b></div>' };
+    }), 'var(--ord-3)');
+
+    rankBars(document.getElementById('wTeamChart'), TEAMS.map(t => {
+        const set = DB.opps.filter(o=>o.team===t.id && oppOpen(o));
+        const v = set.reduce((a,o)=>a+o.value,0);
+        return { label:t.name, value:v, colour:t.colour, sub:set.length + ' open',
+            tip:'<div class="tt-h">'+esc(t.name)+'</div><div class="tt-r"><span>Open value</span><b>'+cad(v)+'</b></div><div class="tt-r"><span>Weighted</span><b>'+cad(set.reduce((a,o)=>a+oppWeighted(o),0))+'</b></div>' };
+    }), 'var(--series-tokens)');
+
+    const board = DB.reps.map(r => {
+        const set = DB.opps.filter(o=>o.rep===r.id && oppOpen(o));
+        const w = DB.opps.filter(o=>o.rep===r.id && o.status==='won').length;
+        const l = DB.opps.filter(o=>o.rep===r.id && o.status==='lost').length;
+        return { r, open:set.length, value:set.reduce((a,o)=>a+o.value,0), weighted:set.reduce((a,o)=>a+oppWeighted(o),0), w, l };
+    }).sort((a,b)=>b.value-a.value);
+    document.getElementById('wRepTable').innerHTML =
+        '<thead><tr><th>Rep</th><th>Team</th><th class="num">Open</th><th class="num">Value</th><th class="num">Weighted</th><th class="num">W/L</th></tr></thead><tbody>' +
+        board.map(b => '<tr><td><span class="rep"><span class="rep-av" style="background:' + teamById(b.r.team).colour + '">' + esc(b.r.initials) + '</span><strong>' + esc(b.r.name) + '</strong></span></td>' +
+            '<td>' + esc(teamById(b.r.team).name) + '</td><td class="num">' + b.open + '</td>' +
+            '<td class="num">' + cad(b.value) + '</td><td class="num">' + cad(b.weighted) + '</td>' +
+            '<td class="num">' + b.w + '/' + b.l + '</td></tr>').join('') + '</tbody>';
+
+    // rules
+    document.getElementById('wRules').innerHTML = RULES.map(r => {
+        const s = statusById(r.on);
+        return '<div class="auto-rule">' +
+            '<input type="checkbox" ' + (DB.ruleState[r.id] ? 'checked' : '') + ' onchange="toggleRule(\'' + r.id + '\')">' +
+            '<div><span class="ar-when"><span class="st-swatch" style="background:' + s.colour + '"></span>When status becomes ' + esc(s.name) + '</span>' +
+            '<span class="ar-do">' + esc(r.title) + '</span>' +
+            '<span class="ar-detail">' + esc(r.detail) + '</span></div>' +
+            '<span class="chip ' + (DB.ruleState[r.id] ? 'good' : '') + '">' + (DB.ruleState[r.id] ? 'Live' : 'Off') + '</span></div>';
+    }).join('');
+
+    // feed
+    document.getElementById('wFeed').innerHTML = DB.feed.length
+        ? DB.feed.map(x => '<div class="feed-item"' + (x.muted ? ' style="opacity:0.55"' : '') + '><span class="feed-time">' + relTime(x.at) + '</span><span>' + x.html + '</span></div>').join('')
+        : '<p class="note">Nothing yet. Change an opportunity status and the rules that fire show up here.</p>';
+}
+function setWFilter(key, v){ DB.wFilter[key] = v; save(); renderWilfred(); }
+function toggleRule(id){
+    DB.ruleState[id] = !DB.ruleState[id];
+    save(); renderWilfred();
+    toast('Rule ' + (DB.ruleState[id] ? 'enabled' : 'disabled') + '.');
+}
+function relTime(ts){
+    if(!ts) return '—';
+    const s = Math.floor((Date.now()-ts)/1000);
+    if(s < 60) return 'just now';
+    if(s < 3600) return Math.floor(s/60) + 'm ago';
+    if(s < 86400) return Math.floor(s/3600) + 'h ago';
+    return Math.floor(s/86400) + 'd ago';
+}
+document.getElementById('wRep').addEventListener('change', e => setWFilter('rep', e.target.value));
+document.getElementById('wStatusFilter').addEventListener('change', e => setWFilter('status', e.target.value));
+document.getElementById('wSearch').addEventListener('input', e => { DB.wFilter.q = e.target.value; save(); renderWilfred(); });
+
+/* --- opportunity modal --- */
+let editingOpp = null;
+function openOpp(id){
+    editingOpp = id ? DB.opps.find(o=>o.id===id) : null;
+    document.getElementById('oppModalTitle').textContent = editingOpp ? 'Edit opportunity' : 'New opportunity';
+    document.getElementById('oDelete').style.display = editingOpp ? '' : 'none';
+    document.getElementById('oTeam').innerHTML   = TEAMS.map(t=>'<option value="'+t.id+'">'+esc(t.name)+'</option>').join('');
+    document.getElementById('oStatus').innerHTML = STATUSES.map(s=>'<option value="'+s.id+'">'+esc(s.name)+'</option>').join('');
+    const o = editingOpp || { name:'', company:'', team:(DB.wFilter.team==='all'?'media':DB.wFilter.team), rep:'', status:'new', value:4997, recurring:'mrr', close:'', next:'' };
+    document.getElementById('oTeam').value = o.team;
+    fillOppReps(o.team, o.rep);
+    ['oName:name','oCompany:company','oStatus:status','oValue:value','oRecurring:recurring','oClose:close','oNext:next'].forEach(p=>{
+        const [el,k] = p.split(':');
+        document.getElementById(el).value = o[k] == null ? '' : o[k];
+    });
+    document.getElementById('oppModal').classList.add('show');
+}
+function fillOppReps(team, selected){
+    const pool = DB.reps.filter(r=>r.team===team);
+    document.getElementById('oRep').innerHTML = '<option value="">Unassigned</option>' +
+        pool.map(r=>'<option value="'+r.id+'">'+esc(r.name)+'</option>').join('');
+    document.getElementById('oRep').value = pool.some(r=>r.id===selected) ? selected : '';
+}
+document.getElementById('oTeam').addEventListener('change', e => fillOppReps(e.target.value, ''));
+function closeOpp(){ document.getElementById('oppModal').classList.remove('show'); editingOpp = null; }
+document.getElementById('oppModal').addEventListener('click', e => { if(e.target.id==='oppModal') closeOpp(); });
+document.getElementById('oppForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const payload = {
+        name:val('oName').trim(), company:val('oCompany').trim(), team:val('oTeam'), rep:val('oRep'),
+        status:val('oStatus'), value:num('oValue'), recurring:val('oRecurring'),
+        close:val('oClose'), next:val('oNext').trim(), updated:Date.now()
+    };
+    if(!payload.name || !payload.company){ toast('Opportunity and company are both required.'); return; }
+    if(editingOpp){
+        const from = editingOpp.status;
+        Object.assign(editingOpp, payload);
+        if(from !== payload.status) fireAutomation(editingOpp, from);
+    } else {
+        const o = Object.assign({ id:uid(), created:Date.now() }, payload);
+        DB.opps.push(o);
+        fireAutomation(o, 'new');
+    }
+    save(); closeOpp(); renderWilfred();
+    toast(payload.company + ' saved.');
+});
+function deleteOpp(){
+    if(!editingOpp) return;
+    if(!confirm('Delete the ' + editingOpp.company + ' opportunity?')) return;
+    DB.opps = DB.opps.filter(o=>o.id!==editingOpp.id);
+    save(); closeOpp(); renderWilfred(); toast('Opportunity deleted.');
+}
+
+/* --- connection badge + optional live load --- */
+function renderConn(){
+    const el = document.getElementById('connBadge');
+    if(!el) return;
+    const live = sbState.status === 'live';
+    el.innerHTML = '<span class="conn ' + (live?'live':'offline') + '"><span class="dot"></span>' +
+        (live ? 'Supabase connected' : 'Local data') + '</span>';
+}
+async function connectSupabase(){
+    if(!sbReady()){
+        sbState = { status:'offline', detail:'No anon key configured — running on local demo data.' };
+        renderConn(); return;
+    }
+    try{
+        const [reps, opps] = await Promise.all([
+            sbFetch('salespeople?select=*&order=name'),
+            sbFetch('opportunities?select=*&order=updated_at.desc')
+        ]);
+        if(Array.isArray(reps) && reps.length){
+            DB.reps = reps.map(r=>({ id:r.id, remoteId:r.id, name:r.name, team:r.team, initials:r.initials || initialsOf(r.name) }));
+        }
+        if(Array.isArray(opps)){
+            DB.opps = opps.map(o=>({
+                id:o.id, remoteId:o.id, name:o.name, company:o.company, team:o.team,
+                rep:o.salesperson_id, status:o.status, value:Number(o.value)||0,
+                recurring:o.is_recurring ? 'mrr' : 'once', next:o.next_action || '',
+                close:o.expected_close || '', updated:Date.parse(o.updated_at)||Date.now()
+            }));
+        }
+        sbState = { status:'live', detail:'Reading ' + DB.opps.length + ' opportunities from Supabase.' };
+        save();
+    }catch(e){
+        sbState = { status:'offline', detail:'Connection failed — ' + e.message + ' Anonymous reads are denied by design; sign-in wiring is the next step.' };
+    }
+    renderConn(); renderAll();
+}
+function initialsOf(n){ return (n||'').split(/\s+/).map(x=>x[0]||'').join('').slice(0,2).toUpperCase(); }
 
 /* ---------- pipeline ---------- */
 function renderPipeline(){
@@ -1968,10 +2576,12 @@ function toast(msg){
 }
 function renderAll(){
     document.getElementById('navDeals').textContent = openDeals().length;
+    document.getElementById('navOpps').textContent  = DB.opps.filter(oppOpen).length;
     const active = document.querySelector('.view.is-active');
     if(!active) return;
     switch(active.id){
         case 'view-overview':     renderOverview(); break;
+        case 'view-wilfred':      renderWilfred(); break;
         case 'view-pipeline':     renderPipeline(); break;
         case 'view-quoter':       renderQuoter(); break;
         case 'view-economics':    renderEconomics(); break;
@@ -1981,10 +2591,17 @@ function renderAll(){
         case 'view-admin':        renderAdmin(); break;
     }
 }
+/* nav shadow on scroll, matching the public pages */
+window.addEventListener('scroll', () => {
+    document.getElementById('siteNav').classList.toggle('is-scrolled', window.scrollY > 12);
+}, { passive:true });
+
 load();
 renderQuoterInputs();
+renderConn();
 renderAll();
 save();
+connectSupabase();
 </script>
 </body>
 </html>
