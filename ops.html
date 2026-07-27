@@ -362,7 +362,7 @@ select.status-sel:focus{outline:2px solid var(--accent);outline-offset:-1px;}
                 <div class="row" style="justify-content:space-between;align-items:flex-start;">
                     <div>
                         <h2>Opportunity desk <span class="muted">· every opportunity, tracked by status</span></h2>
-                        <p class="panel-note" style="margin-bottom:0;">Change a status and Wilfred fires the automations wired to it. Statuses are the trigger surface — keep them accurate and the automation does the chasing.</p>
+                        <p class="panel-note" style="margin-bottom:0;">Change a status and Wilfred fires the automations wired to it. Statuses are the trigger surface — keep them accurate and the automation does the chasing. A lead becomes a prospective AI client at <strong>Booked</strong>: it lands in the Pipeline at Initial meeting, and gets sized and priced there. Leads themselves never carry a value.</p>
                     </div>
                     <button class="btn primary" onclick="openOpp()">+ New opportunity</button>
                 </div>
@@ -381,13 +381,14 @@ select.status-sel:focus{outline:2px solid var(--accent);outline-offset:-1px;}
 
             <div class="grid g-side" style="margin-top:1rem;">
                 <div class="panel">
-                    <h2>Opportunities by status</h2>
-                    <p class="panel-note">Value in each status, for the current filter. The shape tells you where work is piling up.</p>
+                    <h2>Leads by status</h2>
+                    <p class="panel-note">How many leads sit in each status, for the current filter. The shape tells you where work is piling up — a fat Contacted bar with a thin Replied bar is a messaging problem, not a volume one.</p>
                     <div id="wStatusChart"></div>
                 </div>
                 <div class="stack">
                     <div class="panel">
-                        <h2>Value by team</h2>
+                        <h2>Meetings booked by campaign</h2>
+                        <p class="panel-note">Campaigns are judged on meetings, not pipeline value — a lead has no value until it has been through a first meeting.</p>
                         <div id="wTeamChart"></div>
                     </div>
                     <div class="panel">
@@ -1036,10 +1037,10 @@ const RULES = [
       detail:'Any reply halts the sequence immediately so nobody gets chased after answering. Sam classifies intent and pings the owning expert.' },
     { id:'r_interested',   on:'interested',   agent:'Olivia',title:'Offer the booking link',
       detail:'Olivia sends the owning expert’s bookings_url and proposes times. Sets next_action_at so the lead cannot go quiet unnoticed.' },
-    { id:'r_booked',       on:'booked',       agent:'Olivia',title:'Prep the meeting',
-      detail:'Olivia builds the pre-call brief 24 hours ahead — company, tooling, audit score if they have one — and confirms the calendar hold.' },
-    { id:'r_closed',       on:'closed',       agent:'Quinn', title:'Hand off to delivery',
-      detail:'Creates the AMS client record and the delivery deal, then raises the first invoice. This is the only rule that writes outside the outreach tables.' },
+    { id:'r_booked',       on:'booked',       agent:'Olivia',title:'Prep the meeting, open the client pipeline',
+      detail:'Olivia builds the pre-call brief 24 hours ahead and confirms the calendar hold. This is the handoff point: the lead becomes a prospective AI client and enters the Pipeline at Initial meeting. Value is set there, after the meeting — never back on the lead.' },
+    { id:'r_closed',       on:'closed',       agent:'Quinn', title:'Confirm the win and invoice',
+      detail:'The deal is already in the Pipeline from the meeting handoff, so this advances it to Agent building rather than creating a duplicate, then raises the first invoice.' },
     { id:'r_disqualified', on:'disqualified', agent:'Claire',title:'Capture the reason and suppress',
       detail:'Prompts for a loss reason, suppresses the contact from all live cadences so they are never re-contacted by accident, and adds them to long-cycle nurture.' }
 ];
@@ -1631,19 +1632,42 @@ function fireAutomation(opp, fromStatus){
                  esc(statusById(opp.status).name) + '</b>. ' + esc(rule.agent) + ' fired <b>' + esc(rule.title) + '</b>.');
 
     // Side effects that change data live here, so the log matches reality.
+    // The two systems join at the FIRST MEETING: a booked lead becomes a
+    // prospective AI client and enters the delivery pipeline. Nothing is ever
+    // written back to the lead — value and scope are established after the
+    // meeting, in the Pipeline and Scenario Quoter.
+    const findDeal = () => DB.deals.find(d => d.name.toLowerCase() === opp.company.toLowerCase());
+
+    if(opp.status === 'booked' && !findDeal()){
+        DB.deals.push({
+            id:uid(), created:Date.now(), name:opp.company, contact:'', stage:'meeting',
+            vertical:'General SME',
+            owner:(repById(opp.rep)||{}).name || '', package:'department', seniors:6, juniors:0,
+            mrr:0,                                   // set after the meeting, in the quoter
+            discovery: DB.assumptions.discoveryFee, onboard:1500,
+            infra:'shared', intensity:1, close:opp.close || '',
+            next:'First meeting booked from the Wilfred desk — size it in the quoter'
+        });
+        logFeed(opp, 'Handed <b>' + esc(opp.company) + '</b> to the client pipeline at Initial meeting. Size and price it in the Scenario Quoter.');
+    }
+
     if(opp.status === 'closed'){
-        const exists = DB.deals.some(d => d.name.toLowerCase() === opp.company.toLowerCase());
-        if(!exists){
+        const d = findDeal();
+        if(d){
+            d.stage = 'building';
+            d.next = 'Closed from the Wilfred desk — provision the roster';
+            logFeed(opp, 'Advanced <b>' + esc(opp.company) + '</b> to Agent building.' +
+                (d.mrr ? '' : ' <b>No price set yet</b> — quote it before it goes live.'));
+        } else {
             DB.deals.push({
                 id:uid(), created:Date.now(), name:opp.company, contact:'', stage:'building',
-                vertical:'General SME',
-                owner:(repById(opp.rep)||{}).name || '', package:'department', seniors:6, juniors:0,
-                mrr: opp.recurring === 'mrr' ? opp.value : 0,
+                vertical:'General SME', owner:(repById(opp.rep)||{}).name || '',
+                package:'department', seniors:6, juniors:0, mrr:0,
                 discovery: DB.assumptions.discoveryFee, onboard:1500,
                 infra:'shared', intensity:1, close:opp.close || '',
-                next:'Closed from the Wilfred desk — provision the roster'
+                next:'Closed without a booked meeting — check this is right, then quote it'
             });
-            logFeed(opp, 'Created delivery deal for <b>' + esc(opp.company) + '</b> at Agent building.');
+            logFeed(opp, 'Created a deal for <b>' + esc(opp.company) + '</b> at Agent building — it closed without passing through a booked meeting.');
         }
     }
     if(opp.status === 'replied')
@@ -1678,14 +1702,12 @@ async function setOppStatus(id, status){
     renderWilfred();
     toast(o.company + ' → ' + statusById(status).name);
     if(sbReady() && sbSession && o.remoteId){
-        // Stamp the matching *_at column too, so the app's own funnel maths
-        // (which reads contacted_at / replied_at / booked_at) stays correct.
-        const body = { status, updated_at:new Date().toISOString() };
-        const stamp = statusById(status).stamp;
-        if(stamp) body[stamp] = new Date().toISOString();
+        // Writes the status column and nothing else. outreach_leads belongs to
+        // the AudcompAudit app — we do not stamp its funnel timestamps or add
+        // fields to it from here.
         try{
             await sbFetch('outreach_leads?id=eq.' + encodeURIComponent(o.remoteId),
-                { method:'PATCH', headers:{ Prefer:'return=minimal' }, body: JSON.stringify(body) });
+                { method:'PATCH', headers:{ Prefer:'return=minimal' }, body: JSON.stringify({ status }) });
         }catch(e){ toast('Status saved locally — database write failed.'); console.warn(e); }
     }
 }
@@ -1727,18 +1749,28 @@ function renderWilfred(){
     const rows = filteredOpps();
     const open = rows.filter(oppOpen);
     const openVal = open.reduce((s,o)=>s+o.value,0);
-    const weighted = open.reduce((s,o)=>s+oppWeighted(o),0);
     const won = DB.opps.filter(o=>o.status==='closed');
     const lost = DB.opps.filter(o=>o.status==='disqualified');
     const winRate = (won.length+lost.length) ? won.length/(won.length+lost.length) : 0;
 
+    // Leads carry no value in AudcompAudit — value is established after the
+    // first meeting, in the pipeline. So lead the desk with counts and
+    // conversion, and only show money once something has been quoted.
+    const reached   = rows.filter(o => ['contacted','replied','interested','booked','closed','disqualified'].includes(o.status)).length;
+    const replied   = rows.filter(o => ['replied','interested','booked','closed'].includes(o.status)).length;
+    const bookedSet = rows.filter(o => ['booked','closed'].includes(o.status));
+    const replyRate = reached ? replied/reached : 0;
+    const bookRate  = reached ? bookedSet.length/reached : 0;
+
     document.getElementById('navOpps').textContent = DB.opps.filter(oppOpen).length;
     document.getElementById('wKpis').innerHTML = [
-        kpiTile('Open opportunities', open.length, (f.campaign==='all'?'Across all campaigns':esc(campaignById(f.campaign).name) + ' campaign'), ''),
-        kpiTile('Open value', cad(openVal), 'Sum of everything still in play', 'accent'),
-        kpiTile('Weighted', cad(weighted), 'Adjusted by status probability', 'copper'),
+        kpiTile('Open leads', open.length, (f.campaign==='all'?'Across all campaigns':esc(campaignById(f.campaign).name) + ' campaign'), ''),
+        kpiTile('Meetings booked', bookedSet.length, pct(bookRate) + ' of everyone contacted', 'accent'),
+        kpiTile('Reply rate', pct(replyRate), replied + ' of ' + reached + ' contacted', 'copper'),
         kpiTile('Close rate', pct(winRate), won.length + ' closed · ' + lost.length + ' disqualified', 'margin'),
-        kpiTile('Automations fired', DB.feed.filter(x=>!x.muted).length, 'This session', '')
+        openVal
+            ? kpiTile('Quoted value', cad(openVal), 'Only leads that have been priced', '')
+            : kpiTile('Automations fired', DB.feed.filter(x=>!x.muted).length, 'This session', '')
     ].join('');
 
     // table
@@ -1750,7 +1782,9 @@ function renderWilfred(){
                 '<td><strong>' + esc(o.name) + '</strong><br><span class="note">' + esc(o.company) + '</span></td>' +
                 '<td><span class="chip" style="border-color:' + t.colour + ';color:' + t.colour + '">' + esc(t.name) + '</span></td>' +
                 '<td>' + (r ? '<span class="rep"><span class="rep-av" style="background:' + t.colour + '">' + esc(r.initials) + '</span>' + esc(r.name) + '</span>' : '<span class="note">Unassigned</span>') + '</td>' +
-                '<td class="num"><strong>' + cad(o.value) + '</strong><br><span class="note">' + (o.recurring==='mrr'?'/mo':'one-time') + '</span></td>' +
+                '<td class="num">' + (o.value
+                    ? '<strong>' + cad(o.value) + '</strong><br><span class="note">' + (o.recurring==='mrr'?'/mo':'one-time') + '</span>'
+                    : '<span class="note">not priced</span>') + '</td>' +
                 '<td><select class="status-sel" onchange="setOppStatus(\'' + o.id + '\',this.value)">' +
                     STATUSES.map(s=>'<option value="'+s.id+'"'+(s.id===o.status?' selected':'')+'>'+esc(s.name)+'</option>').join('') +
                 '</select><div class="note" style="margin-top:0.25rem;"><span class="st-swatch" style="background:' + st.colour + '"></span>' + st.prob + '% · ' + cad(oppWeighted(o)) + '</div></td>' +
@@ -1766,19 +1800,26 @@ function renderWilfred(){
     rankBars(document.getElementById('wStatusChart'), STATUSES.filter(s=>s.open).map(s => {
         const set = rows.filter(o=>o.status===s.id);
         const v = set.reduce((a,o)=>a+o.value,0);
-        return { label:s.name, value:v, colour:s.colour, sub:set.length + (set.length===1?' opp':' opps'),
+        return { label:s.name, value:set.length, display:set.length + (set.length===1?' lead':' leads'),
+            colour:s.colour, sub:v ? cad(v) + ' quoted' : '',
             tip:'<div class="tt-h">'+esc(s.name)+'</div>' +
-                '<div class="tt-r"><span>Opportunities</span><b>'+set.length+'</b></div>' +
-                '<div class="tt-r"><span>Value</span><b>'+cad(v)+'</b></div>' +
-                '<div class="tt-r"><span>Probability</span><b>'+s.prob+'%</b></div>' +
-                '<div class="tt-r"><span>Weighted</span><b>'+cad(v*s.prob/100)+'</b></div>' };
+                '<div class="tt-r"><span>Leads</span><b>'+set.length+'</b></div>' +
+                '<div class="tt-r"><span>Share of filter</span><b>'+(rows.length?pct(set.length/rows.length):'—')+'</b></div>' +
+                (v ? '<div class="tt-r"><span>Quoted value</span><b>'+cad(v)+'</b></div>' : '') };
     }), 'var(--ord-3)');
 
+    // Campaigns are compared on meetings booked, not value — leads have none.
     rankBars(document.getElementById('wTeamChart'), DB.campaigns.map(c => {
-        const set = DB.opps.filter(o=>o.campaign===c.id && oppOpen(o));
-        const v = set.reduce((a,o)=>a+o.value,0);
-        return { label:c.name, value:v, colour:c.colour, sub:set.length + ' open',
-            tip:'<div class="tt-h">'+esc(c.name)+'</div><div class="tt-r"><span>Open value</span><b>'+cad(v)+'</b></div><div class="tt-r"><span>Weighted</span><b>'+cad(set.reduce((a,o)=>a+oppWeighted(o),0))+'</b></div>' };
+        const all = DB.opps.filter(o=>o.campaign===c.id);
+        const bk  = all.filter(o=>['booked','closed'].includes(o.status)).length;
+        const ct  = all.filter(o=>o.status!=='researched').length;
+        return { label:c.name, value:bk, display:bk + (bk===1?' meeting':' meetings'),
+            colour:c.colour, sub:all.filter(oppOpen).length + ' open',
+            tip:'<div class="tt-h">'+esc(c.name)+'</div>' +
+                '<div class="tt-r"><span>Leads</span><b>'+all.length+'</b></div>' +
+                '<div class="tt-r"><span>Contacted</span><b>'+ct+'</b></div>' +
+                '<div class="tt-r"><span>Meetings booked</span><b>'+bk+'</b></div>' +
+                '<div class="tt-r"><span>Book rate</span><b>'+(ct?pct(bk/ct):'—')+'</b></div>' };
     }), 'var(--series-tokens)');
 
     const board = DB.reps.map(r => {

@@ -6,15 +6,22 @@
 -- public.experts and public.outreach_leads. Creating parallel tables would
 -- fork the sales data into two places that immediately disagree.
 --
+-- outreach_leads is LEFT ALONE. No columns are added to it and nothing in
+-- this file writes to it: the trigger is AFTER UPDATE and only INSERTs into
+-- outreach_agent_events. That table stays owned by the AudcompAudit app.
+--
 -- What it adds:
 --   1. wilfred_automation_rules  — one row per "when status becomes X, do Y"
---   2. a trigger on outreach_leads that, on every status change:
---        - stamps the matching *_at column if it is still null
---        - writes a row into the existing outreach_agent_events log
+--   2. an AFTER UPDATE trigger on outreach_leads that logs each status change
+--      and queues the enabled rules onto the existing outreach_agent_events
 --   3. wilfred_lead_board        — the view the Ops Console reads
 --
 -- Statuses are the set already in use by outreach_leads:
 --   researched | contacted | replied | interested | booked | closed | disqualified
+--
+-- 'booked' is the handoff point: a lead that books a first meeting becomes a
+-- prospective AI client. Value and scope are established after that meeting,
+-- downstream — never written back onto the lead.
 -- =====================================================================
 
 -- ---------------------------------------------------------------------
@@ -42,17 +49,23 @@ INSERT INTO public.wilfred_automation_rules (id, on_status, title, agent, detail
    'Halt the sequence immediately so nobody is chased after answering, classify intent, notify the owning expert.'),
   ('r_interested',  'interested',  'Offer the booking link',             'Olivia',
    'Send the owning expert''s bookings_url and propose times. Sets next_action_at so the lead cannot go quiet unnoticed.'),
-  ('r_booked',      'booked',      'Prep the meeting',                   'Olivia',
-   'Build the pre-call brief 24 hours ahead and confirm the calendar hold.'),
-  ('r_closed',      'closed',      'Hand off to delivery',               'Quinn',
-   'Create the AMS client record and delivery deal, then raise the first invoice.'),
+  ('r_booked',      'booked',      'Prep the meeting, open the client pipeline', 'Olivia',
+   'Build the pre-call brief 24 hours ahead and confirm the hold. Handoff point: the lead becomes a prospective AI client and enters the delivery pipeline at Initial meeting. Value is set there, after the meeting.'),
+  ('r_closed',      'closed',      'Confirm the win and invoice',        'Quinn',
+   'The deal already exists from the meeting handoff, so advance it to Agent building rather than creating a duplicate, then raise the first invoice.'),
   ('r_disqualified','disqualified','Capture the reason and suppress',    'Claire',
    'Record a loss reason, suppress the contact from every live cadence, add to long-cycle nurture.')
 ON CONFLICT (id) DO NOTHING;
 
 -- ---------------------------------------------------------------------
--- 2. Trigger on the EXISTING outreach_leads table
---    Writes into the EXISTING outreach_agent_events log.
+-- 2. AFTER UPDATE trigger on outreach_leads.
+--
+--    Deliberately AFTER, and deliberately INSERT-only. It reads the row and
+--    writes to outreach_agent_events; it never modifies outreach_leads, so
+--    the app's own handling of that table is untouched. Dropping the trigger
+--    removes every trace of this feature from the outreach flow:
+--
+--      DROP TRIGGER trg_wilfred_lead_status ON public.outreach_leads;
 -- ---------------------------------------------------------------------
 CREATE OR REPLACE FUNCTION public.wilfred_on_lead_status_change()
 RETURNS TRIGGER
@@ -64,22 +77,8 @@ DECLARE
   r RECORD;
 BEGIN
   IF NEW.status IS NOT DISTINCT FROM OLD.status THEN
-    RETURN NEW;
+    RETURN NULL;                       -- AFTER trigger: return value is ignored
   END IF;
-
-  -- Keep the funnel timestamps honest. Only set them if not already stamped,
-  -- so a lead that loops back through a status keeps its first-touch time.
-  CASE NEW.status
-    WHEN 'researched'  THEN NEW.researched_at := COALESCE(NEW.researched_at, NOW());
-    WHEN 'contacted'   THEN NEW.contacted_at  := COALESCE(NEW.contacted_at,  NOW());
-    WHEN 'replied'     THEN NEW.replied_at    := COALESCE(NEW.replied_at,    NOW());
-    WHEN 'interested'  THEN NEW.interested_at := COALESCE(NEW.interested_at, NOW());
-    WHEN 'booked'      THEN NEW.booked_at     := COALESCE(NEW.booked_at,     NOW());
-    WHEN 'closed'      THEN NEW.closed_at     := COALESCE(NEW.closed_at,     NOW());
-    ELSE NULL;
-  END CASE;
-
-  NEW.last_touch_at := NOW();
 
   -- Queue every enabled rule for the new status onto the existing event log.
   FOR r IN
@@ -96,17 +95,18 @@ BEGIN
          'to_status',   NEW.status,
          'rule_id',     r.id,
          'expert_id',   NEW.expert_id,
+         'handoff',     (NEW.status = 'booked'),
          'changed_by',  auth.uid()),
        'queued', NOW());
   END LOOP;
 
-  RETURN NEW;
+  RETURN NULL;
 END;
 $$;
 
 DROP TRIGGER IF EXISTS trg_wilfred_lead_status ON public.outreach_leads;
 CREATE TRIGGER trg_wilfred_lead_status
-  BEFORE UPDATE OF status ON public.outreach_leads
+  AFTER UPDATE OF status ON public.outreach_leads
   FOR EACH ROW EXECUTE FUNCTION public.wilfred_on_lead_status_change();
 
 -- ---------------------------------------------------------------------
